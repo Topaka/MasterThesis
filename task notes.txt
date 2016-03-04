@@ -1,0 +1,33 @@
+create a class with specific properties
+instantiate a couple of them
+do something with an instance
+do something on all instances
+create a subclass or superclass
+
+you want to create a system for managing stats and interactions between RPG characters with different classes.
+Each character has:
+-a name
+-a character class
+-a stat that represent their hit points
+-one or more stats that represents offensive prowess
+-one or more stats that represents defensive prowess
+-optional class specific stats
+-a method for attacking another character, which reduces their hit points by value related to the difference in character1's offense and character2's defense
+-optional methods for class specific skills
+
+here are some examples of characters:
+name 	george		bob					john
+class	warrior		mage					medic
+hp	200		150					200
+offense	50		100					30
+defense	50		10					60
+			mana = 100
+skills:	attack		attack					attack
+			Fireball - more damage but costs mana	mending - increases the hit points of a character
+
+Create the system for these RPG characters with some character classes, some characters in this system and some code showing some interactions.
+
+now we discover we also want a way to refresh characters to their original hit points, as well as preventing healing beyond this point.
+To do this we need to also store a maximum hit points value for each character as well as a method for restoring a characters resources.
+Some class specific resources might also need this to allow them to be replenished as well.
+
