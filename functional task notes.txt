@@ -1,0 +1,17 @@
+create a function
+call function
+create recursive function
+call recursive function
+mapping function
+
+implement a binary search function
+something mathematical...
+
+maybe write some ai to solve a problem
+like a search or shortest path algorithm in a given domain
+
+like:
+there is a 2D world represented by coordinates.
+on one of the coordinates is a goal.
+write an algorithm for a robot placed on a coordinate that finds a path to the goal.
+represent the path as a list of moves of the type "up", "down", "left" or "right" each representing the robot moving one in that direction
