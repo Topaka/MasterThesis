@@ -1,9 +1,3 @@
-create a class with specific properties
-instantiate a couple of them
-do something with an instance
-do something on all instances
-create a subclass or superclass
-
 you want to create a system for managing stats and interactions between RPG characters with different classes.
 Each character has:
 -a name
@@ -12,8 +6,8 @@ Each character has:
 -one or more stats that represents offensive prowess
 -one or more stats that represents defensive prowess
 -optional class specific stats
--a method for attacking another character, which reduces their hit points by value related to the difference in character1's offense and character2's defense
--optional methods for class specific skills
+-the ability to attack another character, which reduces their hit points by value related to the difference in character1's offense and character2's defense
+-optional the ability to perform class specific skills
 
 here are some examples of characters:
 name 	george		bob					john
