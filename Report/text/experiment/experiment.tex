@@ -1,5 +1,5 @@
 \chapter{Experiments}
-\section{Usability Experiment}
+\section{Usability Experiment}\todo{think about consistent time tense}
 To get an understanding of how applicable the discount usability method is for evaluating programming languages, we used the IDA method\todo{add source} on C\# and F\#.
 The usability evaluation was conducted in the AAU usability lab \todo{add source} in test room 1.
 The subject was positioned at a desk with a mouse, keyboard and screen.
@@ -12,6 +12,7 @@ The \todo{insert specific name for control room} was used for this.
 Despite using IDA the tests where recorded.
 A camera would record the subjects interaction with the keyboard and mouse, while the screen was recorded using an output splitter, and the sounds was recorded using a microphone.
 
+\subsection{C\# Tasks}
 For C\# our task was:\todo{might be more fitting to have in appendix}
 
 you want to create a system for managing stats and interactions between RPG characters with different classes.
@@ -28,8 +29,8 @@ Each character has:
 \end{itemize}
 
 here are some examples of characters:
-\begin{table}[]
-\caption{My caption\todo{either remove caption and force to be at the right position to emulate task formatting, or ref and write caption to fit latex formatting}}
+\begin{table}[h]
+\centering
 \label{my-label}
 \begin{tabular}{llll}
 Name        & George & Bob                                   & John                                      \\
@@ -49,7 +50,30 @@ Create the system for these RPG characters with some character classes, some cha
 now we discover we also want a way to refresh characters to their original hit points, as well as preventing healing beyond this point.
 To do this we need to also store a maximum hit points value for each character as well as a method for restoring a characters resources.
 Some class specific resources might also need this to allow them to be replenished as well.
-
+\\\\
 The task was designed for subjects who already had experience with C\# and know about object-oriented programming.
 It was designed to show an example of programming classes with inheritance, one of C\# strengths.
 The wording was intentionally left vague and specifically avoided directly mentioning programming constructs, in order to avoid biasing the solution in a particular direction, as well as more accurately show how the language was used.
+
+\subsection{C\# Results}
+In our experiments on C\# we got two subjects. This is less than the desired minimum of five subjects for a usability test. However since the focus of our experiments is on the method and not on the results of the experiment it is probably not a big problem. The results of the experiment is evaluated using the IDA method, and therefore focused on a discussion based on the observations made. The results of the discussion is seen in table \ref{C-usability-results}.
+
+\begin{table} []
+\caption{The results of the C\# experiment}
+\centering
+\renewcommand{\arraystretch}{1.5}
+\label{C-usability-results}
+\begin{tabular}{| p{5cm} | p{5cm} | p{5cm} |}
+\hline
+Critical & Serious     & Cosmetic \\ \hline
+		 & Inheritance: the subject experienced difficulties identifying when inheritance could be useful & Could not invoke the auto generator for getters and setters \\ \hline 
+		 & & Difficulties remembering the keyword for declaring a method override-able (Virtual) \\ \hline
+		 & & Troubles remembering the special syntax for invoking the base constructor \\ \hline
+\end{tabular}
+\end{table}
+
+Most of these issues were only experienced by one of the subjects, and usually reflected their experience.
+The 4th semester student was the one experiencing the serious issue due to not having had much need for inheritance in any of his previous projects.
+On contrast he did not have any difficulties remembering keywords due to recent use of the language.
+This is in contrast with the 10th semester student, who had more experience using inheritance but had not used C\# as recently and therefore had difficulties regarding specific keywords.
+Neither of them invoked the auto generator for getters and setters and instead chose to make the variables public instead. They did however both express knowledge that this was not ideal and that it was done due to laziness and the small scope of the project.
