@@ -13,27 +13,36 @@ Despite using IDA the tests where recorded.
 A camera would record the subjects interaction with the keyboard and mouse, while the screen was recorded using an output splitter, and the sounds was recorded using a microphone.
 
 For C\# our task was:\todo{might be more fitting to have in appendix}
+
 you want to create a system for managing stats and interactions between RPG characters with different classes.
 Each character has:
--a name
--a character class
--a stat that represent their hit points
--one or more stats that represents offensive prowess
--one or more stats that represents defensive prowess
--optional class specific stats
--the ability to attack another character, which reduces their hit points by value related to the difference in character1's offense and character2's defense
--optional the ability to perform class specific skills
+\begin{itemize}
+\item a name
+\item a character class
+\item a stat that represent their hit points
+\item one or more stats that represents offensive prowess
+\item one or more stats that represents defensive prowess
+\item optional class specific stats
+\item the ability to attack another character, which reduces their hit points by value related to the difference in character1's offense and character2's defense
+\item optional the ability to perform class specific skills
+\end{itemize}
 
 here are some examples of characters:
-name 	george		bob					john
-class	warrior		mage					medic
-hp	200		150					200
-offense	50		100					30
-defense	50		10					60
-			mana = 100
-skills:	attack		attack					attack
-					Fireball - more damage but costs mana	mending - increases the hit points of a character
-\todo{fix formatting to make it pretty}
+\begin{table}[]
+\caption{My caption\todo{either remove caption and force to be at the right position to emulate task formatting, or ref and write caption to fit latex formatting}}
+\label{my-label}
+\begin{tabular}{llll}
+Name        & George & Bob                                   & John                                      \\
+Class       & None   & Mage                                  & Medic                                     \\
+HP          & 200    & 100                                   & 200                                       \\
+Offense     & 50     & 60                                    & 20                                        \\
+Defense     & 30     & 10                                    & 60                                        \\
+Other stats &        & mana = 100                            &                                           \\
+Abilities   & Attack & Attack                                & Attack                                    \\
+            &        & Fireball = more damage but costs mana & Mending = increases HP of target          \\
+            &        &                                       & character
+\end{tabular}
+\end{table}
 
 Create the system for these RPG characters with some character classes, some characters in this system and some code showing some interactions.
 
