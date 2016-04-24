@@ -1,21 +1,23 @@
 \chapter{Experiments}
 \section{Usability Experiment}\todo{think about consistent time tense}
-To get an understanding of how applicable the discount usability method is for evaluating programming languages, we used the IDA method\todo{add source} on C\# and F\#.
-The usability evaluation was conducted in the AAU usability lab \todo{add source} in test room 1.
-The subject was positioned at a desk with a mouse, keyboard and screen.
-On the screen Visual Studio Community 2015 was open with a project in the current language being tested.
-The subject was then given an hour to try and solve some task(s) in the language.
-Next to the subject a coordinater sat.
-His job was primarily to keep the subject talking about what they where thinking, and secondarily to assist if the subject got stuck or encountered issues unrelated to the test.
-Meanwhile an observer would take notes from an adjacent observation room.
-The \todo{insert specific name for control room} was used for this.
-Despite using IDA the tests where recorded.
-A camera would record the subjects interaction with the keyboard and mouse, while the screen was recorded using an output splitter, and the sounds was recorded using a microphone.
+In order to get an understanding of how applicable the discount usability method is for evaluating programming languages, we decided to use the Instant Data Analysis (IDA) method\todo{add source} on two distinct programming languages. These two languages represent two different paradigms, where C\# is relevant for object-orientation and F\# for functional programming.
+
+The usability evaluation was conducted in the usability lab of Aalborg University\todo{add source}, in test room 1.
+The Experiment entailed the subject being positioned at a desk with a mouse, keyboard and a screen.
+On the screen, Visual Studio Community 2015 was open with a project in the current language being tested.
+The subject was then given an hour to try and solve specific task(s) in the language, while under the supervision of a facilitator sitting next to him. His job was primarily to keep the subject talking about what they where thinking, and secondarily to assist if the subject got stuck or encountered issues with the test.
+Meanwhile, an observer would take notes from an adjacent observation room. The \todo{insert specific name for control room} was used for this.
+Although the IDA method was used, recordings of the tests were made.
+A camera would record the subjects' interaction with the keyboard and mouse, while the screen was recorded using an output splitter, and the sounds was recorded using a microphone.
 
 \subsection{C\# Tasks}
-For C\# our task was:\todo{might be more fitting to have in appendix}
 
-you want to create a system for managing stats and interactions between RPG characters with different classes.
+Designing the task for C\# had several topics in consideration such as object-orientation, use of class hierarchy, working with extended methods and inherited properties which were all considered as very important in representing the philosophy of the language.  
+
+The task was designed for subjects who already had experience with C\# and know about object-oriented programming.
+The wording was intentionally left vague by design and specifically avoided directly mentioning programming constructs, in order to avoid biasing the solution in a particular direction, as well as more accurately show how the language was used. The task itself entailed the following:\todo{might be more fitting to have in appendix}
+
+Create a system for managing stats and interactions between RPG characters with different classes.
 Each character has:
 \begin{itemize}
 \item a name
@@ -28,7 +30,7 @@ Each character has:
 \item optional the ability to perform class specific skills
 \end{itemize}
 
-here are some examples of characters:
+Here are some examples of characters:
 \begin{table}[h]
 \centering
 \label{my-label}
@@ -47,19 +49,21 @@ Abilities   & Attack & Attack                                & Attack           
 
 Create the system for these RPG characters with some character classes, some characters in this system and some code showing some interactions.
 
-now we discover we also want a way to refresh characters to their original hit points, as well as preventing healing beyond this point.
+Now we discover that we also want a way to refresh characters to their original hit points, as well as preventing healing beyond this point.
 To do this we need to also store a maximum hit points value for each character as well as a method for restoring a characters resources.
 Some class specific resources might also need this to allow them to be replenished as well.
 \\\\
-The task was designed for subjects who already had experience with C\# and know about object-oriented programming.
-It was designed to show an example of programming classes with inheritance, one of C\# strengths.
-The wording was intentionally left vague and specifically avoided directly mentioning programming constructs, in order to avoid biasing the solution in a particular direction, as well as more accurately show how the language was used.
+
 
 \subsection{C\# Results}
-In our experiments on C\# we got two subjects. This is less than the desired minimum of five subjects for a usability test. However since the focus of our experiments is on the method and not on the results of the experiment it is probably not a big problem. The results of the experiment is evaluated using the IDA method, and therefore focused on a discussion based on the observations made. The results of the discussion is seen in table \ref{C-usability-results}.
+In our experiments on C\# we got two subjects. This is less than the desired minimum of five test subjects for a usability test. However, this is not considered a significant problem since the focus of the experiments is more on the method itself rather than on the results of it. The results of the experiment are evaluated using the IDA method, and therefore focused on a discussion based on the observations made. The results of the discussion could be seen on table \ref{C-usability-results}.
 
-\begin{table} []
-\caption{The results of the C\# experiment}
+Most of these issues were only experienced by one of the subjects, and usually reflected their experience. The 4th semester student was the one experiencing the serious issue due to not having had much need for inheritance in any of his previous projects.
+On contrast, he did not have any difficulties remembering keywords due to recent use of the language.
+This is in contrast with the 10th semester student, who had more experience using inheritance but had not used C\# as recently and therefore had difficulties regarding specific keywords.
+Neither of them invoked the auto generator for getters and setters and instead chose to make the variables public instead. They did however both express knowledge that this was not ideal and that it was done due to laziness and the small scope of the project.\\
+
+\begin{table} [!h]
 \centering
 \renewcommand{\arraystretch}{1.5}
 \label{C-usability-results}
@@ -70,10 +74,41 @@ Critical & Serious     & Cosmetic \\ \hline
 		 & & Difficulties remembering the keyword for declaring a method override-able (Virtual) \\ \hline
 		 & & Troubles remembering the special syntax for invoking the base constructor \\ \hline
 \end{tabular}
+\caption{The results of the C\# experiment}
 \end{table}
 
-Most of these issues were only experienced by one of the subjects, and usually reflected their experience.
-The 4th semester student was the one experiencing the serious issue due to not having had much need for inheritance in any of his previous projects.
-On contrast he did not have any difficulties remembering keywords due to recent use of the language.
-This is in contrast with the 10th semester student, who had more experience using inheritance but had not used C\# as recently and therefore had difficulties regarding specific keywords.
-Neither of them invoked the auto generator for getters and setters and instead chose to make the variables public instead. They did however both express knowledge that this was not ideal and that it was done due to laziness and the small scope of the project.
+
+\subsection{F\# Tasks}
+Similarly to how the C\# experiment was conducted, the F\# one involved a specific task addressing some key concepts from functional programming such as recursion, working with immutable data and functions. The task itself involves finding a path from a starting position to a goal position on a 2-dimensional tile-based world. The full task desctiption as follows is:
+
+Create a path-finding function for a robot from an initial position to a goal position.
+
+The world is a 2D world represented by coordinates with a defined maximum size (e.g. 20, 20)
+The position of the goal and the robot are represented by coordinates that fit in the world.
+
+Given that the robot and goal positions are known, write a function which returns a path from the robot position to the goal position.
+The path could be represented as a list of moves of the type \textit{"up"}, \textit{"down", "left" or "right"} each representing the robot moving one in that direction
+
+Write some code to set up a scenario to test your function.
+
+Now write a path-finding function where the robot does not have access to the goal position but only to a function that says whether the current position is the goal or not.
+
+
+\subsection{F\# Results}
+The F\# task was completed by only one test subject which is not nearly enough for the minimum of five test subjects in order to conduct a viable usability test. Although the results are insufficient, they might raise some interesting points about the usage of the language and what concepts people find difficult to work with. The results were again evaluated by using the IDA method and they can be seen on table \ref{F-usability-results}
+
+\begin{table} [!h]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\label{F-usability-results}
+\begin{tabular}{| p{5cm} | p{5cm} | p{5cm} |}
+\hline
+Critical & Serious     & Cosmetic \\ \hline
+		 & &  \\ \hline 
+		 & &  \\ \hline
+		 & &  \\ \hline
+\end{tabular}
+\caption{The results of the F\# experiment}
+\end{table}
+
+
