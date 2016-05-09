@@ -1,0 +1,152 @@
+\section{Samples}
+The idea behind the sample sheet was to provide examples of code that the participant could use to learn what they needed about the language.
+Working samples of code was used since it tends to give a more wholesome picture of how the code should look, without resorting to detailed description of how everything works.
+The samples often included smaller details not specifically relevant for what was explained at the time in order to cut down on the number of samples needed.
+An example of this is the \lstinline!Paws()! method in the classes sample being used to demonstrate returning values from methods.
+The sample sheet given looked like this:%maybe this is useless
+
+\subsection{Sample Sheet}
+\textbf{General information \& code examples}\\
+Quorum is an evidence-based programming language, designed from the outset to be easily understood and picked up by beginners. One of the design decisions taken includes the full omit of brackets when defining scopes. Keywords in the language make use of a more natural mapping to the real world, such as "text" for strings, "number" for doubles and floats  and "repeat" for loops. Conditional statements such as if-statement are always ended with the keyword "end" which specifies the end of scope.
+
+%this might be inappropriate in this file
+\lstdefinelanguage{Quorum}
+{
+  % list of keywords
+  morekeywords={
+    use,
+    if,
+    while,
+    repeat,
+    is,
+    class,
+    else,
+    elseif,
+    action,
+    end,
+    output,
+    return,
+    returns,
+    public,
+    integer,
+    text,
+    number,
+    boolean,
+    cast,
+    parent,
+    and,
+    or,
+    times,
+    true,
+    false
+  },
+  sensitive=true, % keywords are not case-sensitive
+  morecomment=[l]{//}, % l is for line comment
+  morecomment=[s]{/*}{*/}, % s is for start and end delimiter
+  morestring=[b]" % defines that strings are enclosed in double quotes
+}
+
+\textbf{Data types}\\
+\begin{lstlisting}[language=Quorum]
+integer a = 5
+number b = 10.2
+text c = "John"
+boolean d = true
+\end{lstlisting}
+
+\textbf{Type conversion:}\\
+\begin{lstlisting}[language=Quorum]
+text someText = "5.7"
+
+number someNumber = cast (number, someText)
+\end{lstlisting}
+
+\textbf{Simple operation with arrays and conditional statements}\\
+The following code creates an array a with some randomly placed elements. It then sorts the array and iterates through the array to create an output with all the elements.
+
+\begin{lstlisting}[language=Quorum]
+use Libraries.Containers.Array
+action Main
+	text unordered = "fdebaac"
+	Array<text> a = unordered:Split("")
+	a:Sort()
+	integer i = 0
+	text out = ""
+	repeat while i < a:GetSize()
+		out = out + a:Get(i) + ";"
+		i = i + 1
+	end
+	output out
+end
+\end{lstlisting}
+
+Output is:
+\lstinline!a;a;b;c;d;e;f;!
+
+This is an example of an action using if- else statements
+
+\begin{lstlisting}[language=Quorum]
+action checkIntervals(integer i)
+    if i < 10
+        output "it is less than 10"
+    elseif i = 10 or i > 10 and i <= 15
+        output "it is less than or equal to 15 but greater or equal to 10"
+    else
+        output "it is greater than 15"
+    end
+end
+\end{lstlisting}
+
+\textbf{Classes \& Inheritance}\\
+To demonstrate classes and inheritance in quorum, we use the example of the animal family felidae and a cat belonging to that family:
+
+First the superclass felidae looks like this:
+
+\begin{lstlisting}[language=Quorum]
+class felidae 
+    text name = "Sebastian"
+
+    public action Paws() returns integer
+        return 4
+    end
+
+    action Purr()
+        output name + ": rhrhrhrhrhrhrhrhrhrhrhrh"
+    end
+end
+\end{lstlisting}
+
+We then create the cat subclass like this:
+
+\begin{lstlisting}[language=Quorum]
+class cat is felidae
+    action Meow
+        output parent:felidae:name + ": meow"
+    end
+end
+\end{lstlisting}
+
+To show the code in action we then use a main action that looks like this:
+
+\begin{lstlisting}[language=Quorum]
+action Main
+    cat sampleCat
+    sampleCat:Purr()
+    sampleCat:Meow()
+    output sampleCat:Paws()
+end
+\end{lstlisting}
+
+Where we instantiate a cat and call both the action from the superclass and the subclass giving the output of: 
+
+\lstinline!Sebastian: rhrhrhrhrhrhrhrhrhrhrhrh!\\
+\lstinline!Sebastian: meow!\\
+\lstinline!4!
+
+Worth noting is that we need to specify that the action Paws is public before we can call it from outside the class since it returns something (actions that does not return something are public by default). Likewise, if we in main where to write something like:
+
+\begin{lstlisting}[language=Quorum]
+output sampleCat:parent:felidae:name
+\end{lstlisting}
+
+In order to access the name property, it would give an error since the name is not public.
