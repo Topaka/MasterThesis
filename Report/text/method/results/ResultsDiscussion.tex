@@ -4,11 +4,31 @@
 
 
 The premise of the experiment is to try to divide the IDE from the language which does not warrant using a compiler. However, this might affect the categorization of problems and the impact they might have while completing the set tasks. For this reason, we would try to reason where each problem should be and would it make a difference given that a compiler have been used instead.
-\\
 
-\todo{table goes here}
-\\
-
+\begin{table}[]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\caption{The table of identified problems categorised by severity\todo{missing problem about forgetting to import array library}}
+\label{QuorumProblemResult}
+\begin{tabular}{| p{5cm} | p{5cm} | p{5cm} |}
+\hline
+\textbf{Critical}                                          & \textbf{Serious}                                                   & \textbf{Cosmetic}                                                                                        \\ \hline
+Not using the “end” keyword at all                         & Not using the “end” keyword to end the scope of if-statements      & Using colon (“:”) instead of dot (“.”)                                                                   \\ \hline
+The lack of constructors in Quorum                         & Forgetting to increment the iterator in a repeat while loop        & The lack of lambda operators in Quorum (e.g.“+=”)                                                        \\ \hline
+Misunderstanding the effect of Sort() on arrays of classes & The lack of common looping constructs (for-loops or foreach loops) & Using conditional AND and OR as “\&\&” and “||” instead of “and” and “or” keywords, as defined in Quorum \\ \hline
+                                                           & Forgetting to import a library for containers (array)              & Using the “float” instead of “number” keyword                                                            \\ \hline
+                                                           & Not using “elseif” to avoid having to close an additional scope    & Using “string” instead of the “text” keyword                                                             \\ \hline
+                                                           & Not resetting inner loop iterator between loops                    & Writing “output” instead of “return” as the keyword for a return statement                               \\ \hline
+                                                           &                                                                    & Using “==” in conditional statements instead of “=”                                                      \\ \hline
+                                                           &                                                                    & Using “int” instead of “integer”                                                                         \\ \hline
+                                                           &                                                                    & Using “bool” instead of “boolean”                                                                        \\ \hline
+                                                           &                                                                    & Typos in library importing                                                                               \\ \hline
+                                                           &                                                                    & Mistyping “integer” as “integar”                                                                         \\ \hline
+                                                           &                                                                    & Accidentally used 0 instead of O in variable name                                                        \\ \hline
+                                                           &                                                                    & Mistyped the “is” keyword as “ia”                                                                        \\ \hline
+                                                           &                                                                    & Forgot to add the “repeat” keyword                                                                       \\ \hline
+\end{tabular}
+\end{table}
 
 \textbf{Critical problems}
 \begin{enumerate}
