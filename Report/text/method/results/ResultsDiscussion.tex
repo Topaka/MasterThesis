@@ -2,7 +2,15 @@
 
 This section will highlight the results from the evaluation method and a discussion of how the data can serve as a future reference to language designers and people interested in conducting their own evaluation methods. Similarly to how the results were evaluated in Chapter \ref{chapter:ExperimenteEvaluation}, we make use of the IDA method \cite{IDA} to categorize the problems we identified based on their importance and severity.
 
-The premise of the experiment is to try to divide the IDE from the language which does not warrant using a compiler. However, this might affect the categorization of problems and the impact they might have while completing the tasks. For this reason, we would try to reason where each problem should be and would it make a difference given that a compiler have been used instead.
+The premise of the experiment is to try to divide the IDE from the language which does not warrant using a compiler.
+However, since this means the system cannot give any feedback, the usual rules for categorisation can not apply.
+For this reason, we would try to reason where each problem should be and would it make a difference given that a compiler have been used instead.
+The general guidelines we have used for this categorisation are:
+\begin{description}
+\item[Cosmetic problems] are typos and small keyword and character differences that can easily be fixed by replacing the wrong part.
+\item[Serious problems] are structural errors that usually impacts how the code is structured, but is usually small enough that it can be fixed with a few changes.
+\item[Critical problems] are fundamental misunderstandings of how the language structures code and large structural errors that would require a revision of the algorithm.
+\end{description}
 
 \begin{table}[]
 \centering
@@ -62,7 +70,6 @@ Misunderstanding the effect of Sort() on arrays of classes & The lack of common 
 \item \textbf{ Accidentally used 0 instead of O in variable name}  - Again another small typo and therefore cosmetic.
 \item \textbf{Mistyped the “is” keyword as “ia”}  - see problem 12
 \item \textbf{Forgot to add the “repeat” keyword} - This problem is considered cosmetic since it does not have a significant impact on the correctness of the program.
-
 \end{enumerate}
 
 \input{./text/method/results/InterviewResults.tex}
