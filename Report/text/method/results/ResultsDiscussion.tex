@@ -1,4 +1,4 @@
-\chapter{Results \& Discussion}
+\chapter{Results}
 
 This section will highlight the results from the evaluation method and a discussion of how the data can serve as a future reference to language designers and people interested in conducting their own evaluation methods. Initially, we conducted a pilot test with one participant in order to test the overall setup of the experiment and get some pointers of what areas could be further improved. Similarly to how the results were evaluated in Chapter \ref{chapter:ExperimenteEvaluation}, we made use of the IDA method \cite{IDA} to categorize the problems we identified based on their importance and severity. 
 
@@ -23,7 +23,7 @@ The general guidelines we have used for this categorisation are:
 \hline
 \textbf{Critical}                                          & \textbf{Serious}                                                   & \textbf{Cosmetic}                                                                                        \\ \hline
 Not using the “end” keyword at all                         & Not using the “end” keyword to end the scope of if-statements      & Using colon (“:”) instead of dot (“.”)                                                                   \\ \hline
-The lack of constructors in Quorum                         & Forgetting to increment the iterator in a repeat while loop        & The lack of lambda operators in Quorum (e.g.“+=”)                                                        \\ \hline
+The lack of constructors in Quorum                         & Forgetting to increment the iterator in a repeat while loop        & The lack of aggregate operators in Quorum (e.g.“+=”)                                                        \\ \hline
 Misunderstanding the effect of Sort() on arrays of classes & The lack of common looping constructs (for-loops or foreach loops) & Using conditional AND and OR as “\&\&” and “||” instead of “and” and “or” keywords, as defined in Quorum \\ \hline
                                                            & Forgetting to import a library for containers (array)              & Using the “float” instead of “number” keyword                                                            \\ \hline
                                                            & Not using “elseif” to avoid having to close an additional scope    & Using “string” instead of the “text” keyword                                                             \\ \hline
@@ -37,7 +37,7 @@ Misunderstanding the effect of Sort() on arrays of classes & The lack of common 
                                                            &                                                                    & Mistyped the “is” keyword as “ia”                                                                        \\ \hline
                                                            &                                                                    & Forgot to add the “repeat” keyword                                                                       \\ \hline
 \end{tabular}
-\caption{The table of identified problems categorised by severity\todo{missing problem about forgetting to import array library}}
+\caption{The table of identified problems categorised by severity}
 \end{table}
 
 \textbf{Critical problems}
@@ -60,7 +60,7 @@ Misunderstanding the effect of Sort() on arrays of classes & The lack of common 
 \textbf{Cosmetic problems}
 \begin{enumerate}
 \item \textbf{Using colon (“:”) instead of dot (“.”)} - This is considered a cosmetic problem since does not affect the structure of the program being only an exchange of a single character. It could be said that most of the participants had a programming bias given their background in other programming languages where the dot notation is common.
-\item \textbf{The lack of lambda operators in Quorum (e.g.“+=”)} - This is considered a cosmetic problem since it does not affect the correctness of the program but it is rather a matter of convenience for the participants.
+\item \textbf{The lack of aggregate operators in Quorum (e.g.“+=”)} - This is considered a cosmetic problem since it does not affect the correctness of the program but it is rather a matter of convenience for the participants.
 \item \textbf{Using conditional AND and OR as “\&\&” and “||” instead of “and” and “or” keywords, as defined in Quorum}  - This problem is considered cosmetic because the participants did not use the correct keywords in the context but had the proper intentions to do so. This could be attributed to the simple matter of not properly reading the sample sheet to find the proper keywords and using the ones they know from other languages instead.
 \item \textbf{Using the “float” instead of “number” keyword} - This is considered a cosmetic problem because it does not have a big impact on the program’s correctness but rather is using a naming convention from other programming languages
 \item \textbf{Using “string” instead of the “text” keyword} - this is the same as with the previous cosmetic problem
@@ -76,3 +76,4 @@ Misunderstanding the effect of Sort() on arrays of classes & The lack of common 
 \end{enumerate}
 
 \input{./text/method/results/InterviewResults.tex}
+\input{./text/method/results/Discussion.tex}
