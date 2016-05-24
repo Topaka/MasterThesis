@@ -142,4 +142,1036 @@ As previously mentioned, the interviews with the participants were recorded in o
 \item Suggested that we could have an additional sheet with solutions to the tasks
 \item Separate each task on a separate paper so it is easier to navigate 
 \end{itemize}
-\chapter{afdsfa}
+\chapter{Participant code}
+\section{Participant \#1}
+\begin{lstlisting}[language=Quorum,tabsize=2]
+use Libraies.Container.Array
+use public 
+
+action Main
+Array<Cucumber> a 
+a:add(Cucumber c1)
+	a:add(Cucumber c2)
+	a:add(Cucumber c3)
+	a:add(Cucumber c4)
+CalcTotal(a)
+end
+
+
+action CalcTotal(Array<Cucumber> arr)
+	number total = 0
+	integer i = 0
+	total = Cucumber.Price(arr.GetSize())
+	output "total = " + total
+	
+end
+
+Class Cucumber
+	integer id
+	number price
+	number bulkPrice
+	integer bulkCount
+	number percentageDiscount
+	boolean bORp
+	
+	
+	public action Price(integer amount)
+		integer remains = mod amount
+		integer numdiscount = amount / bulkCount
+		
+		number value
+		if bORp
+			value = remains* price + numdiscount * bulkPrice
+		else
+			value = 100 - percentageDiscount * price *amount
+		end
+		
+		return value
+	end
+end
+
+
+//TASK2
+
+Class Player 
+	public text FN
+	public text LN
+	public integer age
+	
+	action make (text first, text last, integer _age)
+	FN = first
+	LN = last
+	age = _age
+	end
+end
+
+action Main
+Aray <Player> T1
+Array <Player > T2
+
+Player p1
+Player p2
+Player p3
+
+Player p4
+Player p5
+Player p6
+
+p1:make("a","b",10)
+p2:make("a",zebra,1)
+p3:make("gi", "joe", 65)
+
+T1:add(p1)
+T1:add(p2)
+T1:add(p3)
+
+p4:make("anotherguy","b",20)
+p5:make("c","c",11)
+p6:make("d","d",25)
+
+T2:Add(p4)
+T2:Add(p5)
+T2:Add(p6)
+
+	public action FindFFNLNbetweenTeams returns integer
+		integer i = 0
+		integer j = 0
+		integer found = 0
+		repeat while i < T1:GetSize()
+			repeat while j < T2:GetSize()
+				 if T2:Get(j):FN = T1:Get(i):FN 
+					found = found +1
+				else if T2:Get(j):LN = T1:Get(i):LN 
+					found = found +1
+				end
+			end
+		end
+		return found
+	end
+	
+		public action FindFFNLNinTeam(Array<Player>) returns integer
+		integer i = 0
+		integer j = 0
+		integer found = 0
+		repeat while i < T:GetSize()
+			repeat while j < T:GetSize()
+				 if T:Get(j):FN = T:Get(i):FN 
+					found = found +1
+				else if T:Get(j):LN = T:Get(i):LN 
+					found = found +1
+				end
+			end
+		end
+		return found
+	end
+
+		public action FindAgebetweenTeams returns integer
+		integer i = 0
+		integer j = 0
+		integer found = 0
+		repeat while i < T1:GetSize()
+			repeat while j < T2:GetSize()
+				 if T2:Get(j):Age = T1:Get(i):Age 
+					found = found +1
+				end
+			end
+		end
+		return found
+	end
+	
+		public action FindAgeinTeam(Array<Player>) returns integer
+		integer i = 0
+		integer j = 0
+		integer found = 0
+		repeat while i < T:GetSize()
+			repeat while j < T:GetSize()
+				 if T:Get(j):Age = T:Get(i):Age 
+					found = found +1
+				end
+			end
+		end
+		return found
+	end
+	
+	
+		public action FindAgeinTeam(Array<Player>) returns integer
+		integer i = 0
+		integer j = 0
+		integer found = 0
+		repeat while i < T:GetSize()
+			repeat while j < T:GetSize()
+				 if T:Get(j):Age = T:Get(i):Age and T:Get(j):FN = T:Get(i):FN
+					found = found +1
+					j = j+1
+				end
+				i = i+1;
+			end
+		end
+		return found
+	end
+	
+end
+
+
+//TASK 4
+
+Class Base
+
+integer hp
+integer dmg
+
+	action do()
+	end
+	action Attack(Base target )
+	target:takeDamage(dmg)
+	end
+
+	action takeDamage(integer damage)
+	hp = hp - damage
+	  if hp >= 0 
+	    kill()
+	  end
+	end
+	
+	action replnishHP(integer amount)
+	hp = hp + amount
+	end
+	
+	action kill ()
+	delete me
+	end
+	
+end
+
+Class Warior ia Base
+hp = 150
+dmg = 10;
+integer fury = 100
+	
+	action do()
+	fury = fury +1
+	end
+	
+	action strongAttack
+		if fury > 10
+		  target:takeDamage(dmg+10)
+		  fury = fury - 10
+		else
+		output "might knight whines like tiny baby men"
+		end
+	end
+end
+
+Class Mage is Base
+hp = 70
+damage = 12
+integer mana
+
+	action do()
+	mana = mana +1
+	end
+	
+
+	action heal (target)
+		if mana > dmg
+		target.replnishHP(dmg)
+		mana = mana - dmg
+		end
+	end
+	
+end
+
+Action Main
+for each base
+do()
+end
+end
+\end{lstlisting}
+
+\section{Participant \#2}
+\begin{lstlisting}[language=Quorum,tabsize=2]
+action gettotal (integer Oranges,integer Bananas,boolean isregular) returns integer
+integer total=0
+total=total+Oranges*5+Bananas*4-5*Oranges/3-10*Bananas/5
+if isregular = true
+total=total*0.9
+end
+refurn total
+end
+output gettotal (3,5,true)
+
+first name  last name  age  team
+\end{lstlisting}
+
+\section{Participant \#3}
+\begin{lstlisting}[language=Quorum,tabsize=2]
+class Test1
+	integer OrangePrice = 5
+	integer BananaPrice = 4
+	
+	action TotalPrice(integer oranges, integer bananas)
+		Output oranges * Orangeprice + bananas * BananaPrice
+	end
+	
+	action TotalPriceWithDiscount(integer oranges, integer bananas, boolean regular)
+		number result = 0
+		repeat while oranges > 3
+			result = result + 10
+			oranges = oranges - 3
+		end
+		result = result + oranges * OrangePrice
+		
+		repeat while bananas > 5
+			result = result + 10
+			bananas = bananas - 5
+		end
+		result = result + bananas * BananaPrice
+		
+		if regular
+			Output result * 0.9
+		else
+			Output result
+		end
+	end
+end
+
+class Test2
+	Array<Player> Team1
+	Array<Player> Team2
+	
+	action SameFirstLastNameSameTeam(Array<Player> team) returns boolean
+		integer i = 0
+		repeat while i < team.GetSize()
+			text firstName = team:Get(i):FirstName
+			text lastName = team:Get(i):LastName
+			integer j = 0
+			repeat while j < team.GetSize()
+				if not(j == i) and (firstName == team:Get(i):FirstName or lastName == team:Get(i):LastName)
+					return true
+				end
+			end
+		end
+		return false
+	end
+	
+	action SameFirstLastNameDifferentTeams() returns boolean
+		integer i = 0
+		repeat while i < Team1.GetSize()
+			text firstName = Team1:Get(i):FirstName
+			text lastName = Team1:Get(i):LastName
+			integer j = 0
+			repeat while j < Team2.GetSize()
+				if firstName == Team2:Get(i):FirstName or lastName == Team2:Get(i):LastName
+					return true
+				end
+			end
+		end
+		return false
+	end
+	
+	action SameFirstLastNameSameTeam(Array<Player> team) returns boolean
+		integer i = 0
+		repeat while i < team.GetSize()
+			text firstName = team:Get(i):FirstName
+			integer age = team:Get(i):Age
+			integer j = 0
+			repeat while j < team.GetSize()
+				if not(j == i) and (firstName == team:Get(i):FirstName and age == team:Get(i):Age)
+					return true
+				end
+			end
+		end
+		return false
+	end
+end
+
+class Player
+	text FirstName
+	text LastName
+	integer Age
+end
+
+class Character
+	number Health
+
+	action ReplenishHealth(integer amount)
+		Health = Health + amount
+	end
+		
+	action Attack(Character target)
+		target:Health = target:Health - 10
+	end
+end
+
+class Mage is Character
+	number Mana
+	
+	action Fireball(Character target)
+		if Mana >= 10
+			Mana = Mana - 10
+			target:Health = target:Health - 20
+		end
+	end
+	
+	action ReplenishMana(integer amoutn)
+		Mana = Mana + amount
+	end
+end
+
+class Warrior is Character
+	number Fury
+	
+	action Execute(Character target)
+		if Fury >= 25
+			Fury = Fury - 25
+			if target:Health < 30
+				target:Health = 0
+			else
+				target:Health = Target:Health - 10
+			end
+		end
+	end
+	
+	action ReplenishFury(integer amount)
+		Fury = Fury + amount
+	end
+end
+
+class Test4
+	text Text = "Rasmus Moeller Jensen"
+	Array<Text> a = Text:Split("")
+	
+	action PrintReverse()
+		integer i = a:GetSize() - 1
+		text Result = ""
+		while i >= 0
+			Result = Result + a:Get(i)
+			i = i + 1
+		end
+		Output Result
+	end
+	
+	action PrintAlphabetical()
+		Array<Text> b = a
+		b:Sort()
+		text Result = ""
+		integer i = 0
+		repeat while i < b:GetSize()
+			Result = Result + b:Get(i)
+			i = i + 1
+		end
+		Output Result
+	end
+	
+	action FindDuplicates()
+		integer i = 0
+		integer j = 0
+		integer Result = 0
+		Array<Text> AlreadyTested
+		
+		repeat while i < a:GetSize()
+			j = 0
+			repeat while j < a:GetSize()
+				if not(i == j) and not(a:Get(i) == " ")	and not(a:Get(j) == " ") and not(AlreadyTested:Contains(a:Get(i))) and a:Get(i) == a:Get(j)
+					Result = Result + 1
+					AlreadyTested:Add(a:Get(i))
+				end
+				j = j + 1
+			end
+			i = i + 1
+		end
+		Output Result
+	end
+end
+\end{lstlisting}
+
+\section{Participant \#4}
+\begin{lstlisting}[language=Quorum,tabsize=2]
+use Libraries.Containers.Array
+
+
+action CalculatePrice(integar nBananas, number pBananas, integar nOranges, number pOranges, boolean regular) returns number
+	number totalgroup = ((nBananas / 5) * 10) + ((nOranges / 3) * 10)
+	number rBananasPrice = (nBananas % 5) * 4
+	number rOrangesPrice = (nOranges % 3) * 5
+	number total = totalgroup + rBananasPrice + rOrangesPrice
+	if regular total = total * 0.9
+	return total
+end
+
+//each array entry is a string with name, second name
+action FindSameFirstNames(Array<text> teamone, Array<text> teamtwo) returns string
+	Array<text> SameNames;
+	integar i = 0
+	integar j = 0
+	repeat while i < teamone:GetSize()
+		repeat while j < teamtwo:GetSize()
+			string pAF = teamone.Get(i).Split(",").Get(0)
+			string pBF = teamtwo.Get(j).Split(",").Get(0)
+			string pAL = teamone.Get(i).Split(",").Get(1).Trim()
+			string pBL = teamtwo.Get(j).Split(",").Get(1).Trim()
+			if(pAL = pBL or pAF = pBF) return players.Get(i) + " : " + players.Get(j)
+			i = i + 1
+			j = j + 1
+		end
+	end
+end
+
+//each array entry is a string with name, second name, age
+action FindSameFirstNamesAndAge(Array<text> teamone) returns string
+	Array<text> SameNames;
+	integar i = 0
+	repeat while i < teamone:GetSize()
+		integar j = 0
+		repeat while j < teamone:GetSize()
+			string pAF = teamone.Get(i).Split(",").Get(0)
+			string pBF = teamone.Get(j).Split(",").Get(0)
+			integar pAA = cast (integar, teamone.Get(i).Split(",").Get(2))
+			integar pBA = cast (integar, teamone.Get(j).Split(",").Get(2))
+			if(pAF = pBF and pAA = pBA) return players.Get(i) + " : " + players.Get(j)
+			j = j + 1
+		end
+		i = i + 10
+	end
+end
+
+
+
+class character
+	public integar hp = 100
+	public integar resourceAmount = 100
+	
+	public action Attack(character defender, integar amount)
+		defender:hp = defender:hp - amount
+	end
+	
+	public action Recover(integar amount)
+		hp = hp + amount
+	end
+	
+	public action RecoverResource(integar amount)
+		resourceAmount = resourceAmount + amount
+	end
+end
+
+class mage is character
+
+	public string resourceName = Mana
+	
+	public action Fireball(character defender, integar amount)
+		parent:character:Attack(defender,amount)
+		parent:character:resourceAmount = parent:character:resourceAmount - 10
+	end
+	
+end
+
+class warrior is character
+
+	public string resourceName = Rage 
+	
+	public action Pummel(character defender, integar amount)
+		parent:character:Attack(defender,amount)
+		parent:character:resourceAmount = parent:character:resourceAmount - 20
+	end
+	
+end
+	
+class taxAccountant is character
+
+	public string resourceName = Money
+	
+	public action ChargeWithTaxEvation(character defender, integar amount)
+		parent:character:Attack(defender,amount)
+		parent:character:resourceAmount = parent:character:resourceAmount - 50
+	end
+
+end
+
+public action ReverseText(text texttotreverse) returns text
+	text out = ""
+	Array<text> characters = texttotreverse:Split("")
+	integar count = character:GetSize() - 1
+	repeat while count >= 0
+		out = out + characters:Get(count)
+		count = count - 1
+	end
+	return out
+end
+
+public action SortCharacters(text string) 
+	Array<Text> characters = string:Split(""):Sort()
+	integar count = character:GetSize()
+	integar i = 0
+	repeat while i < count 
+		output characters:Get(i)
+		i = i + 1
+	end
+end
+
+public action FindDuplicates(text string) returns integar
+
+	Array<text> characters = string:Split("")
+	Array<text> foundChar
+	
+	integar i = 0 
+	
+	repeat while i < characters:GetSize()
+		integar j = 0
+		repeat while j < characters:GetSize()
+			if characters:Get(i) = characters:Get(j)
+				integar k = 0
+				boolean found = false
+				repeat while k < foundChar:GetSize()
+					if characters:Get(i) = foundChar:Get(k)
+						found = true
+				end
+				if not found
+					foundChar:Add(characters:Get(i)
+				
+			j = j + 1
+		end
+		i = i + 1
+	end
+	
+	return foundChar:GetSize()
+end
+\end{lstlisting}
+
+\section{Participant \#5}
+\begin{lstlisting}[language=Quorum]
+action Main
+	action calculateFruit(integer banana, integet orange) returns integer
+		integer orangePrice = 5
+		integer bananaPrice = 4
+		
+		return orange*orangePrice + banana*bananaPrice
+	end
+	
+	action calculateFruit(integer banana, integet orange, boolean regular) returns integer
+		integer orangePrice = 5
+		integer bananaPrice = 4
+		
+		orangesDiscount = orange/3
+		orangeRemainder = orange mod 3
+		bananaDiscount = banana/5
+		bananaRemainder = banana mod 3
+		
+		sum = orangeRemainder*orangePrice + orangesDiscount*10 + bananaRemainder*bananaPrice + bananaDiscount*10
+		
+		if regular
+			return sum-sum*0.1
+		else
+			return sum
+		end
+	end
+	
+	// firstname,lastnam
+	
+	// 0,firstname
+	// 1,lastnam
+	action findPlayers1(Array<text> team) returns Array<text>
+		
+		integer i = 0
+		Array<Array<text>> players
+		repeat while i < team:GetSize()
+			Array<text> player = team:Get(i).Split(",")
+			players:Add(player)
+			i = i + 1
+		end
+		
+		integer i = 0
+		integer j = 0
+		repeat while i < players:GetSize
+			repeat while j < players:GetSize
+			players:Get(i):Get(0) == players:Get(j):Get()
+			
+			
+		
+	end
+	
+	class Warrior is character
+		
+	end
+	
+	class Mage is character
+	
+	end
+	
+	class character
+		integer hitPoints
+		public action attack(character c)
+		
+			character:decreaseHitpoint(200)
+		end
+		
+		public decreaseHitpoint(integer amount)
+			hitPoints = hitPoints - amount
+end
+\end{lstlisting}
+
+\section{Participant \#6}
+\begin{lstlisting}[language=Quorum,tabsize=2]
+action main
+	integer sum = 0
+	Array <Product> prod = basket:Get()
+	integer count = 0
+	repeat while count<prod:GetSize()
+		sum  = sum + prod:GetProd():GetPrise()
+	end
+	
+	integer count2 = 0
+	
+	repeate while count< prod:GetSize()
+	if (prod:GetProd == 'oranges' )
+		integer numOfOrn = numOfOrn + 1
+	else 
+		integer numOfBan = numOfBan + 1
+	end
+	
+		integer tripOrn = numOfOrn / 3
+		integer discountprice = tripOrn  * 10
+		integer normalprice = (numOfOrn - tripOrn) * 15
+		integer totalpriceOrn = discountprice + normalprice
+		
+		integer fiveBan = numOfBan / 5
+	
+	if basket:GetCustomer():IsRegular == true
+		discountprice = price * 0.9
+		
+end
+
+
+Task 2
+
+action Main
+
+	Array <Player> team1 = GetTeamPlayers()
+	Array <Player> team2 = GetTeamPlayers()
+	team1:Sort()
+	team2:Sort()
+	
+	
+	integer i = 0
+	repeat while i < team2:GetSize()
+		if team1:GetPlayer(i):GetPlayerFName() = team1:Get(i+1):GetPlayerFName or team1:Get(i):GetPlayerLName() = team1:Get(i+1):GetPlayerLName
+		output  `Same team : ' + team1:Get(i):GetPlayerFName  +  team1:Get(i+1).GetPlayerFName
+		
+		else if team1:Get(i):GetPlayerFName() = team2:Get(i):GetPlayerFName or team1:Get(i):GetPlayerLName() = team2:Get(i):GetPlayerLName
+		output "different teams :" + team1:Get(i):GetPlayerFName  +  team1:Get(i+1).GetPlayerFName
+		
+		else team1:GetPlayer(i):GetPlayerFName() = team1:Get(i+1):GetPlayerFName or team1:Get(i):GetPlayerAge() = team1:Get(i+1):GetPlayerAge
+		
+		output  'Same team : ' + team1:Get(i):GetPlayerFName  +  team1:Get(i+1).GetPlayerFName + "Same age"
+		end
+	end	
+end
+
+Task 3
+
+class StartGame
+	action Main
+	
+	end
+end
+
+class Hero
+	integer hitpoints = 100
+	integer replRate = 10
+	
+	action replanishHealth()
+	output "Health has been replaneshed from " + hitpoints " to " + hitpoints+replRate
+	end
+	
+	action attack(Hero H)
+	end
+	
+	action replRes
+	end
+end
+
+class Warrior is Hero
+	int fury = 100
+	
+	action attack( Hero H)
+	integer attackp = hitpoints - 15
+	H:hitpoints = attackp
+	output H + " has been slayen for " + attackp
+	end
+	
+	action spattack( Hero H)
+	integer attackp = hitpoints - 17
+	H:hitpoints = attackp
+	integer furyleft = fury - 10
+	fury = furyleft
+	output H + " has been slayen for " + attackp
+	end
+	
+	action replRes
+	fury = fury+10
+	end
+	
+end
+
+class Mage is Hero
+	int mana = 100
+
+	action attack( Hero H)
+	integer attackp = hitpoints - 12
+	H:hitpoints = attackp
+	output H + " has been slayen for " + attackp
+	end
+	
+	action spattack( Hero H)
+	integer attackp = hitpoints - 15
+	H:hitpoints = attackp
+	integer manaleft = mana - 10
+	mana = manaleft
+	output H + " has been slayen for " + attackp
+	end
+	
+	action replRes
+	mana = mana+10
+	end
+end
+
+end
+\end{lstlisting}
+
+\section{Participant \#7}
+\begin{lstlisting}[language=Quorum,tabsize=2]
+//Task 1
+action Main
+	
+	output CalculateTotal(5, 5)
+	//test the method
+end
+
+action CalculateTotal(integer numberOfOranges, integer numberOfBananas, boolean regular) returns number
+	integer banana = 4
+	integer orange = 5
+	
+	number currenTotal = 0
+	
+	currenTotal = (numberOfOranges mod 3) * orange + (numberOfOranges/3)*10
+	currenTotal = currenTotal + (numberOfBananas mod 5) * banana + (numberOfBananas/5)*10
+	
+	if regular
+		currenTotal = currenTotal*0.9
+	end
+	
+	return currenTotal
+end
+
+//Task 2
+use Libraries.Containers.Array
+action Main
+	Array<player> team1
+	Array<player> team2
+	
+
+end
+
+action SameTeamNames(Array<player> team) returns Array<player>
+	Array<player> returnArray
+	integer i = 0
+	integer j = 1
+	
+	repeat while i < team:GetSize()
+		repeat while j < team:GetSize()
+			if team:Get(i):FirstName() = team:Get(j):FirstName() or team:Get(i):LastName() = team:Get(j):LastName()
+				returnArray.Add(team:Get(i))
+				returnArray.Add(team:Get(j))
+			end
+			j = j+1
+		end
+		i = i + 1
+		j = i+1
+	end
+	
+	return returnArray
+end
+
+action DiffTeamNames(Array<player> team1, Array<player> team2) return Array<player>
+	Array<player> returnArray
+	
+	integer i = 0
+	integer j = 0
+	
+	repeat while i < team1:GetSize()
+		repeat while j < team2:GetSize()
+			if team1:Get(i):FirstName() = team2:Get(j):FirstName() or team1:Get(i):LastName() = team2:Get(j):LastName()
+				returnArray.Add(team1:Get(i))
+				returnArray.Add(team2:Get(j))
+			end
+			j = j+1
+		end
+		i = i + 1
+		j = 0
+	end
+	
+	return returnArray
+end
+
+action SameTeamAge(Array<player> team) returns Array<player>
+	Array<player> returnArray
+	
+	integer i = 0
+	integer j = 1
+	
+	repeat while i < team:GetSize()
+		repeat while j < team:GetSize()
+			if team:Get(i):FirstName() = team:Get(j):FirstName() and team:Get(i):Age() = team:Get(j):Age()
+				returnArray.Add(team:Get(i))
+				returnArray.Add(team:Get(j))
+			end
+			j = j+1
+		end
+		i = i + 1
+		j = i+1
+	end
+	
+	return returnArray
+end
+
+//Task 3
+
+
+//Task 4
+action Main
+	text t = "HenrikGeertsen"
+	
+	integer i  = t:GetSize()-1
+	text out = ""
+	repeat while i > 0
+		out = out + t:GetCharacter(i)
+		i = i - 1
+	end
+	output out
+	
+	Array<text> a = t:Split("")
+	a:Sort()
+	i = 0
+	out = ""
+	repeat while i < a:GetSize()
+		out = out + a:Get(i)
+		i = i + 1
+	end
+	output out
+	
+	i = 1
+	boolean found = false
+	integer duplicates = 0
+	repeat while i < a:GetSize()
+		if (a:Get(i) = a:Get(i-1))
+			found = true
+		else
+			if (found)
+				duplicates = duplicates + 1
+			end
+			found = false
+		end	
+	end
+	output duplicates
+end
+\end{lstlisting}
+
+\section{Participant \#8}
+\begin{lstlisting}[language=Quorum,tabsize=2]
+use Librarises.Containers.Array
+
+class fruit 
+	number _price = 0;
+	
+	public action RaisePrice(number newPrice) 
+		me:price = newPrice
+		
+class banana is fruit 
+	number _price = 4
+	
+class orange is fruit
+	number _price = 5 
+	
+class bananas 
+	Array<banana> _bananas
+	public action addBanana()
+		_bananas:add(banana) 
+	
+class oranges
+	Array<orange> _oranges
+	public action addOrange()
+		_oranges:add(orange)
+	
+class calculator
+	public action isRegular(bool isRegular, number price) returns number 
+		if isRegular = true
+			return price = price * 1.10
+
+
+			
+action Main 
+	integer i = 0
+	number OTotal = 0
+	number BTotal = 0 
+	
+	oranges orangesLst
+	bananes bananasLst
+	calculator c 
+	
+	repeat while not(i = 10)
+		orangeLst:addOrange()
+		bananasLst:addBanana()
+		
+	repeat while i < orangeLst:GetSize()
+		Ototal = OTotal + orangeLst:_oranges:Get(i):_price
+		if (i mod 3) == 0
+			0Total = 0Total - 5
+			
+	regularPrice = c:isRegular(true, OTotal)
+	normal = c:isRegular(false, 0Total)
+		
+	repeat while i < bananasLst:GetSize()
+		Ototal += bananasLst:_bananas:Get(i):_price
+		if (i mod 3) == 0
+			BTotal = BTotal - 10
+		
+	repeat while i  
+	
+	
+	
+action Main2
+	int nrPlayers = 11
+	
+	Array<text> fullNames1
+	Array<text> fullNames2
+	
+	fullNames1:add("martin, fruensgaard, 24")
+	fullNames2:add("Tommy, something, 23")
+	
+	int i = 0, j = 0; 
+	repeat while i < fullNames1:GetSize()
+		repeat while j < fullNames2:GetSize()
+			Array<text> name1 = fullNames1:Get(i):Split(",")
+			Array<text> name2 = fullNames2:Get(j):Split(",")
+			
+			if(name1:Get(0) = name2:Get(0) or name1:Get(1) = name2:Get(1)) 
+				output "BINGo!<3 2 players: " + fullNames1(i) + " and " fullNames2(j)
+				
+			
+	int i = 0, j = 0; 
+	repeat while i < fullNames1:GetSize()
+		repeat while j < fullNames2:GetSize()
+			Array<text> name1 = fullNames1:Get(i):Split(",")
+			Array<text> name2 = fullNames1:Get(j):Split(",")
+			
+			if not(name1 = name2)
+				if(name1:Get(0) = name2:Get(0) or name1:Get(1) = name2:Get(1))
+				
+	int i = 0, j = 0; 
+	repeat while i < fullNames1:GetSize()
+		repeat while j < fullNames2:GetSize()
+			Array<text> name1 = fullNames1:Get(i):Split(",")
+			Array<text> name2 = fullNames1:Get(j):Split(",")
+			
+			if not(name1 = name2)
+				if(name1:Get(0) = name2:Get(0) and  name1:Get(2) = name2:Get(2))
+\end{lstlisting}
