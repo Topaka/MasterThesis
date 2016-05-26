@@ -45,9 +45,8 @@ Misunderstanding the effect of \lstinline!Sort()! on arrays of classes & The lac
 \begin{enumerate}
 \item \textbf{Not using the \lstinline!end! keyword at all} - this would affect the overall validity of the program because the scoping rules in Quorum are defined in conjunction with the “end” keyword. This shows a fundamental misunderstanding of how scoping works in the language
 \item \textbf{The lack of constructors with parameters in Quorum} - Quorum does not support constructors with parameters which might problematic for the participants, having experience with other languages where this feature is common. It both causes the participants to invoke syntax in the class that is not supported, and have difficulties instantiating classes. Since this is a significant difference in how the code should be structured, it is considered critical.
-\item \textbf{Misunderstanding the effect of \lstinline!Sort()! on arrays of objects} - The inbuilt Sort function for arrays does not have access to the properties of the objects and therefore does not sort them by any of those. This would have the consequence of code, written with the assumption that it works, be most likely wrong, which means recovery would require a full rewrite of the algorithm. This makes the problem critical. It is possible that with the use of a compiler the participant would discover and recover much easier, which could mean the problem would potentially be considered serious.\\\\
+\item \textbf{Misunderstanding the effect of \lstinline!Sort()! on arrays of objects} - The inbuilt Sort function for arrays does not have access to the properties of the objects and therefore does not sort them by any of those. This would have the consequence of code, written with the assumption that it works, be most likely wrong, which means recovery would require a full rewrite of the algorithm. This makes the problem critical. It is possible that with the use of a compiler the participant would discover and recover much easier, which could mean the problem would potentially be considered serious.
 \end{enumerate}
-
 
 \textbf{Serious problems}
 \begin{enumerate}
