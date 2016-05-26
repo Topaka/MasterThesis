@@ -1,10 +1,65 @@
 \BOOKMARK [0][-]{chapter*.1}{Preface}{}% 1
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 2
 \BOOKMARK [1][-]{section.1.1}{Initial Questions}{chapter.1}% 3
-\BOOKMARK [-1][-]{part.1}{I Problem Analysis}{}% 4
-\BOOKMARK [0][-]{chapter.2}{Related Work}{part.1}% 5
-\BOOKMARK [-1][-]{part.2}{II Experiment Setup}{}% 6
-\BOOKMARK [-1][-]{part.3}{III Conclusion}{}% 7
-\BOOKMARK [0][-]{chapter.3}{Conclusion}{part.3}% 8
-\BOOKMARK [-1][-]{part.4}{IV Bibliography}{}% 9
-\BOOKMARK [0][-]{section*.3}{Bibliography}{part.4}% 10
+\BOOKMARK [1][-]{section.1.2}{Motivation}{chapter.1}% 4
+\BOOKMARK [-1][-]{part.1}{I Problem Analysis}{}% 5
+\BOOKMARK [0][-]{chapter.2}{Related Work}{part.1}% 6
+\BOOKMARK [1][-]{section.2.1}{Discount usability evaluation method}{chapter.2}% 7
+\BOOKMARK [0][-]{chapter.3}{Existing evaluation methods}{part.1}% 8
+\BOOKMARK [1][-]{section.3.1}{Performance benchmarks}{chapter.3}% 9
+\BOOKMARK [1][-]{section.3.2}{Usability Frameworks}{chapter.3}% 10
+\BOOKMARK [1][-]{section.3.3}{Case \046 User studies}{chapter.3}% 11
+\BOOKMARK [1][-]{section.3.4}{Quantitative experiments }{chapter.3}% 12
+\BOOKMARK [0][-]{chapter.4}{Instant Data Analysis}{part.1}% 13
+\BOOKMARK [0][-]{chapter.5}{Challenges}{part.1}% 14
+\BOOKMARK [-1][-]{part.2}{II Experiment Setup}{}% 15
+\BOOKMARK [0][-]{chapter.6}{Experiment evaluation}{part.2}% 16
+\BOOKMARK [1][-]{section.6.1}{Usability Experiment}{chapter.6}% 17
+\BOOKMARK [2][-]{subsection.6.1.1}{C\043 Tasks}{section.6.1}% 18
+\BOOKMARK [2][-]{subsection.6.1.2}{C\043 Results}{section.6.1}% 19
+\BOOKMARK [2][-]{subsection.6.1.3}{F\043 Tasks}{section.6.1}% 20
+\BOOKMARK [2][-]{subsection.6.1.4}{F\043 Results}{section.6.1}% 21
+\BOOKMARK [0][-]{chapter.7}{Discussion}{part.2}% 22
+\BOOKMARK [-1][-]{part.3}{III Evaluation Method}{}% 23
+\BOOKMARK [0][-]{chapter.8}{Introduction}{part.3}% 24
+\BOOKMARK [0][-]{chapter.9}{Design considerations}{part.3}% 25
+\BOOKMARK [0][-]{chapter.10}{Setup}{part.3}% 26
+\BOOKMARK [1][-]{section.10.1}{Participants sample}{chapter.10}% 27
+\BOOKMARK [1][-]{section.10.2}{Tasks}{chapter.10}% 28
+\BOOKMARK [2][-]{subsection.10.2.1}{Task Sheet}{section.10.2}% 29
+\BOOKMARK [1][-]{section.10.3}{Samples}{chapter.10}% 30
+\BOOKMARK [2][-]{subsection.10.3.1}{Sample Sheet}{section.10.3}% 31
+\BOOKMARK [1][-]{section.10.4}{Interview}{chapter.10}% 32
+\BOOKMARK [2][-]{subsection.10.4.1}{Interview questions}{section.10.4}% 33
+\BOOKMARK [0][-]{chapter.11}{Results}{part.3}% 34
+\BOOKMARK [1][-]{section.11.1}{Pilot Test}{chapter.11}% 35
+\BOOKMARK [1][-]{section.11.2}{Problems categorization}{chapter.11}% 36
+\BOOKMARK [1][-]{section.11.3}{Comparison with Quorum's evidence}{chapter.11}% 37
+\BOOKMARK [1][-]{section.11.4}{Interview Results}{chapter.11}% 38
+\BOOKMARK [0][-]{chapter.12}{Discussion}{part.3}% 39
+\BOOKMARK [1][-]{section.12.1}{Threats of validity}{chapter.12}% 40
+\BOOKMARK [1][-]{section.12.2}{Tasks \046 Samples}{chapter.12}% 41
+\BOOKMARK [-1][-]{part.4}{IV Conclusion}{}% 42
+\BOOKMARK [0][-]{chapter.13}{Conclusion}{part.4}% 43
+\BOOKMARK [0][-]{chapter.14}{Future works}{part.4}% 44
+\BOOKMARK [-1][-]{part.5}{V Bibliography}{}% 45
+\BOOKMARK [0][-]{section*.8}{Bibliography}{part.5}% 46
+\BOOKMARK [-1][-]{part.6}{VI Appendices}{}% 47
+\BOOKMARK [0][-]{appendix.A}{Interview notes}{part.6}% 48
+\BOOKMARK [1][-]{section.A.1}{Participant \0431 \(Pilot Test\)}{appendix.A}% 49
+\BOOKMARK [1][-]{section.A.2}{Participant \0432}{appendix.A}% 50
+\BOOKMARK [1][-]{section.A.3}{Participant \0433}{appendix.A}% 51
+\BOOKMARK [1][-]{section.A.4}{Participant \0434}{appendix.A}% 52
+\BOOKMARK [1][-]{section.A.5}{Participant \0435}{appendix.A}% 53
+\BOOKMARK [1][-]{section.A.6}{Participant \0436}{appendix.A}% 54
+\BOOKMARK [1][-]{section.A.7}{Participant \0437}{appendix.A}% 55
+\BOOKMARK [1][-]{section.A.8}{Participant \0438}{appendix.A}% 56
+\BOOKMARK [0][-]{appendix.B}{Participant code}{part.6}% 57
+\BOOKMARK [1][-]{section.B.1}{Participant \0431}{appendix.B}% 58
+\BOOKMARK [1][-]{section.B.2}{Participant \0432}{appendix.B}% 59
+\BOOKMARK [1][-]{section.B.3}{Participant \0433}{appendix.B}% 60
+\BOOKMARK [1][-]{section.B.4}{Participant \0434}{appendix.B}% 61
+\BOOKMARK [1][-]{section.B.5}{Participant \0435}{appendix.B}% 62
+\BOOKMARK [1][-]{section.B.6}{Participant \0436}{appendix.B}% 63
+\BOOKMARK [1][-]{section.B.7}{Participant \0437}{appendix.B}% 64
+\BOOKMARK [1][-]{section.B.8}{Participant \0438}{appendix.B}% 65

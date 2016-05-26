@@ -1,3 +1,232 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
+
+\bibitem{PracticeTeachingIntro}
+S.~Davies, J.~A. Palack-Wahl, and K.~Anewalt, ``A snapshot of current practices
+  in teaching the introductory programming sequence,'' {\em SIGCSE '11
+  Proceedings of the 42nd ACM technical symposium on Computer science
+  education}, pp.~625--630, 2011.
+
+\bibitem{StakingClaims}
+S.~Markstrum, ``Staking claims: a history of programming language design claims
+  and evidence: a positional work in progress,'' {\em PLATEAU '10 Evaluation
+  and Usability of Programming Languages and Tools}, no.~7, 2010.
+
+\bibitem{SocioPLT}
+L.~A. Meyerovich and A.~S. Rabkin, ``Socio-plt: principles for programming
+  language adoption,'' {\em Onward! 2012 Proceedings of the ACM international
+  symposium on New ideas, new paradigms, and reflections on programming and
+  software}, no.~4, pp.~39--54, 2012.
+
+\bibitem{AliceCS1}
+R.~Garlick and E.~C. Cankaya, ``Using alice in cs1: a quantitative
+  experiment,'' {\em ITiCSE '10 Proceedings of the fifteenth annual conference
+  on Innovation and technology in computer science education}, no.~36,
+  pp.~165--168, 2010.
+
+\bibitem{BlockOrNot}
+D.~Weintrop and U.~Wilensky, ``To block or not to block, that is the question:
+  students' perceptions of blocks-based programming,'' {\em IDC '15 Proceedings
+  of the 14th International Conference on Interaction Design and Children},
+  no.~21, pp.~199--208, 2015.
+
+\bibitem{FromScratch}
+M.~Armoni, O.~Meerbaum-Salant, and M.~Ben-Ari, ``From scratch to “real”
+  programming,'' {\em ACM Transactions on Computing Education (TOCE) TOCE
+  Homepage archive Volume 14 Issue 4, February 2015}, no.~25, p.~15, 2015.
+
+\bibitem{IDA}
+J.~Kjeldskov, M.~B. Skov, and J.~Stage, ``Instant data analysis: conducting
+  usability evaluations in a day,'' {\em Proceedings of the third Nordic
+  conference on Human-computer interaction}, no.~37, pp.~233--240, 2004.
+
+\bibitem{AndrewMonk}
+A.~Monk, L.~Davenport, J.~Haber, and P.~Wright, {\em Improving your
+  human-computer interface: A practical technique}.
+\newblock Prentice Hall, 1~ed., 1993.
+
+\bibitem{FPLEvalFramework}
+M.~S. Farooq, S.~A. Khan, F.~Ahmad, S.~Islam, and A.~Abid, ``An evaluation
+  framework and comparative analysis of the widely used first programming
+  languages,'' February 24th 2014.
+
+\bibitem{LangSelectionProcess}
+K.~R. Parker, J.~T. Chao, T.~A. Ottaway, and J.~Chang, ``A formal language
+  selection process for introductory programming courses,'' {\em ICER 2006
+  Proceedings of the second international workshop on Computing education
+  research}, no.~2, pp.~73--84, 2006.
+
+\bibitem{QuorumRandomo}
+A.~Stefik, S.~Siebert, M.~Stefik, and K.~Slattery, ``An empirical comparison of
+  the accuracy rates of novices using the quorum, perl, and randomo programming
+  languages,'' {\em PLATEAU 2011 Proceedings of the 3rd ACM SIGPLAN workshop on
+  Evaluation and usability of programming languages and tools}, pp.~3--8, 2011.
+
+\bibitem{VisualLangsEval}
+J.~D. Kiper, E.~Howard, and R.~C. Ames, ``Criteria for evaluation of visual
+  programming languages,'' {\em Journal of Visual Languages and Computing},
+  vol.~8, pp.~175--192, 1997.
+
+\bibitem{VisualComputer}
+G.~Singh and M.~H. Chignell, {\em Components of the visual computer - a review
+  of relevant technologies}.
+\newblock University of Tokyo, Tokyo, Japan: Springer-Verlag New York, 1992.
+
+\bibitem{CooperativeEval}
+D.~Benyon, {\em Designing Interactive Systems - A comprehensive guide to HCI
+  and interaction design}, pp.~232--233.
+\newblock Pearson Education Limited, 2~ed., 2010.
+
+\bibitem{5Users}
+N.~N. Group, ``Why you only need to test with 5 users.''
+  \url{https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/}.
+\newblock Used: 26/04/16.
+
+\bibitem{PLHistory}
+C.~Hope, ``What was the first computer programming language?.''
+  \url{http://www.computerhope.com/issues/ch001621.htm}, 2016.
+\newblock Used: 01/05/16.
+
+\bibitem{Sebesta}
+R.~W. Sebesta, {\em Concepts of Programming Languages}.
+\newblock University of Colorado at Colorado Springs: Pearson, tenth~ed., 2012.
+
+\bibitem{MulticoreLangs}
+S.~Nanz, S.~West, K.~S. da~Silveira, and B.~Meyer, ``Benchmarking usability and
+  performance of multicore languages,'' {\em 2013 ACM/IEEE International
+  Symposium on Empirical Software Engineering and Measurement (ESEM)},
+  pp.~183--192, 2013.
+
+\bibitem{CowichanProblems}
+G.~V. Wilson and R.~B. Irvin, ``Assessing and comparing the usability of
+  parallel programming systems,'' {\em Technical Report CSRI-321}, p.~40, 1995.
+
+\bibitem{GWeinberg}
+G.~M. Weinberg, {\em The Psychology of Computer Programming - Silver
+  Anniversary Edition}.
+\newblock University of Colorado at Colorado Springs: Dorset House, silver
+  anniversary~ed., 1998.
+
+\bibitem{CognitiveDimensions}
+T.~R. Green and M.~Petre, ``Usability analysis of visual programming
+  environments \: A cognitive dimensions framework,'' {\em Journal of Visual
+  Languages \& Computing}, pp.~131--174, 1996.
+
+\bibitem{CognitiveDimensions2}
+A.~Blackwell, ``Cognitive dimensions of tangible programming languages,'' {\em
+  Proceedings of the First Joint Conference of EASE}, pp.~391--405, 2003.
+
+\bibitem{InstructsDescripts}
+T.~R.~G. Green, ``Instructions and descriptions \: some cognitive aspects of
+  programming and similar activities,'' {\em Proceedings of Working Conference
+  on Advanced Visual Interfaces (AVI 2000)}, pp.~21--28, 2000.
+
+\bibitem{InformationArtefacts}
+T.~R. G.~A. Blackwell, ``Cognitive dimensions of information artefacts \: a
+  tutorial,'' 1998.
+
+\bibitem{NewLangEval}
+S.~Clarke, ``Evaluating a new programming language,'' {\em PPIG 13},
+  pp.~275--289, 2001.
+
+\bibitem{NaturalProgramming}
+B.~A. Myers, A.~Ko, S.~Y. Park, J.~Stylos, T.~D. LaToza, and J.~Beaton, ``More
+  natural end-user software engineering,'' {\em WEUSE IV?08}, 2008.
+
+\bibitem{APPPeer}
+U.~Farooq and D.~Zirkler, ``Api peer reviews \: A method for evaluating
+  usability of application programming interfaces,'' 2010.
+
+\bibitem{LangsasUI}
+L.~V.~M. Diaz, ``Programming languages as user interfaces,'' {\em Proceedings
+  of the 3rd Mexican Workshop on Human Computer Interaction}, 2010.
+
+\bibitem{DynamicTypeSystems}
+S.~Hanenberg, ``Criteria for evaluation of visual programming languages,'' {\em
+  OOPSLA '10 Proceedings of the ACM international conference on Object oriented
+  programming systems languages and applications}, pp.~22--35, 2010.
+
+\bibitem{EmpiricalComparison}
+L.~Prechelt, ``An empirical comparison of c, c++, java, perl, python, rexx, and
+  tcl,'' {\em IEEE Computer}, pp.~1--8, 2000.
+
+\bibitem{Empiricalinvestigation}
+A.~Stefik and S.~Siebert, ``An empirical investigation into programming
+  language syntax,'' {\em ACM Transactions on Computing Education (TOCE)},
+  vol.~13, 2013.
+
+\bibitem{GitHub}
+T.~Preston-Werner, C.~Wanstrath, and P.~Hyett, ``Github.''
+  \url{https://github.com/}, 2016.
+\newblock Used: 19/05/16.
+
+\bibitem{RosettaCode}
+S.~Nanz and C.~A. Furia, ``A comparative study of programming languages in
+  rosetta code,'' {\em ICSE '15 Proceedings of the 37th International
+  Conference on Software Engineering - Volume 1}, 2015.
+
+\bibitem{GitHubExperiment}
+B.~Ray, D.~Posnett, V.~Filkov, and P.~T. Devanbu, ``A large scale study of
+  programming languages and code quality in github,'' {\em ACM FSE’14}, 2014.
+
+\bibitem{StaticTypes}
+S.~Hanenberg, ``An experiment about static and dynamic type systems doubts
+  about the positive impact of static type systems on development time,'' {\em
+  OOPSLA/SPLASH’10}, 2010.
+
+\bibitem{ProgLangSyntax}
+S.~Hanenberg and S.~Siebert, ``An empirical investigation into programming
+  language syntax,'' {\em Transactions on Computer Education}, 2013.
+
+\bibitem{ProgrammingWars}
+A.~Stefik and S.~Hanenberg, ``The programming language wars,'' {\em SPLASH -
+  Systems, Programming, and Applications}, pp.~283--299, 2014.
+
+\bibitem{UsabilityLab}
+J.~Kjeldskov, M.~B. Skov, and J.~Stage, ``Hci lab technical report.''
+  \url{http://vbn.aau.dk/en/publications/the-usability-laboratory-at-cassiopeia(47a9c780-c9dc-11dd-a016-000ea68e967b).html},
+  2008.
+\newblock Used: 13/05/16.
+
+\bibitem{DartTypeSys}
+M.~Faldborg and T.~L. Nielsen, ``Type systems and programmers \: A look at
+  optional typing in dart,'' p.~77, 2015.
+
+\bibitem{LARM}
+L.~C. Pedersen and M.~Faldborg, ``Designing larm: Programing with nothing but
+  your voice,'' 2014.
+\newblock Used: 08/02/16.
+
+\bibitem{PocketCode}
+R.~Koitz and W.~Slany, ``Empirical comparison of visual to hybrid formula
+  manipulation in educational programming languages for teenagers,'' {\em
+  PLATEAU '14 Proceedings of the 5th Workshop on Evaluation and Usability of
+  Programming Languages and Tools}, no.~3, pp.~21--30, 2014.
+
+\bibitem{Codekata}
+D.~Thomas, ``Codekata.'' \url{http://codekata.com/}.
+\newblock Used: 12/05/16.
+
+\bibitem{Quorum}
+A.~Stefik, E.~Pierzina, and K.~Ritter, ``Quorum's home page.''
+  \url{http://www.quorumlanguage.com}, 2014-2016.
+\newblock Used: 11/05/16.
+
+\bibitem{Notepad}
+D.~Ho, ``Notepad++ home page.'' \url{http://notepad-plus-plus.org}, 2016.
+\newblock Used: 11/05/16.
+
+\bibitem{EmpStudiesonStimuli}
+A.~Stefik and E.~Gellenbeck, ``Empirical studies on programming language
+  stimuli,'' {\em Software Quality Journal}, pp.~65--99, 2011.
+
+\bibitem{SanchezData}
+J.~Sánchez and F.~Aguayo, ``Blind learners programming through audio,'' {\em
+  CHI EA '05 CHI '05 Extended Abstracts on Human Factors in Computing Systems},
+  pp.~1769--1772, 2005.
+
+\bibitem{ParamConstructors}
+J.~Stylos and S.~Clarke, ``Usability implications of requiring parameters in
+  objects' constructors,'' {\em ICSEInternational Conference on Software
+  Engineering}, pp.~529--539, 2007.
 
 \end{thebibliography}
