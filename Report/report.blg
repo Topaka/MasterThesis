@@ -1,5 +1,15 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: report.aux
 The style file: ieeetr.bst
-I found no \citation commands---while reading file report.aux
-I found no \bibdata command---while reading file report.aux
-(There were 2 error messages)
+Database file #1: ./text/references.bib
+I was expecting a `,' or a `}'---line 278 of file ./text/references.bib
+ :     
+ :     pages     = "292"
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--empty chapter and pages in AndrewMonk
+Warning--empty journal in FPLEvalFramework
+Warning--empty journal in InformationArtefacts
+Warning--empty journal in APPPeer
+Warning--empty journal in DartTypeSys
+Warning--empty journal in LARM
+(There was 1 error message)

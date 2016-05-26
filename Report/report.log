@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.11.14)  14 MAR 2016 01:13
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.11.14)  26 MAY 2016 11:12
 entering extended mode
 **report.tex
 ("D:\Master Project\MasterThesis\Report\report.tex"
@@ -1271,13 +1271,10 @@ File: tikzlibrarypatterns.code.tex 2008/01/15 v3.0.0 (rcs-revision 1.2)
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibrarypatterns.code
 .tex"
 File: pgflibrarypatterns.code.tex 2008/03/03 v3.0.0 (rcs-revision 1.13)
-)) ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-))
+)))
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
-
-("D:\Master Project\MasterThesis\Report\report.aux")
+ ("D:\Master Project\MasterThesis\Report\report.aux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
@@ -1363,7 +1360,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {C:/Users/Svetomir/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 ("D:\Master Project\MasterThesis\Report\Title.tex" [2]
-<./pics/AAU_UK_STUDENTREPORT_blue_rgb.png, id=56, 230.8625pt x 151.56625pt>
+<./pics/AAU_UK_STUDENTREPORT_blue_rgb.png, id=276, 230.8625pt x 151.56625pt>
 File: ./pics/AAU_UK_STUDENTREPORT_blue_rgb.png Graphic file (type png)
 
 <use ./pics/AAU_UK_STUDENTREPORT_blue_rgb.png>
@@ -1442,81 +1439,346 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--6
 
 ] [2] ("D:\Master Project\MasterThesis\Report\report.toc"
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 6.
-)
-\tf@toc=\write5
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 7.
  [3
 
-] [4]
-("D:\Master Project\MasterThesis\Report\text\introduction.tex"
+] [4])
+\tf@toc=\write5
+ [5]
+[6] ("D:\Master Project\MasterThesis\Report\text\introduction.tex"
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <20.74> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 1.
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.23 
+      [1
+
+]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 10.
-)pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
- been already used, duplicate ignored
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 24.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 28.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ts1ptm.fd"
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+))pdfTeX warning (ext4): destination with the same identifier (name{page.2}) ha
+s been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.47 \part
-          {Problem Analysis} [1
-
-]pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.47 \part{Problem Analysis}
-                             [2
+          {Problem Analysis} [2] [3
 
 ]
 ("D:\Master Project\MasterThesis\Report\text\analysis\analysis.tex"
 ("D:\Master Project\MasterThesis\Report\text\analysis\related_work.tex"
 Chapter 2.
-)) [3
+[4
 
-] [4
+])
+("D:\Master Project\MasterThesis\Report\text\analysis\discount_usability_evalua
+tion.tex"
 
-]
-("D:\Master Project\MasterThesis\Report\text\experiment\experiment.tex")
-[5
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 4.
 
-] ("D:\Master Project\MasterThesis\Report\text\conclusion\conclusion.tex"
+<./pics/UsabilityTableP1.png, id=427, 864.22874pt x 383.18156pt>
+File: ./pics/UsabilityTableP1.png Graphic file (type png)
+
+<use ./pics/UsabilityTableP1.png>
+Package pdftex.def Info: ./pics/UsabilityTableP1.png used on input line 8.
+(pdftex.def)             Requested size: 432.11331pt x 191.5903pt.
+
+<./pics/UsabilityTableP2.png, id=428, 864.98157pt x 686.565pt>
+File: ./pics/UsabilityTableP2.png Graphic file (type png)
+
+<use ./pics/UsabilityTableP2.png>
+Package pdftex.def Info: ./pics/UsabilityTableP2.png used on input line 16.
+(pdftex.def)             Requested size: 432.48973pt x 343.28166pt.
+)
+("D:\Master Project\MasterThesis\Report\text\analysis\existing_evaluation_metho
+ds.tex" [5] [6 <D:/Master Project/MasterThesis/Report/pics/UsabilityTableP1.png
+> <D:/Master Project/MasterThesis/Report/pics/UsabilityTableP2.png>]
 Chapter 3.
-) [6
+[7
 
-] [7
-
-] 
-AED: lastpage setting LastPage
-[8
+] [8]) ("D:\Master Project\MasterThesis\Report\text\analysis\IDA.tex"
+[9] [10]
+Chapter 4.
+) ("D:\Master Project\MasterThesis\Report\text\analysis\challenges.tex"
+[11
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 69.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 69.
+Chapter 5.
+)) [12
+
+] [13
+
+]
+("D:\Master Project\MasterThesis\Report\text\experiment\experiment.tex"
+Chapter 6.
+[14
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 53--57
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--57
+
+ []
+
+
+Package caption Warning: \label without proper \caption on input line 71.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `C-usability-results' on page 15 undefined on input li
+ne 61.
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 63--67
+
+ []
+
+
+Underfull \hbox (badness 2762) in paragraph at lines 75--75
+\T1/ptm/m/n/10.95 ri-enced dif-fi-cul-ties iden-ti-fy-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--76
+[]\T1/ptm/m/n/10.95 Difficulties re-mem-ber-ing the
+ []
+
+
+Overfull \hbox (9.82344pt too wide) in paragraph at lines 72--79
+ [][] 
+ []
+
+[16]
+
+Package caption Warning: \label without proper \caption on input line 106.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `F-usability-results' on page 17 undefined on input li
+ne 101.
+
+
+Overfull \hbox (9.82344pt too wide) in paragraph at lines 107--114
+ [][] 
+ []
+
+[17]
+Chapter 7.
+) [18
+
+] [19
+
+] ("D:\Master Project\MasterThesis\Report\text\method\method.tex"
+("D:\Master Project\MasterThesis\Report\text\method\Introduction.tex"
+Chapter 8.
+) [20
+
+]
+Chapter 9.
+("D:\Master Project\MasterThesis\Report\text\method\setup\ConductingTheEval.tex
+"
+Underfull \hbox (badness 10000) in paragraph at lines 3--1
+
+ []
+
+[21
+
+] [22]
+Chapter 10.
+
+("D:\Master Project\MasterThesis\Report\text\method\setup\SampleOfParticipants.
+tex" [23
+
+]) ("D:\Master Project\MasterThesis\Report\text\method\setup\Tasks.tex" [24]) (
+"D:\Master Project\MasterThesis\Report\text\method\setup\SampleSheet.tex" [25]
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
+
+ []
+
+[26] [27])
+("D:\Master Project\MasterThesis\Report\text\method\setup\InterviewQuestions.te
+x" [28]))
+("D:\Master Project\MasterThesis\Report\text\method\results\ResultsDiscussion.t
+ex" [29]
+Chapter 11.
+("D:\Master Project\MasterThesis\Report\text\method\results\PilotTest.tex"
+[30
+
+])
+Underfull \hbox (badness 1221) in paragraph at lines 28--28
+[]\T1/ptm/m/n/10.95 The lack of com-mon loop-ing
+ []
+
+
+Underfull \hbox (badness 3557) in paragraph at lines 29--29
+[]\T1/ptm/m/n/10.95 Using the [][][] in-stead of
+ []
+
+
+Underfull \hbox (badness 1342) in paragraph at lines 30--30
+[]\T1/ptm/m/n/10.95 Using [][][] in-stead of the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
+[]\T1/ptm/m/n/10.95 Writing [][][] in-stead of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--36
+[]\T1/ptm/m/n/10.95 Mistyping [][][] as
+ []
+
+
+Overfull \hbox (9.82344pt too wide) in paragraph at lines 23--41
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 46.
+LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 46.
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
+
+ []
+
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
+
+ []
+
+[32] [33] [34] [35]
+("D:\Master Project\MasterThesis\Report\text\method\results\InterviewResults.te
+x" [36]
+Overfull \hbox (0.1164pt too wide) in paragraph at lines 8--9
+[]\T1/ptm/m/n/10.95 - The lack of
+ []
+
+) ("D:\Master Project\MasterThesis\Report\text\method\results\Discussion.tex"
+[37]
+Chapter 12.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--4
+
+ []
+
+[38
+
+]
+("D:\Master Project\MasterThesis\Report\text\method\results\DiscussionTask.tex"
+)))) [39] [40
+
+]
+("D:\Master Project\MasterThesis\Report\text\conclusion\conclusion.tex"
+Chapter 13.
+[41
+
+]
+Chapter 14.
+) [42
+
+] [43
+
+] ("D:\Master Project\MasterThesis\Report\report.bbl"
+("D:\Master Project\MasterThesis\Report\report.brf")
+\tf@brf=\write6
+ [44
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 88--88
+[]\T1/ptm/m/n/10.95 C. Hope, ``What was the first com-puter pro-gram-ming lan-g
+uage?.'' []$\T1/pcr/m/n/10.95 http : / / www .$
+ []
+
+[45]
+Underfull \hbox (badness 10000) in paragraph at lines 189--189
+$\T1/pcr/m/n/10.95 en / publications / the -[] usability -[] laboratory -[] at 
+-[] cassiopeia(47a9c780 -[]$
+ []
+
+[46]
+Underfull \hbox (badness 10000) in paragraph at lines 213--213
+[]\T1/ptm/m/n/10.95 A. Ste-fik, E. Pierz-ina, and K. Rit-ter, ``Quo-rum's home 
+page.'' []$\T1/pcr/m/n/10.95 http : / / www .$
+ []
+
+
+Underfull \hbox (badness 1365) in paragraph at lines 217--217
+[]\T1/ptm/m/n/10.95 D. Ho, ``Notepad++ home page.'' []$\T1/pcr/m/n/10.95 http :
+ / / notepad -[] plus -[] plus . org$[]\T1/ptm/m/n/10.95 , 2016.  Used:
+ []
+
+) [47] [48] [49
+
+] ("D:\Master Project\MasterThesis\Report\text\appendix.tex"
+Appendix A.
+[50
+
+] [51] [52] [53] [54] [55]
+Appendix B.
+[56
+
+] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70]
+[71] [72] [73] [74] [75] [76] [77] [78]) 
+AED: lastpage setting LastPage
+[79]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 72.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 72.
  ("D:\Master Project\MasterThesis\Report\report.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 69.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 69.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 72.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 72.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: ECE2192155539C1839833B12F86BE01E;520.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 69.
+(rerunfilecheck)             Checksum: E2500D4C10EE712686C70B2779C04F96;4077.
+Package rerunfilecheck Info: File `report.brf' has not changed.
+(rerunfilecheck)             Checksum: F8C4CDCDD379F28CF35BF5F15BF1D8AB;3269.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 72.
  ) 
 Here is how much of TeX's memory you used:
- 31000 strings out of 493921
- 690556 string characters out of 3147272
- 903234 words of memory out of 3000000
- 33654 multiletter control sequences out of 15000+200000
- 58971 words of font info for 81 fonts, out of 3000000 for 9000
+ 33239 strings out of 493921
+ 723781 string characters out of 3147272
+ 961235 words of memory out of 3000000
+ 34546 multiletter control sequences out of 15000+200000
+ 64775 words of font info for 90 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 57i,20n,83p,996b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 57i,20n,83p,2398b,1951s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
-s/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/
-helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (16 pages, 91829 bytes).
+s/MiKTeX 2.9/fonts/type1/urw/courier/ucrb8a.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/h
+elvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/urw/times/utmri8a.pfb>
+Output written on report.pdf (89 pages, 704153 bytes).
 PDF statistics:
- 161 PDF objects out of 1000 (max. 8388607)
- 25 named destinations out of 1000 (max. 500000)
- 98 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2299 PDF objects out of 2487 (max. 8388607)
+ 1303 named destinations out of 1440 (max. 500000)
+ 548 words of extra memory for PDF output out of 10000 (max. 10000000)
 
