@@ -1,4 +1,21 @@
 \chapter{Conclusion}
 \label{chap:conclusion}
+In this report, we wanted to explore whether HCI techniques could be applicable for the evaluation of programming languages.
+We briefly described existing evaluation methods for programming languages and how they differ, along their strengths and weaknesses, which helped us get a better understanding of the design of such methods.
+In the context of HCI techniques, we have examined the usefulness of the discount usability method with the IDA method for data analysis on C\# and F\#.
+In this examination we found that the discount usability method can be used to evaluate programming languages, but has some shortcomings.
+The programming language’s IDE has a large effect on the results, often providing significant assistance which effectively eliminates many of the errors which might otherwise get caught in the language.
+Based on the results, we believe that the discount usability method is good for testing a compiler and an IDE, but is less well suited for examining language design.
+
+To create a method better suited for evaluating language design, we conducted an adapted usability experiment where we specifically avoided the use of an IDE or a compiler.
+An added advantage of such a method is that it does not require the creation of any tools for the language before the language design can be tested, making it a low-cost and efficient solution. 
+For this experiment we used the evidence-based language Quorum, as it is less likely for our participant group to be familiar with it, yet it is in programming paradigm they are familiar with. 
+
+During the analysis process we had to alter the criteria used for categorising the problems - from time spent on a problem to severity of fixing the problem.
+This was due to the discovery that since the system does not have a way of giving meaningful feedback to the participant, the participants would not encounter problems nor spend time fixing them.
+
+Comparing the resulting data from the method with Quorum’s evidence showed us that most of data was comparable though not strictly in agreement.
+However, Quorum’s data was mostly centered around syntax choice and therefore was mostly only related to the cosmetic problems, which are the least interesting problems to consider.
+The data suggests that our method will be better suited for getting some of the deeper problems with a programming language when compared to the syntax questionnaires used as evidence for Quorum.
 
 \input{./text/conclusion/futureWorks.tex}
