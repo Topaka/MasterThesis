@@ -1,25 +1,24 @@
-\chapter{Experiment evaluation}
-\label{chapter:ExperimentEvaluation}
 \input{./text/analysis/challenges}
 
-\section{Experiment Setup}
+\chapter{Experiment Setup}
+\label{chapter:ExperimentEvaluation}
 In order to get an understanding of how applicable the discount usability method is for evaluating programming languages, we decided to use it on two distinct programming languages. These two languages represent two different paradigms, where C\# is relevant for object-orientation and F\# for functional programming. The Instant Data Analysis (IDA) method\cite{IDA} was used for evaluating the data.
 
 The usability evaluation was conducted in the usability lab of Aalborg University\cite{UsabilityLab}, in test room 1.
-The Experiment entailed the subject being positioned at a desk with a mouse, keyboard and a screen.
+The Experiment entailed the participant being positioned at a desk with a mouse, keyboard and a screen.
 On the screen, Visual Studio Community 2015 was open with a project in the current language being tested.
-The subject was then given an hour to try and solve specific task(s) in the language, while under the supervision of a facilitator sitting next to him. His job was primarily to keep the subject talking about what they where thinking, and secondarily to assist if the subject got stuck or encountered issues with the test.
+The participant was then given an hour to try and solve specific task(s) in the language, while under the supervision of a facilitator sitting next to him/her. The facilitator's job was primarily to keep the participant talking about what they where thinking, and secondarily to assist if the participant got stuck or encountered issues with the test.
 Meanwhile, an observer would take notes from an adjacent observation room. The control room was used for this.
-Although the IDA method was used, recordings of the tests were made.
-A camera would record the subjects' interaction with the keyboard and mouse, while the screen was recorded using an output splitter, and the sounds was recorded using a microphone.
+A camera would record the particpant's interaction with the keyboard and mouse, while the screen was recorded using an output splitter, and the sounds was recorded using a microphone.
 
-\subsection{C\# Tasks}
+\section{C\# Tasks}
 \label{subsection:C Task}
-Designing the task for C\# had several topics in consideration such as object-orientation, use of class hierarchy, working with extended methods and inherited properties which were all considered as very important in representing the philosophy of the language.  
+Designing the task for C\# had several topics in consideration such as object-orientation, use of class hierarchy, working with extended methods and inherited properties, which were all considered as very important in representing the philosophy of the language.  
 
 The task was designed for subjects who already had experience with C\# and know about object-oriented programming.
 The wording was intentionally left vague by design and specifically avoided directly mentioning programming constructs, in order to avoid biasing the solution in a particular direction, as well as more accurately show how the language was used. The task itself entailed the following:
 
+\subsection*{Task Sheet}
 Create a system for managing stats and interactions between RPG characters with different classes.
 Each character has:
 \begin{itemize}
@@ -56,14 +55,14 @@ Now we discover that we also want a way to refresh characters to their original 
 To do this we need to also store a maximum hit points value for each character as well as a method for restoring a characters resources.
 Some class specific resources might also need this to allow them to be replenished as well.
 \\\\
-\subsection{C\# Results}
+\section{C\# Results}
 
 In our experiments on C\# we got two subjects. This is less than the desired minimum of five test subjects for a usability test. However, this is not considered a significant problem since the focus of the experiments is more on the method itself rather than on the results of it. The results of the experiment are evaluated using the IDA method, and therefore focused on a discussion based on the observations made. The results of the discussion could be seen on \tabref{table:UsabilityResults}.
 
 Most of these issues were only experienced by one of the subjects, and usually reflected their experience. The 4th semester student was the one experiencing the serious issue due to not having had much need for inheritance in any of his previous projects.
 On contrast, he did not have any difficulties remembering keywords due to recent use of the language.
 This is in contrast with the 10th semester student, who had more experience using inheritance but had not used C\# as recently and therefore had difficulties regarding specific keywords.
-Neither of them invoked the auto generator for getters and setters and instead chose to make the variables public instead. They did however both express knowledge that this was not ideal and that it was done due to laziness and the small scope of the project.\\
+Neither of them invoked the auto generator for getters and setters and instead chose to make the variables public instead. They did, however, both express knowledge that this was not ideal and that it was done due to laziness and the small scope of the project.\\
 
 \begin{table} [!h]
 \centering
@@ -79,11 +78,12 @@ Critical & Serious     & Cosmetic \\ \hline
 \label{table:UsabilityResults}
 \end{table}
 
-\subsection{F\# Tasks}
+\section{F\# Tasks}
 \label{subsection:F Task}
 Similarly to how the C\# experiment was conducted, the F\# one involved a specific task addressing some key concepts from functional programming such as recursion, working with immutable data and functions.
 The task itself involves finding a path from a starting position to a goal position on a 2-dimensional tile-based world. The full task description as follows is:
 
+\subsection*{Task Sheet}
 Create a path-finding function for a robot from an initial position to a goal position.
 
 The world is a 2D world represented by coordinates with a defined maximum size (e.g. 20, 20)
@@ -97,7 +97,7 @@ Write some code to set up a scenario to test your function.
 Now write a path-finding function where the robot does not have access to the goal position but only to a function that says whether the current position is the goal or not.
 
 
-\subsection{F\# Results}
+\section{F\# Results}
 The F\# task was completed by only one test subject which is not nearly enough for the minimum of five test subjects in order to conduct a viable usability test. Although the results are insufficient, they might raise some interesting points about the usage of the language and what concepts people find difficult to work with. The results were again evaluated by using the IDA method and they can be seen on \tabref{table:F-usability-results}
 
 \begin{table} [!h]
@@ -119,14 +119,14 @@ Furthermore the participant had reported having difficulties thinking in the fun
 The problems encountered reflect this inexperience.
 All of the difficulties were encountered early in the test and were mostly about remembering how the language worked.
 These are considered critical because the facilitator stepped in to help the participant.
-However after the initial difficulties the participant started to grasp the language and solved the later tasks on his own.
+However, after the initial difficulties the participant started to grasp the language, and solved the later tasks on his own.
 This showed us that when trying to program in a language one has little or no experience in, knowing the syntax of the language is a major hurdle.
 
 \chapter{Discussion}
 Although we were light on participants for the usability test, doing the test still gave us some insight into evaluating language design.
 In particular we discovered that the Integrated Development Environment (IDE) had a great influence on the usability of the language.
 It would often greatly assist in reminding the user of various keywords and constructs, like reminding a participant of the \lstinline!virtual! keyword being the keyword for allowing method overloading, which means a lot of potential problems was fixed by it.
-This matches some observations made by Faldborg and Nielsen \cite{DartTypeSys} and Pedersen and Faldborg\cite{LARM}, where they observed the participants difficulties in differentiating the IDE from the language. %link to LARM(voice) did not work
+This matches some observations made by Faldborg and Nielsen \cite{DartTypeSys} and Pedersen and Faldborg\cite{LARM}, where they observed the participants' difficulties in differentiating the IDE from the language. %link to LARM(voice) did not work
 There has been support for the discount usability method being good for testing the usability of the full package of the language and IDE like has been done by the developers of Pocket Code\cite{PocketCode}.
 However, these observations lead us to believe that the method is less suited for evaluating language design.
 Another discovery was the difficulty of coding in a language one is not strongly familiar with even with the help of the IDE.
