@@ -80,8 +80,21 @@ Programming Language Design Evaluation, User Evaluation
 Quorum, Usability Evaluation, Language Design
 
 \section{Introduction}
+Computer programming has increasing relevance to today's advancement of technologies. Therefore, existing and established programming languages are constantly improved and new ones are created to meet that demand. Some languages are considered arguably better than others in their intended purpose in the software industry. However, formal evaluation methods for assessing programming languages are very few and limited in their use and most evidence gathered to support such claims are anecdotal in nature\cite{StakingClaims}. 
 
-The text of the paper begins here.
+In recent years, however, the scientific community has tried to rectify this.
+In particular, the focus of the PLATEU conferences is the scientific evaluation of languages.
+The basic observation is that language use and preference is highly opinionated, which lead to user-based evaluation being the norm for programming languages.
+Commonly, the scientific community has made use of methods from social sciences, which usually requires studying a large number of subjects\cite{SocioPLT}\cite{AliceCS1}\cite{BlockOrNot}\cite{FromScratch}.
+
+However, these methods are rather expensive since conducting a quantitative test requires a large group of people. Typically, this means programming language designers cannot do these tests before the language has already gained widespread use. Instead some designers have decided to use more qualitative and lightweight approaches for language evaluation. A commonly used lightweight approach is the discount usability evaluation method. Some examples of using the method in practice are: The language HANDS developed by Pane et al. designed specifically for children; Koitz and Slany used it to on Scratch and their phone language Pocket Code to compare the two; Faldborg and Pedersen used the method to test their spoken programming language LARM;  Faldborg and Nielsen have used it while conducting an empirical experiment on Dart and web-enabled IDE, developed by them, called DartPad.
+
+The primary problem with the discount usability method in such context, as identified by Faldborg and Pedersen and Faldborg and Nielsen, is the difficulty of separating the feedback about the language design from the IDE.
+These observations, along with our own experiences, lead us to believe that the discount usability evaluation method is good when evaluating the full package of a language with its IDE and compiler, but is less suited for evaluating language design.
+
+To rectify this, we wanted to create a new evaluation method which will fill the gap between 
+internal language analysis and the big and bulky industry programming evaluation methods\cite{AliceCS1}\cite{BlockOrNot}\cite{FromScratch}. This new method used the discount usability evaluation and the IDA methods as a basis, with the main difference being to avoid the use of a compiler or an IDE. To test this method, we used Quorum, an evidence-based programming language. This entailed conducting a qualitative experiment with six experienced programmers as participants.
+We believe that our method would be a valuable, low-cost tool for user evaluation of programming languages. 
 
 \appendix
 \section{Appendix Title}
