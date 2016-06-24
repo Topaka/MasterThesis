@@ -96,6 +96,71 @@ To rectify this, we wanted to create a new evaluation method which will fill the
 internal language analysis and the big and bulky industry programming evaluation methods\cite{AliceCS1}\cite{BlockOrNot}\cite{FromScratch}. This new method used the discount usability evaluation and the IDA methods as a basis, with the main difference being to avoid the use of a compiler or an IDE. To test this method, we used Quorum, an evidence-based programming language. This entailed conducting a qualitative experiment with six experienced programmers as participants.
 We believe that our method would be a valuable, low-cost tool for user evaluation of programming languages. 
 
+\section{Method}
+To get acquainted with the discount usability method’s applicability on programming languages, we first used it on C\# in Visual Studio. The participants we used were experienced programmers familiar with C\#. The discount usability method we used was the one created by Andrew Monk et al. 1993 as presented in Designing Interactive Systems\cite{CooperativeEval}. To analyse the data from the test, we used the IDA method \cite{IDA}, as it is a lightweight method for prioritising encountered problems.
+
+Based on our findings, we use both methods as a basis for creating a new evaluation method suitable for evaluating languages without the need of a compiler or an IDE. The method mainly relies on solving a set of programming tasks with the help of sample sheet which demonstrates the use of relevant constructs from the language being tested. Additionally, an interview, either in written or spoken form, serves the purpose of further elaborating on the most interesting problems the observer has noted during the process. The procedure of the method looks like this:
+
+\begin{enumerate}
+\item \textbf{Create tasks} These tasks are specific to the language, and should explore key features of the language. A useful tool to design tasks can be to create some scenarios you would expect a user to use your language in and what that user would need to do solve their task.
+\item \textbf{Create a sample sheet} Based on the tasks, you now have a better idea of what a participant would need to know to solve those tasks. Keeping the sample sheet short or having a clear indexing of the samples can help participants browse the sample sheet. Having working code samples can help give a better understanding of the overall structure of code in the language.
+\item \textbf{Estimate the task length} Taking time of how fast you can solve the tasks will give an idea of how long the experiment will take per participant. Do note that the participants will likely take longer to solve the tasks since they have to get acquainted with the language first. It can be okay to have more tasks than what you expect a participant to be able to solve, but the later tasks would need to explore less important features, and the participant needs to be made aware of not being expected to solve all of them.
+\item \textbf{Prepare setup} The specifics of the setup can vary from a full blown usability lab to pen and paper. The advantage of a flexible setup, like pen and paper or a laptop with a text-editor, is the convenience it allows for potential participants. Often the experiment will be recorded to better review the process of solving the tasks, in which case the necessary utilities for this needs to be prepared.
+\item[-] (optional) \textbf{Conduct a pilot test} A pilot test can let you discover and fix any problems in your tasks, sample sheet, task estimate and setup before conducting the experiment on the full number of participants. It does, however, require an additional participant and time.
+\item \textbf{Gather participants} The golden rule for number of participants is five. More than that and most of the encountered problems are ones you already have observed, though the repetition can reinforce observations. Less than that and you tend to have several problems left undiscovered, though some data is generally still better than none.
+\item \textbf{Start the experiment} Make sure to tell the participant that it is the language being tested and not them, to alleviate some unnecessary nervousness.
+\item \textbf{Keep the participant talking} Try to make the participant talk about what they are thinking about solving the task at hand. During this time the facilitator may answer any questions the participant have about the language. The facilitator should try to avoid talking about how to solve the tasks, but it may be necessary if the participant need help getting started (or stopped in cases of overcomplicating tasks). The facilitator will confirm when a task is done, because the system won't give that kind of feedback.
+\item \textbf{Interview the participant} After the test, have a brief interview with the participant where you can discuss the language, tasks etc. It can be useful to have some questions pre-written or create a questionnaire if there are many participants.
+\item \textbf{Analyse data} After all the tests have been conducted, use the data to identify a list of problems encountered during the test. You can then categorise the problems using the following guidelines:
+\begin{description}
+\item[Cosmetic problems] are typos and small keyword and character differences that can easily be fixed by replacing the wrong part.
+\item[Serious problems] are structural errors that usually impacts how the code is structured, but is usually small enough that it can be fixed with a few changes.
+\item[Critical problems] are fundamental misunderstandings of how the language structures code and large structural errors that would require a revision of the algorithm.
+\end{description}
+Following this categorisation you will now have a prioritized list of things to improve on the language.
+\end{enumerate}
+
+Our method has two major differences from the discount usability method using the IDA method for evaluation.
+The first big difference is the addition of a sample sheet step. The reason for this is that without an IDE or a compiler the language would be presented as blank paper, which does nothing to teach the user about how the language is written. Providing the user with examples and explanations of how the language works is then necessary to let them meaningfully program in the language.
+
+The other big difference is the how the problems are prioritised. The IDA method uses time spent on overcoming a problem to categorise its severity. Our setup makes the user either work in a generic text editor or on a piece of paper neither of which give any feedback about the correctness of the code written. This means the participants would not necessarily discover any problems and would therefore not spend time on solving problems.
+This makes time a poor measure for problem severity, which caused us to instead estimate the severity based on how much code would need to be changed to fix the problems.
+
+\subsection{Experiment setup}
+The new method was tested in an experiment setup by using it on an unfamiliar programming language to avoid bias from pre-existing knowledge about the language. Since we did not have a newly created language at our disposal, we decided to use an evidence-based programming language Quorum, which our participants were unlikely to be familiar with. Most of our participants were experienced programmers,  holding a degree in Computer science, and having knowledge about C and C\# and several programming languages (e.g. Java, F\#, Python, Pascal). We had a total of six participants taking part in the main experiment, with one additional person as a pilot test participant.
+
+The experiment was conducted using a text-editor on a laptop.
+The main reason for this over pen and paper, was to make recording easier.
+The text-editor we used was Notepad++\cite{Notepad}.
+Notepad++ has some features to assist programming, most notably an auto-completer which uses words already written in the text as suggestions.
+However, since these features are language-agnostic and the auto-completer would only prevent false positives from minor typos and not language misunderstandings, this was deemed acceptable.
+To record the screen Microsoft Game DVR was used.
+Due to the poor quality of the inbuilt laptop microphones, a smartphone was used to record the audio.
+
+\subsubsection{Task Sheet}
+For our task sheet, we devised several smaller tasks, each addressing different features and constructs of Quorum. We drew heavy inspiration for some of the tasks from Codekata \cite{Codekata} since some of the katas were simple to understand yet conveyed the essence of a particular feature, present in the tested language.
+Although each task had an intended purpose with a clear goal, their design allows more than one possible solution which gave the participants the freedom to experiment with the language.
+\begin{itemize}
+\item The first task had the intended purpose of testing arithmetic expressions and the use of data types.
+\item The second task had the purpose of testing containers in the language (such as arrays) and control structures.
+It also tested responsible code modification since there was a certain degree of intended repetitiveness in the subtasks which warranted careful reusing of code segments .%might not be good to point out
+\item The third task was for testing the concept of classes and inheritance.
+\item The final task was testing operations on strings, including the exercise of in-build actions specifically useful for splitting text segments.
+\end{itemize}
+The tasks were scheduled to be solved in about an hour, though the final task was expected to extend beyond that timeframe.
+
+\subsubsection{Sample Sheet}
+Alongside the task sheet, a sample sheet was created in order to to provide examples of code that the participant could use to learn what was necessary from the language in order to solve the tasks. Working samples of code were used since it tends to give a more wholesome picture of how the code should look, without resorting to detailed description of how everything works. 
+
+\subsubsection{Interview sheet}
+For the interview, we created an interview sheet with five questions addressing the overall experience of the experiment.
+These questions were not meant to replace the open discussion but rather serve as a baseline for the direction of the discussion and to ensure some specific areas were covered in the discussion.
+Questions \#1, \#2 and \#3 were about the language and primarily served to get the participants own thoughts about it.
+While there were some potential overlap in these questions, they could help some people talk more, and they helped categorise the feedback.
+Question \#4 focused on getting feedback about our task and sample sheet.
+Question \#5 asked about the experience of coding without a compiler since it is the biggest change for our method.
+During the interview, the subject would usually be made aware of most of the otherwise unmentioned errors, to be able to provide a more informed discussion.
+
 \appendix
 \section{Appendix Title}
 
