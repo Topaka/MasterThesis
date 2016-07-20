@@ -114,7 +114,7 @@ The primary problem with the discount usability method in such context, as ident
 These observations, along with our own experiences, lead us to believe that the discount usability evaluation method is good when evaluating the full package of a language with its IDE and compiler, but is less suited for evaluating language design.
 
 To rectify this, we wanted to create a new evaluation method which will fill the gap between 
-internal language analysis and the big and bulky industry programming evaluation methods\cite{AliceCS1}\cite{BlockOrNot}\cite{FromScratch}. This new method used the discount usability evaluation and the IDA methods as a basis, with the main difference being to avoid the use of a compiler or an IDE. To test this method, we used Quorum, an evidence-based programming language. This entailed conducting a qualitative experiment with six experienced programmers as participants.
+internal language analysis and the big and bulky industry programming evaluation methods\cite{BlueJBlackbox}. This new method used the discount usability evaluation and the IDA methods as a basis, with the main difference being to avoid the use of a compiler or an IDE. To test this method, we used Quorum, an evidence-based programming language\cite{Quorum}. This entailed conducting a qualitative experiment with six experienced programmers as participants.
 We believe that our method would be a valuable, low-cost tool for user evaluation of programming languages. 
 
 \section{Method}
@@ -214,7 +214,7 @@ Misunderstanding the effect of \lstinline!Sort()! on arrays of classes & The lac
 \end{table*}
 
 \subsection{Comparison with Quorum's Evidence}
-In their empirical experiments, Stefik and Gellenbeck \cite{EmpStudiesonStimuli} gathered many statistically significant results regarding keyword choices. Given that they try to primarily address visually impaired people and novice programmers, selecting the most intuitive words seems like a logical choice. For one of their  experiments \cite{EmpStudiesonStimuli}, they divided the participants in two groups - novices and experienced programmers to find out if there is a significant discrepancy in the results between the two groups. Every keyword choice was ranked in two tables by mean value and standard deviation. Since we conducted our experiment with people having programming experience, we are primarily interested in the results of the second group. For the purpose of our evaluation method, we will not mention every single word choice they rated but rather the ones which are coinciding with the problems we identified from the IDA evaluation in section \ref{section: Problem Categorization}. Additionally, we would also relate two of the empirical studies from Stefik and Siebert \cite{Empiricalinvestigation} and their findings about keyword choices. This would help us to make a comparison between the authors findings and the results from our evaluation, essentially giving an additional degree of credibility to the method if similarities are found.
+In their empirical experiments, Stefik and Gellenbeck \cite{EmpStudiesonStimuli} gathered many statistically significant results regarding keyword choices. Given that they try to primarily address visually impaired people and novice programmers, selecting the most intuitive words seems like a logical choice. For one of their  experiments \cite{EmpStudiesonStimuli}, they divided the participants in two groups - novices and experienced programmers to find out if there is a significant discrepancy in the results between the two groups. Every keyword choice was ranked in two tables by mean value and standard deviation. Since we conducted our experiment with people having programming experience, we are primarily interested in the results of the second group. For the purpose of our evaluation method, we will not mention every single word choice they rated but rather the ones which are coinciding with the problems we identified from the IDA evaluation. Additionally, we would also relate two of the empirical studies from Stefik and Siebert \cite{Empiricalinvestigation} and their findings about keyword choices. This would help us to make a comparison between the authors findings and the results from our evaluation, essentially giving an additional degree of credibility to the method if similarities are found.
 
 \begin{itemize}
 \item In the results for the concepts of AND, OR and XOR, Stefik and Gellenbeck \cite{EmpStudiesonStimuli} found that for the AND concept, using \lstinline!&&! and \lstinline!and! performed quite well. Their results showed that these words are actually popular and thus intuitive to use. As for the logical OR concept, the \lstinline!or! keyword was placed first, being significantly better the the second highest one - the \lstinline!||! operator, which is present in many popular programming languages. Last but not least, the XOR logical operator, the \lstinline!or! was rated highest which can be attributed to the fact that the participants did not know how to call an operation which "took a behavior when one condition was true but not both".
@@ -272,12 +272,12 @@ Conducting the experiment had some informal and qualitative conditions, which ma
 \section{Conclusion}
 We identified a gap in programming language evaluation between internal language analysis and the big industrial evaluation methods. In that regard, we wanted to explore whether HCI techniques could be applicable for the evaluation of programming languages.
 
-In the context of HCI techniques, we have examined the usefulness of the discount usability method ( \ref{chapter:ExperimentEvaluation}) with the IDA method (\ref{section:IDA}) for data analysis on C\# along with examining literature for similar experiments.
+In the context of HCI techniques, we have examined the usefulness of the discount usability method with the IDA method for data analysis on C\# along with examining literature for similar experiments.
 In this examination we found that the discount usability method can be used to evaluate programming languages, but has some shortcomings.
 The programming language’s IDE has a large effect on the results, often providing significant assistance which effectively eliminates many of the errors which might otherwise get caught in the language.
 Based on the results, we believe that the discount usability method is good for testing a compiler and an IDE, but is less well suited for examining language design.
 
-To create a method better suited for evaluating language design, we conducted an adapted usability experiment where we specifically avoided the use of an IDE or a compiler (\ref{chapter:MethodIntro}).
+To create a method better suited for evaluating language design, we conducted an adapted usability experiment where we specifically avoided the use of an IDE or a compiler.
 An added advantage of such a method is that it does not require the creation of any tools for the language before the language design can be tested, making it a low-cost and efficient solution.
 For this experiment, we used the evidence-based language called Quorum, as it was less likely for our participant group to be familiar with it, yet it belongs to a programming paradigm they were familiar with.
 We changed the way the problems are prioritised due to the discovery that since the system does not have a way of giving meaningful feedback to the participant, the participants would not encounter problems nor spend time fixing them.
@@ -331,20 +331,56 @@ S. Markstrum. \newblock Staking Claims: a history of programming language design
 \bibitem[Pane et al.(2002)Pane and Myers and Miller]{HANDS}
 J. F. Pane, B. A. Myers and L. B. Miller. \newblock Using HCI Techniques to Design a More Usable Programming System. \newblock In \emph{Proceedings of the IEEE 2002 Symposia on Human Centric Computing Languages and Environments (HCC’02)}, 2002.
 
-\bibitem[Koitz et al.(2014)Koitz and Slany]{PocketCode}
+\bibitem[Koitz and Slany(2014)Koitz and Slany]{PocketCode}
 R. Koitz and W. Slany. \newblock Empirical Comparison of Visual to Hybrid Formula Manipulation in Educational Programming Languages for Teenagers. \newblock In \emph{PLATEAU '14 Proceedings of the 5th Workshop on Evaluation and Usability of Programming Languages and Tools}, 2014.
 
-\bibitem[Pedersen et al.(2014)Pedersen and Faldborg]{LARM}
+\bibitem[Pedersen and Faldborg(2014)Pedersen and Faldborg]{LARM}
 L. C. Pdersen and M. Faldborg. \newblock Designing LARM: Programing with Nothing but your Voice. \newblock In \emph{Det Digitale Projektbibliotek}, 2014.
 
-\bibitem[Faldborg et al.(2015)Faldborg and Nielsen]{DART}
+\bibitem[Faldborg and Nielsen(2015)Faldborg and Nielsen]{DART}
 M. Faldborg and T.L. Nielsen. \newblock Type Systems And Programmers \: A Look at Optional Typing in Dart. \newblock In \emph{Det Digitale Projektbibliotek}, 2015.
 
 \bibitem[Benyon(2010)Benyon]{CooperativeEval}
 D. Benyon. \newblock Designing Interactive Systems - A comprehensive guide to HCI and interaction design. \newblock Published by \emph{Pearson Education Limited}, 2010.
 
 \bibitem[Kjeldskov et al.(2004)Kjeldskov and Skov and Stage]{IDA}
-J. Kjeldskov and M. B. Skov and J. Stage. \newblock Instant data analysis: conducting usability evaluations in a day. \newblock In \emph{Proceedings of the third Nordic conference on Human-computer interaction}, 2004.
+J. Kjeldskov, M. B. Skov and J. Stage. \newblock Instant data analysis: conducting usability evaluations in a day. \newblock In \emph{Proceedings of the third Nordic conference on Human-computer interaction}, 2004.
+
+\bibitem[Meyerovich and Rabkin(2012)Meyerovich and Rabkin]{SocioPLT}
+L. A. Meyerovich and A. S. Rabkin. \newblock Socio-PLT: principles for programming language adoption. \newblock In \emph{Onward! 2012 Proceedings of the ACM international symposium on New ideas, new paradigms, and reflections on programming and software}, 2012.
+
+\bibitem[Armoni et al.(2015)Armoni and Meerbaum-Salant and Ben-Ari]{FromScratch}
+M. Armoni, O. Meerbaum-Salant and M. Ben-Ari. \newblock From Scratch to “Real” Programming. \newblock In \emph{ACM Transactions on Computing Education (TOCE) TOCE Homepage archive Volume 14 Issue 4, February 2015}, 2015.
+
+\bibitem[Weintrop and Wilensky(2015)Weintrop and Wilensky]{BlockOrNot}
+D. Weintrop and U. Wilensky. \newblock To block or not to block, that is the question: students' perceptions of blocks-based programming. \newblock In \emph{IDC '15 Proceedings of the 14th International Conference on Interaction Design and Children}, 2015.
+
+\bibitem[Garlick and Cankaya(2010)Garlick and Cankaya]{AliceCS1}
+R. Garlick and E. C. Cankaya. \newblock Using alice in CS1: a quantitative experiment. \newblock In \emph{ITiCSE '10 Proceedings of the fifteenth annual conference on Innovation and technology in computer science education}, 2010.
+
+\bibitem[Ho(2016)Ho]{Notepad}
+D. Ho \newblock Notepad++ home page. \newblock URL \emph{http://notepad-plus-plus.org}, 2016. \newblock Used: 11/05/16.
+
+\bibitem[Thomas(2016)Thomas]{Codekata}
+D. Thomas \newblock Codekata. \newblock URL \emph{http://codekata.com/}. \newblock Used: 12/05/16.
+
+\bibitem[Stefik and Gellenbeck(2011)Stefik and Gellenbeck]{EmpStudiesonStimuli}
+A. Stefik and E. Gellenbeck \newblock Empirical studies on programming language stimuli. \newblock In \emph{Software Quality Journal}, 2011.
+
+\bibitem[Stefik and Siebert(2013)Stefik and Siebert]{Empiricalinvestigation}
+A. Stefik and S. Siebert \newblock An Empirical Investigation into Programming Language Syntax. \newblock In \emph{ACM Transactions on Computing Education (TOCE)}, 2013.
+
+\bibitem[Sánchez and Aguayo(2005)Sánchez and Aguayo]{SanchezData}
+J. Sánchez and F. Aguayo \newblock Blind learners programming through audio. \newblock In \emph{CHI EA '05 Extended Abstracts on Human Factors in Computing Systems}, 2005.
+
+\bibitem[Stylos and Clarke(2007)Stylos and Clarke]{ParamConstructors}
+J. Stylos and S. Clarke \newblock Usability Implications of Requiring Parameters in Objects' Constructors. \newblock In \emph{ICSE International Conference on Software Engineering}, 2007.
+
+\bibitem[Brown et al.(2014)Brown and Kölling and McCall and Utting]{BlueJBlackbox}
+N. C. C. Brown, M. Kölling, D. McCall and I. Utting \newblock Blackbox: A Large Scale Repository of Novice Programmers’ Activity. \newblock In \emph{The 45th SIGCSE technical symposium on computer science education (SIGCSE 2014)}, 2014.
+
+\bibitem[Stefik et al.(2016)Stefik and Pierzina and Ritter]{Quorum}
+A. Stefik, E. Pierzina and K. Ritter \newblock Quorum's home page. \newblock URL \emph{http://www.quorumlanguage.com}. \newblock Used: 11/05/16.
 
 \end{thebibliography}
 
