@@ -82,11 +82,18 @@ basicstyle=\ttfamily\small,
 \authorinfo{Tommy Aagaard Christensen}
            {Department of Computer Science, Aalborg University}
            {tommyaa@gmail.com}
+ \authorinfo{Bent Thomsen}
+           {Department of Computer Science, Aalborg University}
+           {bt@cs.aau.dk}          
 
 \maketitle
 
 \begin{abstract}
-Studies in the field of programming language design evaluation have shown that there exists a gap between small internal methods and large-scale surveys and evaluation methods. This leaves language designers and especially students developing new programming languages with no low-cost solution for language evaluation. In this report, as a starting point, we examine the applicability of the discount usability method on programming languages by surveying relevant literature. Our findings suggest that it is good for examining the IDE and compiler of a language, but is less suited for examining language design. For this reason, we conducted a usability evaluation experiment on a language without using an IDE or a compiler. This lead to the creation of a new method which used the discount usability method and the IDA method as a basis. The usability evaluation experiment was carried out on Quorum using programmers with experience in C and C\#. Most of the problems found in the evaluation were related to the programmers pre-existing expectations of a language. When comparing our results with Quorum’s data, however, we found several discrepancies.  The results show that our evaluation method could serve as a low-cost way of evaluating programming languages for language designers. 
+This paper presents work in progress on developing a Discount Method for Programming Language Evaluation inspired by the discount usability evaluation method \cite{} and Instant Data Analysis method \cite{}.
+
+The method is intended to bridge the gap between small scale internal language design evaluation methods and large scale surveys and quantitative evaluation methods. The method is designed to be applicable even before a compiler or IDE is developed for a new language.
+
+To test the method, a usability evaluation experiment was carried out on Quorum using programmers with experience in C and C\#. Most of the problems found in the evaluation were related to the programmers pre-existing expectations of a language. When comparing our results with Quorum’s data, however, we found several discrepancies.  The results show that our evaluation method could serve as a low-cost way of evaluating programming languages for language designers. 
 \end{abstract}
 
 \category{D.3}{Programming Languages}{}
@@ -101,21 +108,40 @@ Programming Language Design Evaluation, User Evaluation
 Quorum, Usability Evaluation, Language Design
 
 \section{Introduction}
-Computer programming has increasing relevance to today's advancement of technologies. Therefore, existing and established programming languages are constantly improved and new ones are created to meet that demand. Some languages are considered arguably better than others in their intended purpose in the software industry. However, formal evaluation methods for assessing programming languages are very few and limited in their use and most evidence gathered to support such claims are anecdotal in nature\cite{StakingClaims}. 
+Designing a new programming language or extending an existing programming language usually follows an iterative approach:
+\begin{itemize}
+\item[1] Create ideas for the programming language or extensions
+\item[2] Implement  the programming language or extensions
+\item[3] Evaluate  the programming language or extensions
+\item[4] If not satisfied, goto 1
+\end{itemize}
 
-In recent years, however, the scientific community has tried to rectify this.
+An iterative approach to language design and implementation was advocated by Wirth as early as 1974 \cite{wirth1974design}.
+Ingalls reports on a similar design process used for Smalltalk in 1981 \cite{ingalls1981design}. Text books on programming language design and compiler construction, such as \cite{watt2000programming}, now describe such an iterative approach.
+
+Step 1 of the process is hard to subject to scientific analysis. The decision to create a new programming language or design an extension of an existing languages is often `'a reaction to some language that the designer knows (and likes or dislikes)'' \cite{sestoft2012programming}. Language designers use whatever means that are available to them during this step. Step 2 is by now a well understood topic, although ever so often, new language constructs or features, leads to an expansion of compiler implementation techniques. Step 3 is much more difficult. In the early stages of a programming language design, the developer may be guide by various informal principles such as readability, simplicity and reliability \cite{pratt1984programming,sebesta2012concepts} or somewhat more formal principles such as Tennent's language design principles \cite{tennent1981principles} which still guide many language designers \cite{sestoft2012programming}.
+
+However, formal evaluation methods for assessing programming languages are few and limited in their use. In fact until recently most evidence gathered to support claims of a language or features usefulness are anecdotal in nature\cite{StakingClaims}. 
+
+In recent years, however, the scientific community has worked to rectify this.
 In particular, the focus of the PLATEU conferences is the scientific evaluation of languages.
 The basic observation is that language use and preference is highly opinionated, which lead to user-based evaluation being the norm for programming languages.
 Commonly, the scientific community has made use of methods from social sciences, which usually requires studying a large number of subjects\cite{SocioPLT}\cite{AliceCS1}\cite{BlockOrNot}\cite{FromScratch}.
+%+Quorum + Hannenberg + data mining 
 
-However, these methods are rather expensive since conducting a quantitative test requires a large group of people. Typically, this means programming language designers cannot do these tests before the language has already gained widespread use. Instead, some designers have decided to use more qualitative and lightweight approaches for language evaluation. A commonly used lightweight approach is the discount usability evaluation method. Some examples of using the method in practice are: The language HANDS developed by Pane et al.\cite{HANDS} designed specifically for children; Koitz and Slany\cite{PocketCode} used it to on Scratch and their phone language Pocket Code to compare the two; Faldborg and Pedersen\cite{LARM} used the method to test their spoken programming language LARM; Faldborg and Nielsen\cite{DART} have used it while conducting an empirical experiment on Dart and web-enabled IDE, developed by them, called DartPad.
+However, these methods are rather expensive since conducting a quantitative test requires a large group of people. Typically, this means programming language designers cannot do these tests before the language has already gained widespread use. 
+
+Some designers have decided to use more qualitative and lightweight approaches for language evaluation. A commonly used lightweight approach is the discount usability evaluation method \cite{}. Some examples of using the method in practice are: The language HANDS developed by Pane et al.\cite{HANDS} designed specifically for children; Koitz and Slany\cite{PocketCode} used it to on Scratch and their phone language Pocket Code to compare the two; Faldborg and Pedersen used the method to test their spoken programming language LARM; Faldborg and Nielsen have used it while conducting an empirical experiment on Dart and web-enabled IDE, developed by them, called DartPad.\cite{}
 
 The primary problem with the discount usability method in such context, as identified by Faldborg and Pedersen and Faldborg and Nielsen, is the difficulty of separating the feedback about the language design from the IDE.
-These observations, along with our own experiences, lead us to believe that the discount usability evaluation method is good when evaluating the full package of a language with its IDE and compiler, but is less suited for evaluating language design.
+These observations, along with our own experiences, lead us to believe that the discount usability evaluation method is good when evaluating the full package of a language with its IDE and compiler, but is less suited for evaluations in the early phases of a language design.
 
-To rectify this, we wanted to create a new evaluation method which will fill the gap between 
-internal language analysis and the big and bulky industry programming evaluation methods\cite{BlueJBlackbox}. This new method used the discount usability evaluation and the IDA methods as a basis, with the main difference being to avoid the use of a compiler or an IDE. To test this method, we used Quorum, an evidence-based programming language\cite{Quorum}. This entailed conducting a qualitative experiment with six experienced programmers as participants.
+Therefore we wanted to create a new evaluation method which will fill the gap between 
+internal language analysis and the big and bulky industry programming evaluation methods\cite{AliceCS1}\cite{BlockOrNot}\cite{FromScratch}. This new method is inspired by the discount usability evaluation and the IDA methods as a basis, with the main difference being to avoid the use of a compiler or an IDE. 
+
+To test this method, we used Quorum, an evidence-based programming language. This entailed conducting a qualitative experiment with six experienced programmers as participants.
 We believe that our method would be a valuable, low-cost tool for user evaluation of programming languages. 
+
 
 \section{Method}
 To get acquainted with the discount usability method’s applicability on programming languages, we first used it on C\# in Visual Studio. The participants we used were experienced programmers familiar with C\#. The discount usability method we used was the one created by Andrew Monk et al. 1993 as presented in Designing Interactive Systems\cite{CooperativeEval}. To analyse the data from the test, we used the IDA method \cite{IDA}, as it is a lightweight method for prioritising encountered problems.
@@ -142,7 +168,7 @@ Following this categorisation you will now have a prioritized list of things to 
 \end{enumerate}
 
 Our method has two major differences from the discount usability method using the IDA method for evaluation.
-The first big difference is the addition of a sample sheet step. The reason for this is that without an IDE or a compiler the language would be presented as blank paper, which does nothing to teach the user about how the language is written. Providing the user with examples and explanations of how the language works is then necessary to let them meaningfully program in the language.
+The first big difference is the addition of a sample sheet step. The reason for this is that without an IDE or a compiler the language would be presented as blank paper, which does nothing to teach the user about how programs in the language are written. Providing the user with examples and explanations of how the language works is necessary to let them meaningfully program in the language.
 
 The other big difference is the how the problems are prioritised. The IDA method uses time spent on overcoming a problem to categorise its severity. Our setup makes the user either work in a generic text editor or on a piece of paper neither of which give any feedback about the correctness of the code written. This means the participants would not necessarily discover any problems in their solutions and would therefore not spend time on solving those problems.
 This makes time a poor measure for problem severity, which caused us to instead estimate the severity based on how much code would need to be changed to fix the problems.
@@ -214,7 +240,7 @@ Misunderstanding the effect of \lstinline!Sort()! on arrays of classes & The lac
 \end{table*}
 
 \subsection{Comparison with Quorum's Evidence}
-In their empirical experiments, Stefik and Gellenbeck \cite{EmpStudiesonStimuli} gathered many statistically significant results regarding keyword choices. Given that they try to primarily address visually impaired people and novice programmers, selecting the most intuitive words seems like a logical choice. For one of their  experiments \cite{EmpStudiesonStimuli}, they divided the participants in two groups - novices and experienced programmers to find out if there is a significant discrepancy in the results between the two groups. Every keyword choice was ranked in two tables by mean value and standard deviation. Since we conducted our experiment with people having programming experience, we are primarily interested in the results of the second group. For the purpose of our evaluation method, we will not mention every single word choice they rated but rather the ones which are coinciding with the problems we identified from the IDA evaluation. Additionally, we would also relate two of the empirical studies from Stefik and Siebert \cite{Empiricalinvestigation} and their findings about keyword choices. This would help us to make a comparison between the authors findings and the results from our evaluation, essentially giving an additional degree of credibility to the method if similarities are found.
+In their empirical experiments, Stefik and Gellenbeck \cite{EmpStudiesonStimuli} gathered many statistically significant results regarding keyword choices. Given that they try to primarily address visually impaired people and novice programmers, selecting the most intuitive words seems like a logical choice. For one of their  experiments \cite{EmpStudiesonStimuli}, they divided the participants in two groups - novices and experienced programmers to find out if there is a significant discrepancy in the results between the two groups. Every keyword choice was ranked in two tables by mean value and standard deviation. Since we conducted our experiment with people having programming experience, we are primarily interested in the results of the second group. For the purpose of our evaluation method, we will not mention every single word choice they rated but rather the ones which are coinciding with the problems we identified from the IDA evaluation in section \ref{section: Problem Categorization}. Additionally, we would also relate two of the empirical studies from Stefik and Siebert \cite{Empiricalinvestigation} and their findings about keyword choices. This would help us to make a comparison between the authors findings and the results from our evaluation, essentially giving an additional degree of credibility to the method if similarities are found.
 
 \begin{itemize}
 \item In the results for the concepts of AND, OR and XOR, Stefik and Gellenbeck \cite{EmpStudiesonStimuli} found that for the AND concept, using \lstinline!&&! and \lstinline!and! performed quite well. Their results showed that these words are actually popular and thus intuitive to use. As for the logical OR concept, the \lstinline!or! keyword was placed first, being significantly better the the second highest one - the \lstinline!||! operator, which is present in many popular programming languages. Last but not least, the XOR logical operator, the \lstinline!or! was rated highest which can be attributed to the fact that the participants did not know how to call an operation which "took a behavior when one condition was true but not both".
@@ -272,12 +298,12 @@ Conducting the experiment had some informal and qualitative conditions, which ma
 \section{Conclusion}
 We identified a gap in programming language evaluation between internal language analysis and the big industrial evaluation methods. In that regard, we wanted to explore whether HCI techniques could be applicable for the evaluation of programming languages.
 
-In the context of HCI techniques, we have examined the usefulness of the discount usability method with the IDA method for data analysis on C\# along with examining literature for similar experiments.
+In the context of HCI techniques, we have examined the usefulness of the discount usability method ( \ref{chapter:ExperimentEvaluation}) with the IDA method (\ref{section:IDA}) for data analysis on C\# along with examining literature for similar experiments.
 In this examination we found that the discount usability method can be used to evaluate programming languages, but has some shortcomings.
 The programming language’s IDE has a large effect on the results, often providing significant assistance which effectively eliminates many of the errors which might otherwise get caught in the language.
 Based on the results, we believe that the discount usability method is good for testing a compiler and an IDE, but is less well suited for examining language design.
 
-To create a method better suited for evaluating language design, we conducted an adapted usability experiment where we specifically avoided the use of an IDE or a compiler.
+To create a method better suited for evaluating language design, we conducted an adapted usability experiment where we specifically avoided the use of an IDE or a compiler (\ref{chapter:MethodIntro}).
 An added advantage of such a method is that it does not require the creation of any tools for the language before the language design can be tested, making it a low-cost and efficient solution.
 For this experiment, we used the evidence-based language called Quorum, as it was less likely for our participant group to be familiar with it, yet it belongs to a programming paradigm they were familiar with.
 We changed the way the problems are prioritised due to the discovery that since the system does not have a way of giving meaningful feedback to the participant, the participants would not encounter problems nor spend time fixing them.
