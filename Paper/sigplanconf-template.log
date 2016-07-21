@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.28)  21 JUL 2016 12:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.28)  21 JUL 2016 15:26
 entering extended mode
 **./sigplanconf-template.tex
 (sigplanconf-template.tex
@@ -170,43 +170,40 @@ Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 100.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 102.
 
 Package natbib Warning: Citation `wirth1974design' on page 1 undefined on input
- line 119.
+ line 121.
 
 
 Package natbib Warning: Citation `ingalls1981design' on page 1 undefined on inp
-ut line 120.
+ut line 122.
 
 
 Package natbib Warning: Citation `watt2000programming' on page 1 undefined on i
-nput line 120.
-
-
-Package natbib Warning: Citation `sestoft2012programming' on page 1 undefined o
-n input line 122.
-
-
-Package natbib Warning: Citation `pratt1984programming' on page 1 undefined on 
-input line 122.
-
-
-Package natbib Warning: Citation `sebesta2012concepts' on page 1 undefined on i
 nput line 122.
 
 
+Package natbib Warning: Citation `sestoft2012programming' on page 1 undefined o
+n input line 124.
+
+
+Package natbib Warning: Citation `pratt1984programming' on page 1 undefined on 
+input line 124.
+
+
+Package natbib Warning: Citation `sebesta2012concepts' on page 1 undefined on i
+nput line 124.
+
+
 Package natbib Warning: Citation `tennent1981principles' on page 1 undefined on
- input line 122.
+ input line 124.
 
 
 Package natbib Warning: Citation `sestoft2012programming' on page 1 undefined o
-n input line 122.
+n input line 124.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [1{C:/Users/bt/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+[1{C:/Users/bt/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 Non-PDF special ignored!
@@ -215,63 +212,70 @@ Non-PDF special ignored!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
+
+Underfull \vbox (badness 4279) has occurred while \output is active []
+
  [2]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 191.
+Underfull \vbox (badness 4279) has occurred while \output is active []
+
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 193.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 191.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 193.
  [3]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 215.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 217.
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <9> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 215.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 217.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tp') on input line 220.
+               Default added (so using `tp') on input line 222.
 
 
-Underfull \hbox (badness 8113) in paragraph at lines 229--229
+Underfull \hbox (badness 8113) in paragraph at lines 231--231
 []\OT1/ptm/m/n/10 Misunderstanding the ef-fect of
  []
 
 
 LaTeX Warning: Reference `section: Problem Categorization' on page 4 undefined 
-on input line 243.
+on input line 245.
 
 [4]
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¡ in font ptmr7t!
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2608) has occurred while \output is active []
+
+
+Underfull \vbox (badness 4156) has occurred while \output is active []
 
  [5]
-Underfull \hbox (badness 1490) in paragraph at lines 278--288
+Underfull \hbox (badness 1490) in paragraph at lines 280--290
 []\OT1/ptm/m/n/10 Comparing our re-sults with Quo-rum's ev-i-dence has
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [6]
+
+LaTeX Warning: Reference `chapter:ExperimentEvaluation' on page 7 undefined on 
+input line 303.
 
 
-LaTeX Warning: Reference `chapter:ExperimentEvaluation' on page 6 undefined on 
-input line 301.
-
-
-LaTeX Warning: Reference `section:IDA' on page 6 undefined on input line 301.
+LaTeX Warning: Reference `section:IDA' on page 7 undefined on input line 303.
 
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
-[6]
 
 LaTeX Warning: Reference `chapter:MethodIntro' on page 7 undefined on input lin
-e 306.
+e 308.
 
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
@@ -279,10 +283,13 @@ Missing character: There is no ™ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 Missing character: There is no â in font ptmri7t!
 Missing character: There is no € in font ptmri7t!
 Missing character: There is no ™ in font ptmri7t!
-[7]
+ [7]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no œ in font ptmr7t!
@@ -310,7 +317,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  2781 strings out of 493634
  36619 string characters out of 3141322
- 112110 words of memory out of 3000000
+ 111110 words of memory out of 3000000
  6174 multiletter control sequences out of 15000+200000
  31704 words of font info for 60 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
@@ -323,7 +330,7 @@ es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Program Files
 X 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
 s/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw
 /times/utmri8a.pfb>
-Output written on sigplanconf-template.pdf (8 pages, 131649 bytes).
+Output written on sigplanconf-template.pdf (8 pages, 131868 bytes).
 PDF statistics:
  58 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
