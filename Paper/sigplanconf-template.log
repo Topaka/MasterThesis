@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.28)  21 JUL 2016 15:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.28)  22 JUL 2016 15:35
 entering extended mode
 **./sigplanconf-template.tex
 (sigplanconf-template.tex
@@ -171,38 +171,6 @@ Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 102.
-
-Package natbib Warning: Citation `wirth1974design' on page 1 undefined on input
- line 121.
-
-
-Package natbib Warning: Citation `ingalls1981design' on page 1 undefined on inp
-ut line 122.
-
-
-Package natbib Warning: Citation `watt2000programming' on page 1 undefined on i
-nput line 122.
-
-
-Package natbib Warning: Citation `sestoft2012programming' on page 1 undefined o
-n input line 124.
-
-
-Package natbib Warning: Citation `pratt1984programming' on page 1 undefined on 
-input line 124.
-
-
-Package natbib Warning: Citation `sebesta2012concepts' on page 1 undefined on i
-nput line 124.
-
-
-Package natbib Warning: Citation `tennent1981principles' on page 1 undefined on
- input line 124.
-
-
-Package natbib Warning: Citation `sestoft2012programming' on page 1 undefined o
-n input line 124.
-
 [1{C:/Users/bt/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
@@ -283,13 +251,10 @@ Missing character: There is no ™ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 Missing character: There is no â in font ptmri7t!
 Missing character: There is no € in font ptmri7t!
 Missing character: There is no ™ in font ptmri7t!
- [7]
+[7]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no œ in font ptmr7t!
@@ -303,22 +268,16 @@ Missing character: There is no ¶ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
-
-
-Package natbib Warning: There were undefined citations.
-
-[8
-
-] (sigplanconf-template.aux)
+ [8] (sigplanconf-template.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2781 strings out of 493634
- 36619 string characters out of 3141322
- 111110 words of memory out of 3000000
- 6174 multiletter control sequences out of 15000+200000
+ 2795 strings out of 493634
+ 37039 string characters out of 3141322
+ 111385 words of memory out of 3000000
+ 6188 multiletter control sequences out of 15000+200000
  31704 words of font info for 60 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  31i,18n,34p,1551b,1287s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -330,7 +289,7 @@ es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Program Files
 X 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
 s/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw
 /times/utmri8a.pfb>
-Output written on sigplanconf-template.pdf (8 pages, 131868 bytes).
+Output written on sigplanconf-template.pdf (8 pages, 134335 bytes).
 PDF statistics:
  58 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
