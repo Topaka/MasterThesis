@@ -93,7 +93,7 @@ This paper presents work in progress on developing a Discount Method for Program
 
 The method is intended to bridge the gap between small scale internal language design evaluation methods and large scale surveys and quantitative evaluation methods. The method is designed to be applicable even before a compiler or IDE is developed for a new language.
 
-To test the method, a usability evaluation experiment was carried out on the Quorum programming language\cite{Quorum} using programmers with experience in C and C\#. When comparing our results with previous studies of Quorum, most of the data was comparable though not strictly in agreement. However, the discrepancies were mainly related to the programmers pre-existing expectations of a language. The results show that our evaluation method could serve as a low-cost way of evaluating programming languages for language designers. 
+To test the method, a usability evaluation experiment was carried out on the Quorum programming language\cite{Quorum} using programmers with experience in C and C\#. When comparing our results with previous studies of Quorum, most of the data was comparable though not strictly in agreement. However, the discrepancies were mainly related to the programmers pre-existing expectations of a language. The results show that our evaluation method could serve as a low-cost way of evaluating programming languages for language designers, especially in the early stages of the language design process.
 
 Future work include adjusting and improving the method in such a way it becomes usable to novice programming language designers. 
 
@@ -112,7 +112,11 @@ Programming Language Design Evaluation, User Evaluation
 Quorum, Usability Evaluation, Language Design
 
 \section{Introduction}
-Designing a new programming language or extending an existing programming language usually follows an iterative approach:
+An iterative approach to language design and implementation was advocated by Wirth as early as 1974 \cite{wirth1974design}.
+Ingalls reports on a similar design process used for Smalltalk in 1981 \cite{ingalls1981design} and
+Guy Steel forcefully advocated an iterative approach in his seminal key note speech ``growing a language'' at the 1998 OOPSLA conference \cite{steele1999growing}.
+Text books on programming language design and compiler construction, such as \cite{watt2000programming}, now describe such an iterative approach.
+Thus designing a new programming language or extending an existing programming language usually follows an iterative approach:
 \begin{itemize}
 \item[1] Create ideas for the programming language or extensions
 \item[2] Implement  the programming language or extensions
@@ -120,10 +124,7 @@ Designing a new programming language or extending an existing programming langua
 \item[4] If not satisfied, goto 1
 \end{itemize}
 
-An iterative approach to language design and implementation was advocated by Wirth as early as 1974 \cite{wirth1974design}.
-Ingalls reports on a similar design process used for Smalltalk in 1981 \cite{ingalls1981design}.
-%and Guy Steel's seminal key note speech ``growing a language'' at the 1998 OOPSLA conference enshrines 
-Text books on programming language design and compiler construction, such as \cite{watt2000programming}, now describe such an iterative approach.
+
 
 Step 1 of the process is hard to subject to scientific analysis. The decision to create a new programming language or design an extension of an existing languages is often `'a reaction to some language that the designer knows (and likes or dislikes)'' \cite{sestoft2012programming}. Language designers use whatever means that are available to them during this step. Step 2 is by now a well understood topic, although ever so often, new language constructs or features, leads to an expansion of compiler implementation techniques. Step 3 is much more difficult. In the early stages of a programming language design, the developer may be guide by various informal principles such as readability, simplicity and reliability \cite{pratt1984programming,sebesta2012concepts} or somewhat more formal principles such as Tennent's language design principles \cite{tennent1981principles} which still guide many language designers \cite{sestoft2012programming}.
 
@@ -133,23 +134,22 @@ In recent years, however, the scientific community has worked to rectify this.
 In particular, the focus of the PLATEAU conferences is the scientific evaluation of languages.
 The basic observation is that language use and preference is highly opinionated, which lead to user-based evaluation being the norm for programming languages.
 Commonly, the scientific community has made use of methods from social sciences, which usually requires studying a large number of subjects\cite{SocioPLT}\cite{AliceCS1}\cite{BlockOrNot}\cite{FromScratch}.
-%+Quorum + Hannenberg + data mining BlueJ
-% medical science - placebo
-Some research have even experimented with techniques akin to those used in medical science, where a placebo language was constructed to be used in the comparison between Perl and Quorum \cite{stefik2011empirical}.
+Many such studies involve 50 to 100 participants \cite{hanenberg2010experiment}\cite{EmpStudiesonStimuli} with some studies analysing over 100.000 participants\cite{brown2014investigating}.
+Some researchers have even experimented with techniques akin to those used in medical science, where a placebo language was constructed to be used in the comparison between Perl and Quorum \cite{stefik2011empirical}.
 
 However, these methods are rather expensive since conducting a quantitative test requires a large group of people. Typically, this means programming language designers cannot do these tests before the language has reached a certain level of maturity and, for some methods, the language need to have already gained widespread use. 
 
-Some designers have used more qualitative and lightweight approaches for language evaluation. A commonly used lightweight approach is the discount usability evaluation method \cite{CooperativeEval}. Some examples of using the method in practice are: The language HANDS developed by Pane et al.\cite{HANDS} designed specifically for children; Koitz and Slany\cite{PocketCode} used it on Scratch and their phone language Pocket Code to compare the two; Faldborg and Pedersen used the method to test their spoken programming language LARM; Faldborg and Nielsen used it while conducting an empirical experiment on Dart and the web-enabled IDE called DartPad \cite{DART}.
+Some designers have used more qualitative and lightweight approaches for language evaluation. A commonly used lightweight approach is the discount usability evaluation method \cite{CooperativeEval} which recommends the use of only five participants. Some examples of using the method in practice are: The language HANDS developed by Pane et al.\cite{HANDS} designed specifically for children; Koitz and Slany\cite{PocketCode} used it on Scratch and their phone language Pocket Code to compare the two; Faldborg and Pedersen used the method to test their spoken programming language LARM; Faldborg and Nielsen used it while conducting an empirical experiment on Dart and the web-enabled IDE called DartPad \cite{DART}.
 
 The primary problem with the discount usability method in such context, as identified by Faldborg and Pedersen and Faldborg and Nielsen, is the difficulty of separating the feedback about the language design from the IDE.
 These observations, along with our own experiences, lead us to believe that the discount usability evaluation method is good when evaluating the full package of a language with its IDE and compiler, but is less suited for evaluations in the early phases of a language design.
 
 Therefore we wanted to create a new evaluation method which will fill the gap between 
-internal language analysis and the big and bulky industry programming evaluation methods\cite{AliceCS1}\cite{BlockOrNot}\cite{FromScratch}. This new method is inspired by the discount usability evaluation and the Instant Data Analysis (IDA) methods, with the main difference being to avoid the use of a compiler or an IDE. 
+internal language analysis and the programming evaluation methods based on social science techniques\cite{AliceCS1}\cite{BlockOrNot}\cite{FromScratch}. This new method is inspired by the discount usability evaluation and the Instant Data Analysis (IDA) methods, with the main difference being to avoid the use of a compiler or an IDE. 
 
-To test this method, we used the evidence-based programming language Quorum. This entailed conducting a qualitative experiment with six experienced programmers as participants. These experiments 
+To test this method, we conducted an experiment using the evidence-based programming language Quorum. This entailed conducting a qualitative experiment with six experienced programmers as participants. These experiments 
 produced data, comparable though not strictly in agreement, with previously published studies. The discrepancies between our study and previous work mainly relate to the programmers pre-existing expectations of a language. 
-We believe that our method would be a valuable, low-cost tool for user evaluation of programming languages. 
+We believe that our method would be a valuable, low-cost tool for user evaluation of programming languages, especially in the early phases of programming language design.
 
 Future work include adjusting and improving the method in such a way it becomes usable to novice programming language designers. As part of the Computer Science and Software Engineering Curricula at Aalborg University, students at the 4th semester have to design, define and implement their own programming language \cite{toce2016}. It is our hope that the Discount Method for Programming Language Evaluation becomes standard practice used by these students and hopefully elsewhere.
 
@@ -316,47 +316,47 @@ Conducting the experiment had some informal and qualitative conditions, which ma
 \end{itemize}
 
 \section{Conclusion}
-We identified a gap in programming language evaluation between internal language analysis and the big industrial evaluation methods. In that regard, we wanted to explore whether HCI techniques could be applicable for the evaluation of programming languages.
-
-In the context of HCI techniques, we have examined the usefulness of the discount usability method ( \ref{chapter:ExperimentEvaluation}) with the IDA method (\ref{section:IDA}) for data analysis on C\# along with examining literature for similar experiments.
-In this examination we found that the discount usability method can be used to evaluate programming languages, but has some shortcomings.
+We identified a gap in programming language evaluation techniques between internal language analysis and evaluation methods based on social science techniques requiring a large number of subjects to be investigated. In that regard, we wanted to explore whether HCI techniques could be applicable for the evaluation of programming languages.
+We have examined the usefulness of the discount usability method with the IDA method for data analysis on C\# and F\# along with examining literature for similar experiments. We concluded that the discount usability method can be used to evaluate programming languages, but has some shortcomings.
 The programming language’s IDE has a large effect on the results, often providing significant assistance which effectively eliminates many of the errors which might otherwise get caught in the language.
 Based on the results, we believe that the discount usability method is good for testing a compiler and an IDE, but is less well suited for examining language design.
 
-To create a method better suited for evaluating language design, we conducted an adapted usability experiment where we specifically avoided the use of an IDE or a compiler (\ref{chapter:MethodIntro}).
-An added advantage of such a method is that it does not require the creation of any tools for the language before the language design can be tested, making it a low-cost and efficient solution.
-For this experiment, we used the evidence-based language called Quorum, as it was less likely for our participant group to be familiar with it, yet it belongs to a programming paradigm they were familiar with.
+We took the initial steps to create a new method better suited for evaluating language design in the early phase and we conducted an adapted usability experiment where we specifically avoided the use of an IDE or a compiler.
+An added advantage of our method is that it does not require the creation of any tools for the language before the language design can be tested, making it a low-cost and efficient solution.
 We changed the way the problems are prioritised due to the discovery that since the system does not have a way of giving meaningful feedback to the participant, the participants would not encounter problems nor spend time fixing them.
 
+To test the method, we conducted an experiment using the evidence-based language Quorum, as it was unlikely for our participant group to be familiar with it, yet it belongs to a programming paradigm they were familiar with.
 Comparing the resulting data from the method with Quorum’s evidence showed us that most of the data was comparable though not strictly in agreement.
 However, Quorum’s data was mostly centered around syntax choice and therefore was mostly only related to the cosmetic problems, which are the least interesting problems to consider.
 The data suggests that our method will be better suited for getting some of the deeper problems with a programming language when compared to the syntax questionnaires used as evidence for Quorum.
+It would be interesting to expand our experiment on Quorum with novice programmers.
+Using experienced programmers makes it easier to convey how to program in a language, as they already know how to program, and it  makes sense when programmers are the target group for the language.
+It does, however, mean that the data tend to be biased towards the languages the programmers already know. Using novices avoids this bias and is obviously useful for languages designed for them.
 
-We believe that we have created a method that can help fill the gap in programming language evaluation between internal language analysis and the big industrial evaluation methods.
+%We believe that we have created a method that can help fill the gap in programming language evaluation between internal language analysis and the big industrial evaluation methods.
 
-\section{Future Works}
-The results from the evaluation method show that this is a viable way of evaluating a programming language in a low-cost setup. However, there are still plenty of opportunities which can be taken into consideration for improving the method. This section provides a discussion of the most promising things that can be done in the future.
+%\section{Future Works}
+%The results from the evaluation method show that this is a viable way of evaluating a programming language in a low-cost setup. However, there are still plenty of opportunities which can be taken into consideration for improving the method. This section provides a discussion of the most promising things that can be done in the future.
 
-One of the things that could be done would be to conduct the usability experiment on Quorum, still with experienced programmers, using the Sodbeans environment. 
-This would give a more direct comparison of the differences in the data gotten from using the usability experiment method versus our method.
+%One of the things that could be done would be to conduct the usability experiment on Quorum, still with experienced programmers, using the Sodbeans environment. 
+%This would give a more direct comparison of the differences in the data gotten from using the usability experiment method versus our method.
 
-Of course, simply conducting our method on more languages, and ideally by the language designers of these languages, would also give a lot of data about the method.
-One way to facilitate this could be to spread the method to the 4th semester students in the engineering faculty (SW, DAT, IT) at Aalborg University.
-Since these student have to design a language as part of their semester project, and could use the data to argument for their language design decisions, it would be an opportune way of testing the method in a low-risk environment.
 
-While our method is good for finding problems in a programming language, it is less well suited to be used to compare the quality of programming languages.
+Future work include adjusting and improving the method by applying it to more programming languages, encouraging language designers to use it and report back their findings.
+We are especially interested in making our method usable for novice programming language designers. 
+As part of the Computer Science and Software Engineering Curricula at Aalborg University, students at the 4th semester have to design, define and implement their own programming language \cite{toce2016}. It is our hope that the Discount Method for Programming Language Evaluation becomes standard practice used by these students and hopefully elsewhere.
+
+
+While our method is good for finding problems in a programming language, it is less suited for comparing the quality of programming languages.
 It could be interesting to look at creating a method designed for that purpose, as such comparisons are commonly of interest to language designers looking to promote their language over existing ones.
 One way of creating such a method from our method, could be to create a set of generalised tasks that would be applicable on all programming languages, which would give a solid common ground for the comparison.
 
-Another thing worth exploring is using our method on novices.
-Using experienced programmers makes it easier to convey how to program in a language, as they already know how to program, and it  makes sense when programmers are the target group for the language.
-It does, however, mean that the data tend to be biased towards the languages the programmers already know.
-Using novices avoids this bias and is obviously useful for languages designed for them.
 
-\appendix
-\section{Appendix Title}
 
-This is the text of the appendix, if you need one.
+%\appendix
+%\section{Appendix Title}
+%
+%This is the text of the appendix, if you need one.
 
 \acks
 We would like to thank all of the students who were willing to share their time with us as participants in our experiments.
@@ -453,6 +453,15 @@ D. A. Watt and D. F. Brown, \newblock Programming language processors in Java: c
 
 \bibitem[Dolog et. al(2016)Dolog and Leth Thomsen and Thomsen]{toce2016}
 P. Dolog, L. Leth Thomsen, and B. Thomsen. \newblock Assessing Problem-Based Learning in a Software Engineering Curriculum Using Bloom’s Taxonomy and the IEEE Software Engineering Body of Knowledge. \newblock \emph{Trans. Comput. Educ}. 16, 3, Article 9 (May 2016).
+
+\bibitem[Steel(1999)Steel]{steele1999growing}
+G. L. Steele, \newblock Growing a language. \newblock In \emph{Higher-Order and Symbolic Computation}, 12(3), 221-236, 1999.
+
+\bibitem[Hanenberg(2010)Hanenberg]{hanenberg2010experiment}
+S. Hanenberg. \newblock An experiment about static and dynamic type systems: Doubts about the positive impact of static type systems on development time. \newblock In \emph{ACM Sigplan Notices (Vol. 45, No. 10, pp. 22-35)} ACM, October 2010.
+
+\bibitem[Brown and Altadmri(2014)Brown and Altadmri]{brown2014investigating}
+N. C. Brown and A. Altadmri. \newblock Investigating novice programming mistakes: educator beliefs vs. student data. \newblock In \emph{Proceedings of the tenth annual conference on International computing education research}, (pp. 43-50). ACM, July 2014.
 
 \end{thebibliography}
 

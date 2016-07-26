@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.28)  25 JUL 2016 17:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.28)  26 JUL 2016 15:26
 entering extended mode
 **./sigplanconf-template.tex
 (sigplanconf-template.tex
@@ -169,10 +169,7 @@ Underfull \hbox (badness 1163) in paragraph at lines 94--95
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 104.
 
-Underfull \vbox (badness 1117) has occurred while \output is active []
-
-
-Overfull \hbox (6.68802pt too wide) in paragraph at lines 132--139
+Overfull \hbox (6.68802pt too wide) in paragraph at lines 133--139
 \OT1/ptm/m/n/10 worked to rec-tify this. In par-tic-u-lar, the fo-cus of the PL
 ATEAU
  []
@@ -202,9 +199,6 @@ Missing character: There is no ™ in font ptmr7t!
  [2]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [3]
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 205.
 
@@ -228,50 +222,40 @@ Underfull \hbox (badness 8113) in paragraph at lines 243--243
 []\OT1/ptm/m/n/10 Misunderstanding the ef-fect of
  []
 
-
-Underfull \vbox (badness 3547) has occurred while \output is active []
-
- [4]
+[4]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¡ in font ptmr7t!
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [5]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Underfull \hbox (badness 1490) in paragraph at lines 298--308
 []\OT1/ptm/m/n/10 Comparing our re-sults with Quo-rum's ev-i-dence has
  []
 
-[6]
-
-LaTeX Warning: Reference `chapter:ExperimentEvaluation' on page 7 undefined on 
-input line 321.
-
-
-LaTeX Warning: Reference `section:IDA' on page 7 undefined on input line 321.
-
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
-
-LaTeX Warning: Reference `chapter:MethodIntro' on page 7 undefined on input lin
-e 326.
-
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7]
+ [6]
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ™ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ™ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ™ in font ptmr7t!
 Missing character: There is no â in font ptmri7t!
 Missing character: There is no € in font ptmri7t!
 Missing character: There is no ™ in font ptmri7t!
+
+[7]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no œ in font ptmr7t!
@@ -288,29 +272,24 @@ Missing character: There is no ™ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
-
-[8] (sigplanconf-template.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+ [8] (sigplanconf-template.aux) ) 
 Here is how much of TeX's memory you used:
- 2800 strings out of 493634
- 37129 string characters out of 3141322
- 112525 words of memory out of 3000000
- 6192 multiletter control sequences out of 15000+200000
+ 2806 strings out of 493634
+ 37323 string characters out of 3141322
+ 111649 words of memory out of 3000000
+ 6198 multiletter control sequences out of 15000+200000
  32782 words of font info for 61 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  31i,18n,34p,1438b,1286s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
-m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program 
-Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Program Fil
-es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Program Files 
-(x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTe
-X 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
-s/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw
-/times/utmri8a.pfb>
-Output written on sigplanconf-template.pdf (8 pages, 134880 bytes).
+{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/d
+vips/fontname/8r.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmss10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmsy9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmtt9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pf
+b><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Prog
+ram Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (
+x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on sigplanconf-template.pdf (8 pages, 134457 bytes).
 PDF statistics:
  58 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
