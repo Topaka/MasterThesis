@@ -133,7 +133,7 @@ Step 3 is by now a well understood topic, although ever so often new language co
 Step 4 is more difficult. In the early stages of a programming language design, the developer may be guided by various informal principles such as readability, simplicity and reliability \cite{pratt1984programming,sebesta2012concepts} or somewhat more formal principles such as Tennent's language design principles \cite{tennent1981principles} which still guide many language designers \cite{sestoft2012programming}.
 
 %However, 
-Formal evaluation methods for assessing programming languages are few and limited in their use. In fact until recently most evidence gathered to support claims of the usefulness of a new language are anecdotal in nature \cite{StakingClaims}. 
+Formal evaluation methods for assessing programming languages are few and limited in their use. In fact, until recently most evidence gathered to support claims of the usefulness of a new language are anecdotal in nature \cite{StakingClaims}. 
 
 In recent years the scientific community has worked to rectify this.
 In particular, the focus of the PLATEAU workshops is the scientific evaluation of languages.
@@ -149,7 +149,7 @@ Some designers have used more qualitative and lightweight approaches for languag
 The primary problem with the Discount Usability Evaluation method in such context, as identified by Pedersen and Faldborg and Faldborg and Nielsen, is the difficulty of separating the feedback about the language design from feedback on the IDE.
 These observations, along with our own experiences, lead us to conclude that the Discount Usability Evaluation method is good when evaluating the full package of a language with its IDE and compiler, but is less suited for evaluations in the early phases of a language design.
 
-Therefore we wanted to create a new evaluation method which will fill the gap between 
+Therefore, we wanted to create a new evaluation method which will fill the gap between 
 internal language analysis and the programming evaluation methods based on social science techniques. %\cite{AliceCS1}\cite{BlockOrNot}\cite{FromScratch}. 
 This new method is inspired by the Discount Usability Evaluation and the Instant Data Analysis (IDA) methods. %, with the main difference being to avoid the use of a compiler or an IDE. 
 The method is designed to be applicable even before a compiler or IDE is developed for a new language.
@@ -170,7 +170,7 @@ The Discount Usability Evaluation method was created by Andrew Monk et al. in 19
 To get acquainted with the Discount Usability Evaluation method’s applicability on programming languages, we first conducted experiments on C\# and F\# in Visual Studio. The participants were experienced programmers familiar with C and C\#, but not familiar with F\#.  To analyse the data from the test, we used the IDA method \cite{IDA}, as it is a lightweight method for prioritising encountered problems.
 Further details of these studies can be found in \cite{thesis}.
 
-Based on our findings, we used both methods as a basis for creating a new evaluation method suitable for evaluating languages without the need of a compiler or an IDE. The method mainly relies on solving a set of programming tasks with the help of a sample sheet which demonstrates the use of relevant constructs from the language being tested. Additionally, an interview, either in written or spoken form, serves the purpose of further elaborating on the most interesting problems the observer has noted during the process. The procedure of the method is as follows:
+Based on our findings, we used both methods as a basis for creating a new evaluation method suitable for evaluating languages without the need of a compiler or an IDE. The method mainly relies on solving a set of programming tasks with the help of a sample sheet, which demonstrates the use of relevant constructs from the language being tested. Additionally, an interview, either in written or spoken form, serves the purpose of further elaborating on the most interesting problems the observer has noted during the process. The procedure of the method is as follows:
 
 \begin{enumerate}
 \item \textbf{Create tasks} These tasks are specific to the language, and should explore key features of the language. A useful approach to designing tasks can be to create some scenarios you would expect a user to use your language in and what that user would need to do solve their task.
@@ -229,7 +229,7 @@ Alongside the task sheet, a sample sheet was created in order to provide example
 \subsection{Interview sheet}
 For the interview, we created an interview sheet with five questions addressing the overall experience of the experiment.
 These questions were not meant to replace the open discussion but rather serve as a baseline for the direction of the discussion and to ensure some specific areas were covered.
-Questions \#1, \#2 and \#3 were about the language and primarily served to get the participants thoughts about it.
+Questions \#1, \#2 and \#3 were about the language and primarily served to get the participants' thoughts about it.
 While there was some potential overlap in these questions, they could help some participants to talk more, and they helped categorise the feedback.
 Question \#4 focused on getting feedback about our task and sample sheet.
 Question \#5 asked about the experience of coding without a compiler since it is the biggest change for our method.
@@ -321,7 +321,7 @@ They were unsure how to start as they could not figure out what format of the so
 For most of the participants this was not a big hurdle, as they would either just pick one way of doing it or consult the facilitator.
 However, for some participants, having a discussion while programming was unnatural.
 One way to prevent this could be to have some pre-written code that the participant should instead complete.
-It does however sacrifice some of the potential data about the language that a more free-form task can give.
+It does, however, sacrifice some of the potential data about the language that a more free-form task can give.
 
 After conducting both of our experiments, a very interesting observation was made that an Integrated Development Environment (IDE), when used in conjunction with a programming language, contributes primarily to resolving cosmetic problems and mistakes associated strictly with the syntax of the given language. However, an IDE does not contribute that much to the facilitation process if the user gets "stuck", a state attributed to the critical problems from the IDA evaluation. Additionally, we noticed that even if participants are experienced with a specific paradigm, (participant \#2 from the usability evaluation of C\#), 
 they can still get into a position where they cannot continue with the experiment, given that they have to solve a task in a paradigm, different from what they are familiar with (participant \#2's experience with F\# tasks). Further observations from the evaluation method showed that when participants familiar with a specific paradigm (imperative, object-oriented) have to make use of an unfamiliar language supporting such a paradigm (Quorum is both imperative and object-oriented), they tend to disregard the syntax of the new language in place of that of a language they are familiar with. In the case with Quorum, most of the participants %(\#1, \#3, \#4, \#5, \#6, \#7 and \#8) 
