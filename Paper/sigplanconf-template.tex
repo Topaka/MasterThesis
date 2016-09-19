@@ -192,10 +192,10 @@ Following this categorisation you will have a prioritized list of things to impr
 \end{enumerate}
 
 Our method has two major differences from the Discount Usability Evaluation method using the IDA method for evaluation.
-The first big difference is the addition of a sample sheet step. The reason for this is that without an IDE or a compiler the language would be presented as blank paper, which does nothing to teach the user about how programs in the language are written. Providing the user with examples and explanations of how the language works is necessary to let them meaningfully program in the language.
+The first big difference is the addition of a sample sheet step. The reason for this is that without an IDE or a compiler the language would be presented as blank paper, which does nothing to teach the user about how programs in the language are written. Providing the user with examples and explanations of how the language works is necessary to let them meaningfully program in the language. We also considered providing a formal syntax, and perhaps a (formal) semantics description. However, in the early phases of a programming language design these artifacts may not have been fully worked out yet. Furthermore, although such artifacts are paramount to correctly implementing a language, they are not always appreciated or even understood by programmers. 
 
 The other big difference is how the problems are prioritised. The IDA method uses time spent on overcoming a problem to categorise its severity. Our setup makes the user either work in a generic text editor or on a piece of paper neither of which give any feedback about the correctness of the code written. This means the participants would not necessarily discover any problems in their solutions and would therefore not spend time on solving those problems.
-This makes time a poor measure for problem severity, which caused us to instead estimate the severity based on how much code would need to be changed to fix the problems.
+This makes time a poor measure for problem severity, which caused us to instead estimate the severity based on how much code would need to be changed to fix the problems. This is a rather informal notion and could in the future be refined by more formal evaluation criteria based on e.g. the cognitive dimensions framework \cite{blackwell2001cognitive}.
 
 \section{Experiment setup}
 The new method was tested in an experiment setup by using it on an unfamiliar programming language to avoid bias from pre-existing knowledge about the language. 
@@ -221,10 +221,12 @@ It also tested responsible code modification since there was a certain degree of
 \item The final task was testing operations on strings, including the exercise of in-built actions specifically useful for splitting text segments.
 \end{itemize}
 The tasks were scheduled to be solved in about an hour, though the final task was expected to extend beyond that timeframe.
+An example task sheet for Quorum can be found in \cite{thesis}.
 
 \subsection{Sample Sheet}
 Alongside the task sheet, a sample sheet was created in order to provide examples of code that the participants could use to learn what was necessary from the language in order to solve the tasks. 
 %Working samples of code were used since it tends to give a more wholesome picture of how the code should look, without resorting to detailed description of how everything works. 
+An example sample sheet for Quorum can be found in \cite{thesis}.
 
 \subsection{Interview sheet}
 For the interview, we created an interview sheet with five questions addressing the overall experience of the experiment.
@@ -278,26 +280,39 @@ Additionally, we would relate two of the empirical studies from Stefik and Siebe
 %, essentially giving an additional degree of credibility to the method if similarities are found.
 
 \begin{itemize}
-\item In the results for the concepts of AND, OR and XOR, Stefik and Gellenbeck \cite{EmpStudiesonStimuli} found that for the AND concept, using \lstinline!&&! and \lstinline!and! performed quite well. Their results showed that these words are actually popular and thus intuitive to use. As for the logical OR concept, the \lstinline!or! keyword was placed first, being significantly better the second highest one - the \lstinline!||! operator, which is present in many popular programming languages. For the XOR logical operator, the \lstinline!or! was rated highest which can be attributed to the fact that the participants did not know how to call an operation which "took a behavior when one condition was true but not both".
+\item %In the results for the concepts of AND, OR and XOR, 
+Stefik and Gellenbeck \cite{EmpStudiesonStimuli} found that for the AND concept, using \lstinline!&&! and \lstinline!and! performed quite well. Their results showed that these words are actually popular and thus intuitive to use. As for the logical OR concept, the \lstinline!or! keyword was placed first, being significantly better the second highest one - the \lstinline!||! operator, which is present in many popular programming languages. For the XOR logical operator, the \lstinline!or! was rated highest which can be attributed to the fact that the participants did not know how to call an operation which "took a behavior when one condition was true but not both".
+
+\item Our findings are comparable to Stefik and Siebert \cite{Empiricalinvestigation} where both the wrong and the correct syntax were found intuitive by then experienced programmers group. This also applies to Dot (\lstinline!.!) versus colon (\lstinline!:!) and using an aggregate operator (\lstinline!x += 1!) versus an arithmetic operator (\lstinline!x = x + 1!). It is possible that a lot of these cases were the result of a participant just glancing over the sample sheet, instead of having a more thorough introduction to the syntax on the sample sheet. Since the constructs looked intuitive, participants did not notice or remember that it was different and thus just used the syntax they were used to from other programming languages. 
+
 \item Stefik and Gellenbeck \cite{EmpStudiesonStimuli} settled on using a single equals (\lstinline!=!) sign for assignment statements and for testing equality since that is what they thought would make most sense. Although this might be true for the novice group (single equals (\lstinline!=!) sign was ranked highest), the experienced programmers group did not even rate the single equals in the top 3, rating the double equals (\lstinline!==!) as highest instead. This was not verified until one of the later empirical studies by Stefik and Siebert \cite{Empiricalinvestigation}.
-\item For the concept of "Taking a behaviour" Stefik and Gellenbeck considered several word choices such as \lstinline!function!, \lstinline!action! and \lstinline!method!. The novices ranked the \lstinline!action! word the highest, while the experienced programmers ranked - \lstinline!operation!, followed by \lstinline!action!, \lstinline!method! and \lstinline!function!. However, Stefik and Gellenbeck contemplate that this particular result should be further investigated, since the participants might have understood the description of the concept as something other than completely capturing the idea of a function.
+
+\item Our findings matches the results from Stefik and Siebert \cite{Empiricalinvestigation} where the experienced programmers group found \lstinline!==! to be intuitive as the boolean equals operator.
+
+\item Stefik and Gellenbeck considered several word choices for the concept of "Taking a behaviour" such as \lstinline!function!, \lstinline!action! and \lstinline!method!. The novices ranked the \lstinline!action! word the highest, while the experienced programmers ranked - \lstinline!operation!, followed by \lstinline!action!, \lstinline!method! and \lstinline!function!. However, Stefik and Gellenbeck contemplate that this particular result should be further investigated, since the participants might have understood the description of the concept as something other than completely capturing the idea of a function.
+
+\item None of our participants commented on this point. However, a point that may relate to this point was that our experienced programmers had expectations about data types wording (\lstinline!float! versus \lstinline!number!, \lstinline!string! versus \lstinline!text! and \lstinline!bool! versus \lstinline!boolean!)
+
 \item Quorum makes use of the keyword \lstinline!repeat! over \lstinline!for!, \lstinline!while! or \lstinline!cycle! (see %Sanchez and Flores 
 \cite{SanchezData}) following a study which shows that \lstinline!repeat! represents the concept of iteration significantly better than the aforementioned words \cite{EmpStudiesonStimuli}.
-\end{itemize}
 
-Based on the results from Stefik and Siebert \cite{Empiricalinvestigation}, the programmers group found \lstinline!==! to be intuitive as the boolean equals operator, which matches our observation of the participants often using \lstinline!==! instead of \lstinline!=! notation. For many other problems where our participants used the wrong syntax, Stefik and Siebert \cite{Empiricalinvestigation} did have comparable results where both the wrong and the correct syntax were found intuitive by their programmers group. These are: 
-\begin{itemize}
-\item Dot (\lstinline!.!) versus colon (\lstinline!:!)
-\item using an aggregate operator (\lstinline!x += 1!) versus an arithmetic operator (\lstinline!x = x + 1!)
-\item \lstinline!&&! versus \lstinline!and! for logical AND
-\item \lstinline!||! versus \lstinline!or! for logical OR
-\item data types wording (\lstinline!float! versus \lstinline!number!, \lstinline!string! versus \lstinline!text! and \lstinline!bool! versus \lstinline!boolean!)
-\end{itemize}
-
-It is possible that a lot of these cases were the result of a participant just glancing over the sample sheet, instead of having a more thorough introduction to the syntax on the sample sheet. Since the constructs looked intuitive, participants did not notice or remember that it was different and thus just used the syntax they were used to from other programming languages. Interestingly, our results about the looping constructs contradict the results from \cite{Empiricalinvestigation}. Our participants often lamented the lack of a \textit{for} or \textit{foreach} loop and had a lot of errors in using the iterator for the \textit{while} loop. %This is in contrast to the papers results where their programmers did not find \lstinline!for! among the most intuitive and found \lstinline!foreach! among the least intuitive keywords for looping. 
+\item Our results about the looping constructs contradict the results from \cite{Empiricalinvestigation}. Our participants often lamented the lack of a \textit{for} or \textit{foreach} loop and had a lot of errors in using the iterator for the \textit{while} loop. %This is in contrast to the papers results where their programmers did not find \lstinline!for! among the most intuitive and found \lstinline!foreach! among the least intuitive keywords for looping. 
 However, the results are not directly contradictory as Stefik and Siebert's questions about intuitiveness were focused on the syntax, while our participants problems were more about lacking the functionality of a looping construct with inbuilt iterator handling. A more direct contradiction is that our participants often found the \lstinline!repeat! keyword unnecessary, despite Stefik and Siebert listing it as one of the most intuitive keywords for looping. This could be a side effect of us only demonstrating the \textit{repeat while} loop in our sample sheet, since that loop looks exactly like the \textit{while} loop they are used to but with an extra keyword in front. 
+\end{itemize}
 
-A lot of our results were unsurprising.
+%Based on the results from Stefik and Siebert \cite{Empiricalinvestigation}, the programmers group found \lstinline!==! to be intuitive as the boolean equals operator, which matches our observation of the participants often using \lstinline!==! instead of \lstinline!=! notation. For many other problems where our participants used the wrong syntax, Stefik and Siebert \cite{Empiricalinvestigation} did have comparable results where both the wrong and the correct syntax were found intuitive by their programmers group. These are: 
+%\begin{itemize}
+%\item Dot (\lstinline!.!) versus colon (\lstinline!:!)
+%\item using an aggregate operator (\lstinline!x += 1!) versus an arithmetic operator (\lstinline!x = x + 1!)
+%\item \lstinline!&&! versus \lstinline!and! for logical AND
+%\item \lstinline!||! versus \lstinline!or! for logical OR
+%\item data types wording (\lstinline!float! versus \lstinline!number!, \lstinline!string! versus \lstinline!text! and \lstinline!bool! versus \lstinline!boolean!)
+%\end{itemize}
+
+%It is possible that a lot of these cases were the result of a participant just glancing over the sample sheet, instead of having a more thorough introduction to the syntax on the sample sheet. Since the constructs looked intuitive, participants did not notice or remember that it was different and thus just used the syntax they were used to from other programming languages. Interestingly, our results about the looping constructs contradict the results from \cite{Empiricalinvestigation}. Our participants often lamented the lack of a \textit{for} or \textit{foreach} loop and had a lot of errors in using the iterator for the \textit{while} loop. %This is in contrast to the papers results where their programmers did not find \lstinline!for! among the most intuitive and found \lstinline!foreach! among the least intuitive keywords for looping. 
+%However, the results are not directly contradictory as Stefik and Siebert's questions about intuitiveness were focused on the syntax, while our participants problems were more about lacking the functionality of a looping construct with inbuilt iterator handling. A more direct contradiction is that our participants often found the \lstinline!repeat! keyword unnecessary, despite Stefik and Siebert listing it as one of the most intuitive keywords for looping. This could be a side effect of us only demonstrating the \textit{repeat while} loop in our sample sheet, since that loop looks exactly like the \textit{while} loop they are used to but with an extra keyword in front. 
+
+As can be seen, a lot of our results were unsurprising.
 Quorum is a language that uses evidence about programming to design a language that is intuitive for novices.
 Since our participants were experienced programmers, it would be expected that a lot of the errors encountered would be related to this mismatch.
 Especially the critical error with lacking constructors with parameters showed a large mismatch in what an experienced programmer expected from a class compared to what was shown to be more user-friendly \cite{ParamConstructors}.
@@ -395,6 +410,9 @@ M. Armoni, O. Meerbaum-Salant and M. Ben-Ari. \newblock From Scratch to “Real�
 \bibitem[Benyon(2010)Benyon]{CooperativeEval}
 D. Benyon. \newblock Designing Interactive Systems - A comprehensive guide to HCI and interaction design. \newblock Published by \emph{Pearson Education Limited}, 2010.
 
+\bibitem[Blackwell et. al.(2001)Blackwell et. al.]{blackwell2001cognitive}
+A. F. Blackwell et. al. \newblock Cognitive dimensions of notations: Design tools for cognitive technology. \newblock In \emph{Cognitive Technology: Instruments of Mind}, pp. 325-341, Springer Berlin Heidelberg, 2001.
+
 \bibitem[Brown et al.(2014)Brown and Koelling and McCall and Utting]{BlueJBlackbox}
 N. C. C. Brown, M. Koelling, D. McCall and I. Utting \newblock Blackbox: A Large Scale Repository of Novice Programmers’ Activity. \newblock In \emph{The 45th SIGCSE technical symposium on computer science education (SIGCSE 2014)}, 2014.
 
@@ -428,6 +446,7 @@ R. Koitz and W. Slany. \newblock Empirical Comparison of Visual to Hybrid Formul
 
 \bibitem[Kurtev and Christensen(2016)Kurtev and Christensen]{thesis}
 S. Kurtev and T. A. Christensen, \newblock Discount Method for Programming Language Evaluation\newblock Master Thesis. In \emph{Det Digitale Projektbibliotek}, 2016.
+\newblock URL \emph{http://projekter.aau.dk/projekter/files/239518386/report.pdf}
 
 \bibitem[Markstrum(2010)Markstrum]{StakingClaims}
 S. Markstrum. \newblock Staking Claims: a history of programming language design claims and evidence: a positional work in progress. \newblock In \emph{PLATEU '10 Evaluation and Usability of Programming Languages and Tools}, 2010.
@@ -488,6 +507,8 @@ D. Weintrop and U. Wilensky. \newblock To block or not to block, that is the que
 
 \bibitem[Wirth(1974)Wirth]{wirth1974design}
 N. Wirth, \newblock On the Design of Programming Languages. \newblock In \emph{IFIP Congress (Vol. 74, pp. 386-393)}, August 1974.
+
+
 
 
 
