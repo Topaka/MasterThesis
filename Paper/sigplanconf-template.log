@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.28)  22 SEP 2016 12:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.28)  22 SEP 2016 13:08
 entering extended mode
 **./sigplanconf-template.tex
 (sigplanconf-template.tex
@@ -228,7 +228,7 @@ Overfull \hbox (1.00835pt too wide) in paragraph at lines 293--294
  []
 
 
-Underfull \hbox (badness 1490) in paragraph at lines 331--341
+Underfull \hbox (badness 1490) in paragraph at lines 331--332
 []\OT1/ptm/m/n/10 Comparing our re-sults with Quo-rum's ev-i-dence has
  []
 
@@ -245,9 +245,6 @@ Missing character: There is no œ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no  in font ptmr7t!
-
-Underfull \vbox (badness 1783) has occurred while \output is active []
-
  [7]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
@@ -256,17 +253,17 @@ Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
 
-Underfull \hbox (badness 1668) in paragraph at lines 449--451
+Underfull \hbox (badness 1668) in paragraph at lines 453--455
 []\OT1/ptm/m/n/9 S. Kurtev and T. A. Chris-tensen,  Dis-count Method 
  []
 
 
-Underfull \hbox (badness 1348) in paragraph at lines 449--451
+Underfull \hbox (badness 1348) in paragraph at lines 453--455
 \OT1/ptm/m/n/9 for Pro-gram-ming Lan-guage Eval-u-a-tion Mas-ter The- 
  []
 
 
-Underfull \hbox (badness 1838) in paragraph at lines 449--451
+Underfull \hbox (badness 1838) in paragraph at lines 453--455
 \OT1/ptm/m/n/9 sis. In \OT1/ptm/m/it/9 Det Dig-i-tale Pro-jek-t-bib-liotek\OT1/
 ptm/m/n/9 , 2016.  URL 
  []
@@ -291,7 +288,7 @@ m/cmtt9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb
 ><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x
 86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sigplanconf-template.pdf (8 pages, 134946 bytes).
+Output written on sigplanconf-template.pdf (8 pages, 135044 bytes).
 PDF statistics:
  58 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
