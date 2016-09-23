@@ -1,0 +1,523 @@
+%-----------------------------------------------------------------------------
+%
+%               Template for sigplanconf LaTeX Class
+%
+% Name:         sigplanconf-template.tex
+%
+% Purpose:      A template for sigplanconf.cls, which is a LaTeX 2e class
+%               file for SIGPLAN conference proceedings.
+%
+% Guide:        Refer to "Author's Guide to the ACM SIGPLAN Class,"
+%               sigplanconf-guide.pdf
+%
+% Author:       Paul C. Anagnostopoulos
+%               Windfall Software
+%               978 371-2316
+%               paul@windfall.com
+%
+% Created:      15 February 2005
+%
+%-----------------------------------------------------------------------------
+
+
+\documentclass[10pt]{sigplanconf}
+
+% The following \documentclass options may be useful:
+
+% preprint      Remove this option only once the paper is in final form.
+% 10pt          To set in 10-point type instead of 9-point.
+% 11pt          To set in 11-point type instead of 9-point.
+% numbers       To obtain numeric citation style instead of author/year.
+
+\usepackage{listings}
+\lstdefinelanguage{empty}{}
+\lstset{language=empty,
+captionpos=b,
+numbers=left, %Nummerierung
+numberstyle=\tiny, % kleine Zeilennummern
+frame=lines, % Oberhalb und unterhalb des Listings ist eine Linie
+showspaces=false,
+showtabs=false,
+breaklines=true,
+showstringspaces=false,
+breakatwhitespace=true,
+escapeinside={(*@}{@*)},
+commentstyle=\color{greencomments},
+morekeywords={partial, var, value, get, set},
+keywordstyle=\color{bluekeywords},
+stringstyle=\color{redstrings},
+basicstyle=\ttfamily\small,
+}
+\usepackage{amsmath}
+%\usepackage{footnote}
+
+%\makesavenoteenv{tabular}
+\newcommand{\cL}{{\cal L}}
+
+\begin{document}
+\toappear{} 
+
+\special{papersize=8.5in,11in}
+\setlength{\pdfpageheight}{\paperheight}
+\setlength{\pdfpagewidth}{\paperwidth}
+
+\conferenceinfo{CONF 'yy}{Month d--d, 20yy, City, ST, Country}
+\copyrightyear{20yy}
+\copyrightdata{978-1-nnnn-nnnn-n/yy/mm}
+\copyrightdoi{nnnnnnn.nnnnnnn}
+
+% Uncomment the publication rights you want to use.
+%\publicationrights{transferred}
+%\publicationrights{licensed}     % this is the default
+%\publicationrights{author-pays}
+
+\titlebanner{Preprint of paper for PLATEAU 2016}        % These are ignored unless
+\preprintfooter{Preprint of paper for PLATEAU 2016}   % 'preprint' option specified.
+
+\title{Discount Method for Programming Language Evaluation}
+%\subtitle{Subtitle Text, if any}
+
+\authorinfo{Svetomir Kurtev}
+           {Department of Computer Science, Aalborg University}
+           {svetomirkurtev@gmail.com}
+\authorinfo{Tommy Aagaard Christensen}
+           {Department of Computer Science, Aalborg University}
+           {tommyaa@gmail.com}
+ \authorinfo{Bent Thomsen}
+           {Department of Computer Science, Aalborg University}
+           {bt@cs.aau.dk}          
+
+\maketitle
+
+\begin{abstract}
+This paper presents work in progress on developing a Discount Method for Programming Language Evaluation inspired by the Discount Usability Evaluation method \cite{CooperativeEval} and the Instant Data Analysis method \cite{IDA}.
+
+The method is intended to bridge the gap between small scale internal language design evaluation methods and large scale surveys and quantitative evaluation methods. The method is designed to be applicable even before a compiler or IDE is developed for a new language.
+
+To test the method, a usability evaluation experiment was carried out on the Quorum programming language \cite{Quorum} using programmers with experience in C and C\#. When comparing our results with previous studies of Quorum, most of the data was comparable though not strictly in agreement. However, the discrepancies were mainly related to the programmers pre-existing expectations of a language. The results show that our evaluation method could serve language designers as a low-cost way for evaluating programming languages, especially in the early stages of the language design process.
+
+Future work includes adjusting and improving the method in such a way that it becomes usable to novice programming language designers. 
+
+%As part of the Computer Science and Software Engineering Curricula at Aalborg University, students at the 4th semester have to design, define and implement their own programming language. It is our hope that the Discount Method for Programming Language Evaluation becomes standard practice used by these students and hopefully elsewhere.
+\end{abstract}
+
+\category{D.3}{Programming Languages}{}
+\category{H.5.2}{Information Interfaces and Presentation (e.g., HCI)}{User Interfaces}[User-centered design]
+
+% general terms are not compulsory anymore,
+% you may leave them out
+\terms
+Programming Language Design Evaluation, User Evaluation
+
+\keywords
+Quorum, Usability Evaluation, Language Design
+
+\section{Introduction}
+An iterative approach to language design and implementation was advocated by Wirth as early as 1974 \cite{wirth1974design}.
+Ingalls reports on a similar design process used for Smalltalk in 1981 \cite{ingalls1981design} and
+Guy Steel forcefully advocated an iterative approach in his seminal key note speech ``growing a language'' at the 1998 OOPSLA conference \cite{steele1999growing}.
+Text books on programming language design and compiler construction, such as \cite{watt2000programming}, now describe such an iterative approach.
+Thus designing a new programming language or extending an existing programming language usually follows an iterative approach:
+\begin{itemize}
+\item[1] Create ideas for the programming language or extensions
+\item[2] Describe/define the programming language or extensions
+\item[3] Implement  the programming language or extensions
+\item[4] Evaluate  the programming language or extensions
+\item[5] If not satisfied, goto 1
+\end{itemize}
+
+
+
+Step 1 of the process is hard to subject to scientific analysis. The decision to create a new programming language or to design an extension of an existing language is often `'a reaction to some language that the designer knows (and likes or dislikes)'' \cite{sestoft2012programming}. Language designers use whatever means that are available to them during this step. 
+In Step 2 the programming language is described, often through example code, and defined, often using a mix of informal descriptions and formal notations such as BNF for syntax and formal semantic notations \cite{watt2000programming}.
+Step 3 is by now a well understood topic, although ever so often new language constructs or features lead to an expansion of compiler implementation techniques. In the early phases of a language design this step may be skipped.
+Step 4 is more difficult. In the early stages of a programming language design, the developer may be guided by various informal principles such as readability, simplicity and reliability \cite{pratt1984programming,sebesta2012concepts} or somewhat more formal principles such as Tennent's language design principles \cite{tennent1981principles} which still guide many language designers \cite{sestoft2012programming}.
+
+%However, 
+Formal evaluation methods for assessing programming languages are few and limited in their use. In fact, until recently most evidence gathered to support claims of the usefulness of a new language are anecdotal in nature \cite{StakingClaims}. 
+
+In recent years the scientific community has worked to rectify this.
+In particular, the focus of the PLATEAU workshops is the scientific evaluation of languages.
+The basic observation is that language use and preference is highly opinionated, which leads to user-based evaluation being the norm for programming languages.
+Commonly, the scientific community has made use of methods from social sciences, which usually requires studying a large number of subjects \cite{SocioPLT}\cite{AliceCS1}\cite{BlockOrNot}\cite{FromScratch}.
+Many such studies involve 50 to 100 participants \cite{hanenberg2010experiment}\cite{EmpStudiesonStimuli} with some studies analysing over 100.000 participants \cite{brown2014investigating}.
+Some researchers have even experimented with techniques akin to those used in medical sciences, where a placebo language was constructed to be used in the comparison between Perl and Quorum \cite{stefik2011empirical}.
+
+However, these methods are rather expensive, since conducting a quantitative test requires a large group of people. Typically, this means programming language designers cannot do these tests before the language has reached a certain level of maturity and, for some methods, the language needs to have already gained widespread use. 
+
+Some designers have used more qualitative and lightweight approaches for language evaluation. A commonly used lightweight approach in HCI is the Discount Usability Evaluation method \cite{CooperativeEval} which recommends the use of as few as five participants. Some examples of using the method in programming language evaluation are: The language HANDS developed by Pane et al. \cite{HANDS} designed specifically for children; Koitz and Slany \cite{PocketCode} used it on Scratch and their phone language Pocket Code to compare the two; Pedersen and Faldborg used the method to test their spoken programming language LARM \cite{LARM}; Faldborg and Nielsen used it while conducting an empirical experiment on Dart and the web-enabled IDE called DartPad \cite{DART}.
+
+The primary problem with the Discount Usability Evaluation method in such context, as identified by Pedersen and Faldborg as well as Faldborg and Nielsen, is the difficulty of separating the feedback about the language design from feedback on the IDE.
+These observations, along with our own experiences, lead us to conclude that the Discount Usability Evaluation method is good when evaluating the full package of a language with its IDE and compiler, but is less suited for evaluations in the early phases of a language design.
+
+Therefore, we wanted to create a new evaluation method which will fill the gap between 
+internal language analysis and the programming evaluation methods based on social science techniques. %\cite{AliceCS1}\cite{BlockOrNot}\cite{FromScratch}. 
+This new method is inspired by the Discount Usability Evaluation and the Instant Data Analysis (IDA) methods. %, with the main difference being to avoid the use of a compiler or an IDE. 
+The method is designed to be applicable even before a compiler or IDE is developed for a new language.
+
+To test this method, we conducted an experiment using the evidence-based programming language Quorum. This entailed conducting a qualitative experiment with six experienced programmers as participants. These experiments 
+produced data, comparable though not strictly in agreement, with previously published studies. The discrepancies between our study and previous work mainly relate to the programmers pre-existing expectations of a language. 
+These results encourage us to believe that our method would be a valuable, low-cost tool for user evaluation of programming languages, especially in the early phases of programming language design.
+
+%Future work include adjusting and improving the method in such a way it becomes usable to novice programming language designers. As part of the Computer Science and Software Engineering Curricula at Aalborg University, students at the 4th semester have to design, define and implement their own programming language \cite{toce2016}. It is our hope that the Discount Method for Programming Language Evaluation becomes standard practice used by these students and hopefully elsewhere.
+
+The rest of the paper is organised as follows: Section 2 describes our method. Section 3 describes the experimental setup. Section 4 reports on the results and presents a comparison with results for Quorum. 
+Section 5 contains a discussion of the results and Section 6 discusses threats to validity.
+Finally Section 7 presents the conclusion and future work.
+
+
+\section{Method}
+The Discount Usability Evaluation method was created by Andrew Monk et al. in 1993 as presented in Designing Interactive Systems \cite{CooperativeEval}.
+To get acquainted with the Discount Usability Evaluation method’s applicability on programming languages, we first conducted experiments on C\# and F\# in Visual Studio. The participants were experienced programmers familiar with C and C\#, but not familiar with F\#.  To analyse the data from the test, we used the IDA method \cite{IDA}, as it is a lightweight method for prioritising encountered problems.
+Further details of these studies can be found in \cite{thesis}.
+
+Based on our findings, we used both methods as a basis for creating a new evaluation method suitable for evaluating languages without the need of a compiler or an IDE. The method mainly relies on solving a set of programming tasks with the help of a sample sheet, which demonstrates the use of relevant constructs from the language being tested. Additionally, an interview, either in written or spoken form, serves the purpose of further elaborating on the most interesting problems the observer has noted during the process. The procedure of the method is as follows:
+
+\begin{enumerate}
+\item \textbf{Create tasks} These tasks are specific to the language, and should explore key features of the language. A useful approach to designing tasks can be to create some scenarios you would expect a user to use your language in and what that user would need to do solve their task.
+\item \textbf{Create a sample sheet} Based on the tasks, you now have a better idea of what a participant would need to know to solve those tasks. Keeping the sample sheet short or having a clear indexing of the samples can help participants browse the sample sheet. Having working code samples can help give a better understanding of the overall structure of code in the language.\footnote{Note that samples created at this stage may later serve the purpose of test cases when a compiler, interpreter or IDE is implemented for a new language.}
+\item \textbf{Estimate the task duration} Measuring how fast you can solve the tasks will give an idea of how long the experiment will take per participant. Do note that the participants will likely take longer to solve the tasks since they have to get acquainted with the language. It is recommended to have more tasks than you expect a participant to be able to solve. But the extra tasks would need to explore less important features, and the participant needs to be made aware of not being expected to solve all of them.
+\item \textbf{Prepare setup} The specifics of the setup can vary from a full blown usability lab to pen and paper. The advantage of a flexible setup, like pen and paper or a laptop with a text-editor, is the convenience it allows for potential participants. It is recommended to record the experiment to better review the process of solving the tasks, in which case the necessary utilities for recording need to be prepared.
+\item[-] (optional) \textbf{Conduct a pilot test} A pilot test can let you discover and fix problems in your tasks, sample sheet, task estimate and setup before conducting the experiment on the full number of participants. It does, however, require an additional participant and time.
+\item \textbf{Gather participants} The golden rule for the number of participants is five. More than that and most of the encountered problems are ones you already have observed, though the repetition can reinforce observations. Less than that and you tend to have several problems left undiscovered, though some data is generally still better than none.
+\item \textbf{Start the experiment} Make sure to tell the participants that it is the language being tested and not them, to alleviate some unnecessary nervousness.
+\item \textbf{Keep the participants talking} Try to make the participants talk about what they are thinking about solving the task at hand. During this time the facilitator may answer any questions the participants have about the language and may discuss the solution with the participant. This is because, we are not testing the participants' ability to formulate a solution, but rather how well the language lets them translate that into code. The facilitator will confirm when a task is done. This is necessary because the system will not give that kind of feedback.
+\item \textbf{Interview the participant} After the test, conduct a brief interview with the participant where you can discuss the language, tasks etc. It can be useful to have some questions prepared or create a questionnaire if there are many participants.
+\item \textbf{Analyse data} After all the tests have been conducted, use the data to identify a list of problems encountered during the test. You can then categorise the problems using the following guidelines:
+\begin{description}
+\item[Cosmetic problems] are typos and small keyword and character differences that can easily be fixed by replacing the wrong part.
+\item[Serious problems] are structural errors that usually impact how the code is structured, but are small enough that they can be fixed with a few changes.
+\item[Critical problems] are fundamental misunderstandings of how the language structures code and large structural errors that would require a revision of the code.
+\end{description}
+Following this categorisation you will have a prioritized list of things to improve on the language.
+\end{enumerate}
+
+Our method has two major differences from the Discount Usability Evaluation method using the IDA method for evaluation.
+The first big difference is the addition of a sample sheet step. The reason for this is that without an IDE or a compiler the language would be presented as blank paper, which does nothing to teach the user about how programs in the language are written. Providing the user with examples and explanations of how the language works is necessary to let them meaningfully program in the language. We also considered providing a formal syntax, and perhaps a (formal) semantics description. However, in the early phases of a programming language design these artifacts may not have been fully worked out yet. Furthermore, although such artifacts are paramount to correctly implementing a language, they are not always appreciated or even understood by programmers. 
+
+The other big difference is how the problems are prioritised. The IDA method uses time spent on overcoming a problem to categorise its severity. Our setup makes the user either work in a generic text editor or on a piece of paper, neither of which give any feedback about the correctness of the code written. This means the participants would not necessarily discover any problems in their solutions and would therefore not spend time on solving those problems.
+This makes time a poor measure for problem severity, which caused us to instead estimate the severity based on how much code would need to be changed to fix the problems. This is a rather informal notion and could in the future be refined by more formal evaluation criteria based on e.g. the cognitive dimensions framework \cite{blackwell2001cognitive}.
+
+\section{Experiment setup}
+The new method was tested in an experiment setup by using it on an unfamiliar programming language to avoid bias from pre-existing knowledge about the language. 
+%Since we did not have a newly created language at our disposal, we decided to use an 
+We used the evidence-based programming language Quorum, which our participants were unlikely to be familiar with. Most of our participants were experienced programmers,  studying for a degree in Computer Science, and having knowledge about C and C\# and several other programming languages (e.g. Java, Python, Pascal). We had a total of six participants taking part in the main experiment, with one person acting as as a pilot test participant.
+
+The experiment was conducted using a text-editor on a laptop.
+The main reason for this over pen and paper, was to make recording easier.
+The text-editor we used was Notepad++ \cite{Notepad}.
+Notepad++ has some features to assist programming, most notably an auto-completer which uses words already written in the text as suggestions.
+However, since these features are language-agnostic and the auto-completer would only prevent false positives from minor typos and not language misunderstandings, this was considered acceptable.
+To record the screen Microsoft Game DVR was used.
+Due to the poor quality of the inbuilt laptop microphones, a smartphone was used to record the audio.
+
+\subsection{Task Sheet}
+For our task sheet, we devised several smaller tasks, each addressing different features and constructs of Quorum. We drew heavy inspiration for some of the tasks from Codekata \cite{Codekata} since some of the katas were simple to understand yet conveyed the essence of a particular feature present in the tested language.
+Although each task had an intended purpose with a clear goal, their design allows more than one possible solution which gave the participants the freedom to experiment with the language.
+\begin{itemize}
+\item The first task had the intended purpose of testing arithmetic expressions and the use of data types.
+\item The second task had the purpose of testing containers in the language (such as arrays) and control structures.
+It also tested responsible code modification since there was a certain degree of intended repetition in the subtasks which warranted careful reuse of code segments.%might not be good to point out
+\item The third task was for testing the concept of classes and inheritance.
+\item The final task was testing operations on strings, including the exercise of in-built actions specifically useful for splitting text segments.
+\end{itemize}
+The tasks were scheduled to be solved in about an hour, though the final task was expected to extend beyond that timeframe.
+An example task sheet for Quorum can be found in \cite{thesis}.
+
+\subsection{Sample Sheet}
+Alongside the task sheet, a sample sheet was created in order to provide examples of code that the participants could use to learn what was necessary from the language in order to solve the tasks. 
+%Working samples of code were used since it tends to give a more wholesome picture of how the code should look, without resorting to detailed description of how everything works. 
+An example sample sheet for Quorum can be found in \cite{thesis}.
+
+\subsection{Interview sheet}
+For the interview, we created an interview sheet with five questions addressing the overall experience of the experiment.
+These questions were not meant to replace the open discussion but rather serve as a baseline for the direction of the discussion and to ensure some specific areas were covered.
+Questions \#1, \#2 and \#3 were about the language and primarily served to get the participants' thoughts about it.
+While there was some potential overlap in these questions, they could help some participants to talk more, and they helped categorise the feedback.
+Question \#4 focused on getting feedback about our task and sample sheet.
+Question \#5 asked about the experience of coding without a compiler since it is the biggest change for our method.
+During the interview, the participants would usually be made aware of most of the otherwise unmentioned errors, to be able to provide a more informed discussion.
+Transcripts of interviews can be found in \cite{thesis}.
+
+\section{Results}
+In this section, we describe and divide the identified problems, according to the categorization described earlier. Table \ref{QuorumProblemResult} lists all the problems in their respective category, but for the sake of brevity, we will focus only on the most interesting ones. 
+
+\begin{enumerate}
+\item \textbf{Not using the \lstinline!end! keyword at all} - this would affect the overall validity of the program because the scoping rules in Quorum are defined in conjunction with the \lstinline!end! keyword. This shows a fundamental misunderstanding of how scoping works in the language
+\item \textbf{The lack of constructors with parameters in Quorum} - Quorum does not support constructors with parameters which might be problematic for the participants having experience with other languages, where this feature is common. It both causes the participants to invoke syntax in the class that is not supported, and to have difficulties instantiating classes. Since this is a significant difference in how the code should be structured, it is considered critical.
+\item \textbf{Misunderstanding the effect of \lstinline!Sort()! on arrays of objects} - The inbuilt sorting function for arrays does not have access to the properties of the objects and therefore does not sort them by any of those. This would have the consequence of code, written with the assumption that it works, being wrong, which means recovery would require a full rewrite of the code. This makes the problem critical. 
+%It is possible that with the use of a compiler the participant would discover and recover much easier.
+%, which could mean the problem would potentially be considered serious.
+\end{enumerate}
+
+\begin{table*}[]
+\renewcommand{\arraystretch}{1.5}
+\begin{minipage}[c]{\textwidth}
+\begin{center}
+\begin{tabular}{| p{5cm} | p{5cm} | p{5cm} |}
+\hline
+\textbf{Critical}                                          & \textbf{Serious}                                                   & \textbf{Cosmetic}                                                                                        \\ \hline
+Not using the \lstinline!end! keyword at all               & Not using the \lstinline!end! keyword to end the scope of if-statements      & Using keywords and symbols from C\# instead of Quorum\footnote{dot (\lstinline!.!) instead of colon (\lstinline!:!), \lstinline!&&! instead of \lstinline!and!, \lstinline!||! instead of \lstinline!or!, \lstinline!float! instead of \lstinline!number!, \lstinline!string! instead of \lstinline!text!, \lstinline!==! in conditional statements instead of \lstinline!=!, \lstinline!int! instead of \lstinline!integer! and \lstinline!bool! instead of \lstinline!boolean!} \\ \hline
+The lack of constructors with parameters in Quorum         & Forgetting to increment the iterator in a repeat while loop        & The lack of aggregate operators in Quorum (e.g.\lstinline!+=!)                                           \\ \hline
+Misunderstanding the effect of \lstinline!Sort()! on arrays of classes & The lack of common looping constructs (for-loops or foreach loops) &  Writing \lstinline!output! instead of \lstinline!return! as the keyword for a return statement \\ \hline
+                                                           & Forgetting to import a library for containers (array)              & Typos in library importing                                                					           \\ \hline
+                                                           & Not using \lstinline!elseif! to avoid having to close an additional scope    & Mistyping \lstinline!integer! as \lstinline!integar!                                 \\ \hline
+                                                           & Not resetting inner loop iterator between loops                    & Accidentally used \lstinline!0! instead of \lstinline!O! in variable name						           \\ \hline
+                                                           &                                                                    & Mistyped the \lstinline!is! keyword as \lstinline!ia!					                                   \\ \hline
+                                                           &                                                                    & Forgot to add the \lstinline!repeat! keyword		                                                       \\ \hline
+\end{tabular}
+\end{center}
+\caption{The table of identified problems categorised by severity}
+\label{QuorumProblemResult}
+\end{minipage}
+\end{table*}
+
+\subsection{Comparison with Quorum's Evidence}
+In their empirical experiments, Stefik and Gellenbeck \cite{EmpStudiesonStimuli} gathered many statistically significant results regarding keyword choices. 
+%Given that they try to primarily address visually impaired people and novice programmers, selecting the most intuitive words seems like a logical choice. 
+For one of their  experiments, they divided the participants in two groups, novices and experienced programmers, to find out if there is a significant discrepancy in the results between the two groups. Every keyword choice was ranked in two tables by mean value and standard deviation. Since we conducted our experiment with participants having programming experience, we are primarily interested in the results of the second group. For the purpose of our evaluation method, we will not mention every single word choice they rated but rather the ones which coincide with the problems we identified using our method.
+%from the IDA evaluation in section \ref{section: Problem Categorization}. 
+Additionally, we would relate two of the empirical studies from Stefik and Siebert \cite{Empiricalinvestigation} and their findings about keyword choices. This would help us to make a comparison between the previous findings and the results from our evaluation.
+%, essentially giving an additional degree of credibility to the method if similarities are found.
+
+\begin{itemize}
+\item %In the results for the concepts of AND, OR and XOR, 
+Stefik and Gellenbeck \cite{EmpStudiesonStimuli} found that for the AND concept, using \lstinline!&&! and \lstinline!and! performed quite well. Their results showed that these words are actually popular and thus intuitive to use. As for the logical OR concept, the \lstinline!or! keyword was placed first, being significantly better than the second highest one - the \lstinline!||! operator, which is present in many popular programming languages. For the XOR logical operator, the \lstinline!or! was rated highest which can be attributed to the fact that the participants did not know how to call an operation which "took a behavior when one condition was true but not both".
+
+\item Our findings are comparable to Stefik and Siebert \cite{Empiricalinvestigation} where both the wrong and the correct syntax were found intuitive by the experienced programmers group. This also applies to Dot (\lstinline!.!) versus colon (\lstinline!:!) and using an aggregate operator (\lstinline!x += 1!) versus an arithmetic operator (\lstinline!x = x + 1!). It is possible that a lot of these cases were the result of a participant just glancing over the sample sheet, instead of having a more thorough introduction to the syntax on the sample sheet. Since the constructs looked intuitive, participants did not notice or remember that it was different and thus just used the syntax they were used to from other programming languages. 
+
+\item Stefik and Gellenbeck \cite{EmpStudiesonStimuli} settled on using a single equals (\lstinline!=!) sign for assignment statements and for testing equality since that is what they thought would make most sense. Although this might be true for the novice group (single equals (\lstinline!=!) sign was ranked highest), the experienced programmers group did not even rate the single equals in the top 3, rating the double equals (\lstinline!==!) as highest instead. This was not verified until one of the later empirical studies by Stefik and Siebert \cite{Empiricalinvestigation}.
+
+\item Our findings match the results from Stefik and Siebert \cite{Empiricalinvestigation} where the experienced programmers group found \lstinline!==! to be intuitive as the boolean equals operator.
+
+\item Stefik and Gellenbeck considered several word choices for the concept of "Taking a behaviour" such as \lstinline!function!, \lstinline!action! and \lstinline!method!. The novices ranked the \lstinline!action! word the highest, while the experienced programmers ranked - \lstinline!operation!, followed by \lstinline!action!, \lstinline!method! and \lstinline!function!. However, Stefik and Gellenbeck contemplate that this particular result should be further investigated, since the participants might have understood the description of the concept as something other than completely capturing the idea of a function.
+
+\item None of our participants commented on this point. However, a point that may relate to this was that our experienced programmers had expectations about data types wording (\lstinline!float! versus \lstinline!number!, \lstinline!string! versus \lstinline!text! and \lstinline!bool! versus \lstinline!boolean!)
+
+\item Quorum makes use of the keyword \lstinline!repeat! over \lstinline!for!, \lstinline!while! or \lstinline!cycle! (see %Sanchez and Flores 
+\cite{SanchezData}) following a study which shows that \lstinline!repeat! represents the concept of iteration significantly better than the aforementioned words \cite{EmpStudiesonStimuli}.
+
+\item Our results about the looping constructs contradict the results from \cite{Empiricalinvestigation}. Our participants often lamented the lack of a \textit{for} or \textit{foreach} loop and had a lot of errors in using the iterator for the \textit{while} loop. %This is in contrast to the papers results where their programmers did not find \lstinline!for! among the most intuitive and found \lstinline!foreach! among the least intuitive keywords for looping. 
+However, the results are not directly contradictory as Stefik and Siebert's questions about intuitiveness were focused on the syntax, while our participants problems were more about lacking the functionality of a looping construct with inbuilt iterator handling. A more direct contradiction is that our participants often found the \lstinline!repeat! keyword unnecessary, despite Stefik and Siebert listing it as one of the most intuitive keywords for looping. This could be a side effect of us only demonstrating the \textit{repeat while} loop in our sample sheet, since that loop looks exactly like the \textit{while} loop they are used to but with an extra keyword in front. 
+\end{itemize}
+
+%Based on the results from Stefik and Siebert \cite{Empiricalinvestigation}, the programmers group found \lstinline!==! to be intuitive as the boolean equals operator, which matches our observation of the participants often using \lstinline!==! instead of \lstinline!=! notation. For many other problems where our participants used the wrong syntax, Stefik and Siebert \cite{Empiricalinvestigation} did have comparable results where both the wrong and the correct syntax were found intuitive by their programmers group. These are: 
+%\begin{itemize}
+%\item Dot (\lstinline!.!) versus colon (\lstinline!:!)
+%\item using an aggregate operator (\lstinline!x += 1!) versus an arithmetic operator (\lstinline!x = x + 1!)
+%\item \lstinline!&&! versus \lstinline!and! for logical AND
+%\item \lstinline!||! versus \lstinline!or! for logical OR
+%\item data types wording (\lstinline!float! versus \lstinline!number!, \lstinline!string! versus \lstinline!text! and \lstinline!bool! versus \lstinline!boolean!)
+%\end{itemize}
+
+%It is possible that a lot of these cases were the result of a participant just glancing over the sample sheet, instead of having a more thorough introduction to the syntax on the sample sheet. Since the constructs looked intuitive, participants did not notice or remember that it was different and thus just used the syntax they were used to from other programming languages. Interestingly, our results about the looping constructs contradict the results from \cite{Empiricalinvestigation}. Our participants often lamented the lack of a \textit{for} or \textit{foreach} loop and had a lot of errors in using the iterator for the \textit{while} loop. %This is in contrast to the papers results where their programmers did not find \lstinline!for! among the most intuitive and found \lstinline!foreach! among the least intuitive keywords for looping. 
+%However, the results are not directly contradictory as Stefik and Siebert's questions about intuitiveness were focused on the syntax, while our participants problems were more about lacking the functionality of a looping construct with inbuilt iterator handling. A more direct contradiction is that our participants often found the \lstinline!repeat! keyword unnecessary, despite Stefik and Siebert listing it as one of the most intuitive keywords for looping. This could be a side effect of us only demonstrating the \textit{repeat while} loop in our sample sheet, since that loop looks exactly like the \textit{while} loop they are used to but with an extra keyword in front. 
+
+As can be seen, a lot of our results were unsurprising.
+Quorum is a language that uses evidence about programming to design a language that is intuitive for novices.
+Since our participants were experienced programmers, it would be expected that a lot of the errors encountered would be related to this mismatch.
+Especially the critical error with lacking constructors with parameters showed a large mismatch in what an experienced programmer expected from a class compared to what was shown to be more user-friendly \cite{ParamConstructors}.
+Likewise the lack of a for- or foreach loop and the resulting iterator handling problems experienced by our participants, showed that they had a habit of handling the iterator in the looping construct.
+This functionality, however, could make the construct less practical for novices, as they might get a better understanding of the same functionality by writing the statements separately.
+More surprisingly we had a participant who never used the \lstinline!end! keyword.
+In the discussion he explained this was because he thought indentation was used to control scope.
+He felt that since indentation is a good practice that all programmers should use anyway, it would make sense to make the language use and enforce this.
+This would be especially true for a beginners language, as the beginners are those who need to learn to use indentation.
+This again showed that experienced programmers were likely to draw from their previous experiences rather than thoroughly examine the sample sheet.
+
+\section{Discussion}
+The results from the previous section addressed some potential problems encountered when working with a language such as Quorum. This section will elaborate on how the results can be extended to other programming languages and how our method could be used in a customized manner.
+
+Comparing our results with Quorum's evidence has shown that our method gets comparable results to other methods, but with a significantly lower amount of participants. Each participant identified between 2 and 8 issues with the Quorum language and 1 and 7 issues with our method. On average each participant contributed two unique issues.
+
+Most of Quorum's evidence about experienced programmers has, however, been focused on just the syntax.
+This means that most of the comparable data is characterised as cosmetic errors, which are usually the least interesting problems from a usability standpoint.
+The more serious problems tend to either contradict or not be addressed by Quorum's evidence, though in most cases this is a result of the mismatch in target group between novice and experienced programmers.
+One noticeable problem we encountered in the execution of our test was participants `'freezing'' at the very beginning.
+They were unsure how to start as they could not figure out what format of the solution they should use.
+For most of the participants this was not a big hurdle, as they would either just pick one way of doing it or consult the facilitator.
+However, for some participants, having a discussion while programming was unnatural.
+One way to prevent this could be to have some pre-written code that the participant should instead complete.
+It does, however, sacrifice some of the potential data about the language that a more free-form task can give.
+
+After conducting both of our experiments, a very interesting observation was made that an Integrated Development Environment (IDE), when used in conjunction with a programming language, contributes primarily to resolving cosmetic problems and mistakes associated strictly with the syntax of the given language. However, an IDE does not contribute that much to the facilitation process if the user gets "stuck", a state attributed to the critical problems from the IDA evaluation. Additionally, we noticed that even if participants are experienced with a specific paradigm, (participant \#2 from the usability evaluation of C\#), 
+they can still get into a position where they cannot continue with the experiment, given that they have to solve a task in a paradigm, different from what they are familiar with (participant \#2's experience with F\# tasks). Further observations from the evaluation method showed that when participants familiar with a specific paradigm (imperative, object-oriented) have to make use of an unfamiliar language supporting such a paradigm (Quorum is both imperative and object-oriented), they tend to disregard the syntax of the new language in place of that of a language they are familiar with. In the case with Quorum, most of the participants %(\#1, \#3, \#4, \#5, \#6, \#7 and \#8) 
+made use of syntax native to languages such as Java and C\#, supporting the same paradigms as Quorum.
+
+
+
+
+\section{Threats to validity}
+Conducting the experiment had some informal and qualitative conditions, which makes the validity face some threats. This section will describe the most prevalent threats.
+\begin{itemize}
+\item Participant sample - Although we collected some qualitative results, the experiment did not have a good representation of the general populace. The participant sample involved a small group, with very similar educational backgrounds, occupation, age and geographic location. The involvement of a bigger and more diverse group might skew the results.
+\item Facilitating the participants - Since we neither used a compiler nor an IDE for the experiment, the facilitator had to help on several occasions and the participants referred to him rather than the sample sheet.
+\end{itemize}
+
+\section{Conclusion}
+We identified a gap in programming language evaluation techniques between internal language analysis and evaluation methods based on social science techniques requiring a large number of subjects to be investigated. In that regard, we wanted to explore whether HCI techniques could be applicable for the evaluation of programming languages.
+We have examined the usefulness of the Discount Usability Evaluation method with the IDA method for data analysis on C\# and F\# along with examining literature for similar experiments. We concluded that the Discount Usability Evaluation method can be used to evaluate programming languages, but has some shortcomings.
+The programming language IDE has a large effect on the results, often providing significant assistance which effectively eliminates many of the errors which might otherwise get caught in the language.
+Based on the results, we concluded that the Discount Usability Evaluation method is good for testing a compiler and an IDE, but is less suited for examining language design.
+
+We took the initial steps to create a new method better suited for evaluating language design in the early phase and we conducted an adapted usability experiment where we specifically avoided the use of an IDE or a compiler.
+An added advantage of our method is that it does not require the creation of any tools for the language before the language design can be tested, making it a low-cost and efficient solution.
+We changed the way the problems are prioritised due to the discovery, that since the system does not have a way of giving meaningful feedback to the participant, the participants would not encounter problems nor spend time fixing them.
+
+To test the method, we conducted an experiment using the evidence-based language Quorum, as it was unlikely for our participant group to be familiar with it, yet it belongs to a programming paradigm they were familiar with.
+Comparing the resulting data from the method with Quorum’s evidence showed us that most of the data was comparable though not strictly in agreement.
+However, Quorum’s data mostly centered around syntax choice and therefore was mostly only related to the cosmetic problems, which are the least interesting problems to consider.
+The data suggests that our method will be better suited for identifying some of the deeper problems with a programming language when compared to the syntax questionnaires used as evidence for Quorum.
+It would be interesting to expand our experiment on Quorum with novice programmers.
+Using experienced programmers makes it easier to convey how to program in a language, as they already know how to program, and it  makes sense when programmers are the target group for the language.
+It does, however, mean that the data tends to be biased towards the languages the programmers already know. Using novices avoids this bias and is obviously useful for languages designed for them.
+
+%We believe that we have created a method that can help fill the gap in programming language evaluation between internal language analysis and the big industrial evaluation methods.
+
+%\section{Future Works}
+%The results from the evaluation method show that this is a viable way of evaluating a programming language in a low-cost setup. However, there are still plenty of opportunities which can be taken into consideration for improving the method. This section provides a discussion of the most promising things that can be done in the future.
+
+%One of the things that could be done would be to conduct the usability experiment on Quorum, still with experienced programmers, using the Sodbeans environment. 
+%This would give a more direct comparison of the differences in the data gotten from using the usability experiment method versus our method.
+
+
+Future work includes adjusting and improving the method by applying it to more programming languages, encouraging language designers to use it and report back their findings.
+We are especially interested in making our method usable for novice programming language designers. 
+As part of the Computer Science and Software Engineering Curricula at Aalborg University, students at the 4th semester design, define and implement their own programming language \cite{toce2016}. It is our hope that the Discount Method for Programming Language Evaluation becomes standard practice used by these students and hopefully elsewhere.
+
+
+%While our method is good for finding problems in a programming language design, it is less suited for comparing the quality of programming languages.
+%It could be interesting to look at creating a method designed for that purpose, as such comparisons are commonly of interest to language designers looking to promote their language over existing ones.
+%One way of creating such a method from our method, could be to create a set of generalised tasks that would be applicable on all programming languages, which would give a solid common ground for the comparison. It may be too ambitious to create tasks suitable for all languages, but if a language is to be used in a certain domain, tasks could focus on this domain, as done by Richards et. al. in the area of parallel programming \cite{richards2014productivity}.
+
+
+
+%\appendix
+%\section{Appendix Title}
+%
+%This is the text of the appendix, if you need one.
+
+\acks
+We would like to thank the students who shared their time with us as participants in our experiments.
+
+% We recommend abbrvnat bibliography style.
+
+\bibliographystyle{abbrvnat}
+
+% The bibliography should be embedded for final submission.
+
+\begin{thebibliography}{}
+\softraggedright
+
+\bibitem[Armoni et al.(2015)Armoni and Meerbaum-Salant and Ben-Ari]{FromScratch}
+M. Armoni, O. Meerbaum-Salant and M. Ben-Ari. \newblock From Scratch to “Real” Programming. \newblock In \emph{ACM Transactions on Computing Education (TOCE), Volume 14 Issue 4, February 2015}.
+
+\bibitem[Benyon(2010)Benyon]{CooperativeEval}
+D. Benyon. \newblock Designing Interactive Systems - A comprehensive guide to HCI and interaction design. \newblock Published by \emph{Pearson Education Limited}, 2010.
+
+\bibitem[Blackwell et. al.(2001)Blackwell et. al.]{blackwell2001cognitive}
+A. F. Blackwell et. al. \newblock Cognitive dimensions of notations: Design tools for cognitive technology. \newblock In \emph{Cognitive Technology: Instruments of Mind}, pp. 325-341, Springer Berlin Heidelberg, 2001.
+
+\bibitem[Brown et al.(2014)Brown and Koelling and McCall and Utting]{BlueJBlackbox}
+N. C. C. Brown, M. Koelling, D. McCall and I. Utting \newblock Blackbox: A Large Scale Repository of Novice Programmers’ Activity. \newblock In \emph{The 45th SIGCSE technical symposium on computer science education (SIGCSE 2014)}, 2014.
+
+\bibitem[Brown and Altadmri(2014)Brown and Altadmri]{brown2014investigating}
+N. C. Brown and A. Altadmri. \newblock Investigating novice programming mistakes: educator beliefs vs. student data. \newblock In \emph{Proceedings of the tenth annual conference on International computing education research}, (pp. 43-50). ACM, July 2014.
+
+\bibitem[Dolog et. al(2016)Dolog and Leth Thomsen and Thomsen]{toce2016}
+P. Dolog, L. Leth Thomsen, and B. Thomsen. \newblock Assessing Problem-Based Learning in a Software Engineering Curriculum Using Bloom’s Taxonomy and the IEEE Software Engineering Body of Knowledge. \newblock \emph{ACM Transactions on Computing Education (TOCE)}, Volume 16, Issue 3, Article 9 (May 2016).
+
+\bibitem[Faldborg and Nielsen(2015)Faldborg and Nielsen]{DART}
+M. Faldborg and T.L. Nielsen. \newblock Type Systems And Programmers \: A Look at Optional Typing in Dart. \newblock Master Thesis. In \emph{Det Digitale Projektbibliotek}, 2015.
+%\newblock URL \emph{http://projekter.aau.dk/projekter/da/studentthesis/type-systems-and-programmers-a-look-at-optional-typing-in-dart(375d2f4d-8a5e-4fdd-b72d-e5c9faf479b1).html}
+
+\bibitem[Garlick and Cankaya(2010)Garlick and Cankaya]{AliceCS1}
+R. Garlick and E. C. Cankaya. \newblock Using alice in CS1: a quantitative experiment. \newblock In \emph{ITiCSE '10 Proceedings of the fifteenth annual conference on Innovation and technology in computer science education}, 2010.
+
+\bibitem[Hanenberg(2010)Hanenberg]{hanenberg2010experiment}
+S. Hanenberg. \newblock An experiment about static and dynamic type systems: Doubts about the positive impact of static type systems on development time. \newblock In \emph{ACM Sigplan Notices (Vol. 45, No. 10, pp. 22-35)} ACM, October 2010.
+
+\bibitem[Ho(2016)Ho]{Notepad}
+D. Ho \newblock Notepad++ home page. \newblock URL \emph{http://notepad-plus-plus.org}, 2016. \newblock Used: 11/05/16.
+
+\bibitem[Ingalls(1981)Ingalls]{ingalls1981design}
+D. H. Ingalls,  \newblock Design principles behind Smalltalk. \newblock in \emph{BYTE magazine, 6(8), pp. 286-298}, 1981. 
+
+\bibitem[Kjeldskov et al.(2004)Kjeldskov and Skov and Stage]{IDA}
+J. Kjeldskov, M. B. Skov and J. Stage. \newblock Instant data analysis: conducting usability evaluations in a day. \newblock In \emph{Proceedings of the third Nordic conference on Human-computer interaction}, 2004.
+
+\bibitem[Koitz and Slany(2014)Koitz and Slany]{PocketCode}
+R. Koitz and W. Slany. \newblock Empirical Comparison of Visual to Hybrid Formula Manipulation in Educational Programming Languages for Teenagers. \newblock In \emph{PLATEAU '14 Proceedings of the 5th Workshop on Evaluation and Usability of Programming Languages and Tools}, 2014.
+
+\bibitem[Kurtev and Christensen(2016)Kurtev and Christensen]{thesis}
+S. Kurtev and T. A. Christensen, \newblock Discount Method for Programming Language Evaluation\newblock Master Thesis. In \emph{Det Digitale Projektbibliotek}, 2016.
+\newblock URL \emph{http://projekter.aau.dk/projekter/files/239518386/report.pdf}
+
+\bibitem[Markstrum(2010)Markstrum]{StakingClaims}
+S. Markstrum. \newblock Staking Claims: a history of programming language design claims and evidence: a positional work in progress. \newblock In \emph{PLATEU '10 Evaluation and Usability of Programming Languages and Tools}, 2010.
+
+\bibitem[Meyerovich and Rabkin(2012)Meyerovich and Rabkin]{SocioPLT}
+L. A. Meyerovich and A. S. Rabkin. \newblock Socio-PLT: principles for programming language adoption. \newblock In \emph{Onward! 2012 Proceedings of the ACM international symposium on New ideas, new paradigms, and reflections on programming and software}, 2012.
+
+\bibitem[Pane et al.(2002)Pane and Myers and Miller]{HANDS}
+J. F. Pane, B. A. Myers and L. B. Miller. \newblock Using HCI Techniques to Design a More Usable Programming System. \newblock In \emph{Proceedings of the IEEE 2002 Symposia on Human Centric Computing Languages and Environments (HCC’02)}, 2002.
+
+\bibitem[Pedersen and Faldborg(2014)Pedersen and Faldborg]{LARM}
+L. C. Pedersen and M. Faldborg. \newblock Designing LARM: Programing with Nothing but your Voice. \newblock Student report. In \emph{Det Digitale Projektbibliotek}, 2014.
+
+\bibitem[Pratt et. al(1984)Pratt and Zelkowitz and Gopal]{pratt1984programming}
+T. W. Pratt, M. V. Zelkowitz and T. V.  Gopal, \newblock Programming languages: design and implementation \newblock Prentice-Hall, 1984.
+
+\bibitem[Richards et. al.(2014)Richards and Brezin and Swart and Halverson]{richards2014productivity}
+J. T. Richards, J.  Brezin, C. B. Swart and C. A. Halverson, \newblock Productivity in parallel programming: A decade of progress. \newblock \emph{Queue, 12(9), 30}, ACM, 2014.
+
+\bibitem[Sebesta(2016)Sebesta]{sebesta2012concepts}
+H. W. Sebesta, \newblock Concepts of Programming Languages. \newblock Pearson College Division, 2016.
+
+\bibitem[Sestoft(2012)Sestoft]{sestoft2012programming}
+P. Sestoft, \newblock Programming language concepts  \newblock \emph{Springer Science \& Business Media (Vol. 50)}, 2012.
+
+\bibitem[Stefik and Gellenbeck(2011)Stefik and Gellenbeck]{EmpStudiesonStimuli}
+A. Stefik and E. Gellenbeck \newblock Empirical studies on programming language stimuli. \newblock In \emph{Software Quality Journal}, 2011.
+
+\bibitem[Stefik et al(2011)Stefik and Siebert and Stefik and Slattery]{stefik2011empirical}
+A. Stefik, S. Siebert, M. Stefik, and K. Slattery, \newblock An empirical comparison of the accuracy rates of novices using the quorum, perl, and randomo programming languages. \newblock In Proceedings of the \emph{3rd ACM SIGPLAN workshop on Evaluation and usability of programming languages and tools}, pp. 3-8, ACM, October 2011.
+
+\bibitem[Stefik and Siebert(2013)Stefik and Siebert]{Empiricalinvestigation}
+A. Stefik and S. Siebert \newblock An Empirical Investigation into Programming Language Syntax. \newblock In \emph{ACM Transactions on Computing Education (TOCE)}, 2013.
+
+\bibitem[Stefik et al.(2016)Stefik and Pierzina and Ritter]{Quorum}
+A. Stefik, E. Pierzina and K. Ritter \newblock Quorum's home page. \newblock URL \emph{http://www.quorumlanguage.com}. \newblock Used: 11/05/16.
+
+\bibitem[Sanchez and Aguayo(2005)Sanchez and Aguayo]{SanchezData}
+J. Sanchez and F. Aguayo \newblock Blind learners programming through audio. \newblock In \emph{CHI EA '05 Extended Abstracts on Human Factors in Computing Systems}, 2005.
+
+\bibitem[Steel(1999)Steel]{steele1999growing}
+G. L. Steele, \newblock Growing a language. \newblock In \emph{Higher-Order and Symbolic Computation}, 12(3), 221-236, 1999.
+
+\bibitem[Stylos and Clarke(2007)Stylos and Clarke]{ParamConstructors}
+J. Stylos and S. Clarke \newblock Usability Implications of Requiring Parameters in Objects' Constructors. \newblock In \emph{ICSE International Conference on Software Engineering}, 2007.
+
+\bibitem[Tennent(1981)Tennent]{tennent1981principles}
+R. D. Tennent, \newblock Principles of programming languages, \newblock Prentice Hall PTR, 1981.
+
+\bibitem[Thomas(2016)Thomas]{Codekata}
+D. Thomas \newblock Codekata. \newblock URL \emph{http://codekata.com/}. \newblock Used: 12/05/16.
+
+\bibitem[Watt and Brown(2000)Watt and Brown]{watt2000programming}
+D. A. Watt and D. F. Brown, \newblock Programming language processors in Java: compilers and interpreters, \newblock Pearson Education, 2000.
+
+\bibitem[Weintrop and Wilensky(2015)Weintrop and Wilensky]{BlockOrNot}
+D. Weintrop and U. Wilensky. \newblock To block or not to block, that is the question: students' perceptions of blocks-based programming. \newblock In \emph{IDC '15 Proceedings of the 14th International Conference on Interaction Design and Children}, 2015.
+
+\bibitem[Wirth(1974)Wirth]{wirth1974design}
+N. Wirth, \newblock On the Design of Programming Languages. \newblock In \emph{IFIP Congress (Vol. 74, pp. 386-393)}, August 1974.
+
+
+
+
+
+\end{thebibliography}
+
+
+\end{document}
