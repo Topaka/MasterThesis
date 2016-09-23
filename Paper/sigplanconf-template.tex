@@ -129,7 +129,7 @@ Thus designing a new programming language or extending an existing programming l
 
 
 Step 1 of the process is hard to subject to scientific analysis. The decision to create a new programming language or to design an extension of an existing language is often `'a reaction to some language that the designer knows (and likes or dislikes)'' \cite{sestoft2012programming}. Language designers use whatever means that are available to them during this step. 
-In Step 2 the programming language is described, often through example code and defined, often using a mix of informal descriptions and formal notations such as BNF for syntax and formal semantic notations \cite{watt2000programming}.
+In Step 2 the programming language is described, often through example code, and defined, often using a mix of informal descriptions and formal notations such as BNF for syntax and formal semantic notations \cite{watt2000programming}.
 Step 3 is by now a well understood topic, although ever so often new language constructs or features lead to an expansion of compiler implementation techniques. In the early phases of a language design this step may be skipped.
 Step 4 is more difficult. In the early stages of a programming language design, the developer may be guided by various informal principles such as readability, simplicity and reliability \cite{pratt1984programming,sebesta2012concepts} or somewhat more formal principles such as Tennent's language design principles \cite{tennent1981principles} which still guide many language designers \cite{sestoft2012programming}.
 
@@ -147,7 +147,7 @@ However, these methods are rather expensive, since conducting a quantitative tes
 
 Some designers have used more qualitative and lightweight approaches for language evaluation. A commonly used lightweight approach in HCI is the Discount Usability Evaluation method \cite{CooperativeEval} which recommends the use of as few as five participants. Some examples of using the method in programming language evaluation are: The language HANDS developed by Pane et al. \cite{HANDS} designed specifically for children; Koitz and Slany \cite{PocketCode} used it on Scratch and their phone language Pocket Code to compare the two; Pedersen and Faldborg used the method to test their spoken programming language LARM \cite{LARM}; Faldborg and Nielsen used it while conducting an empirical experiment on Dart and the web-enabled IDE called DartPad \cite{DART}.
 
-The primary problem with the Discount Usability Evaluation method in such context, as identified by Pedersen and Faldborg and Faldborg and Nielsen, is the difficulty of separating the feedback about the language design from feedback on the IDE.
+The primary problem with the Discount Usability Evaluation method in such context, as identified by Pedersen and Faldborg as well as Faldborg and Nielsen, is the difficulty of separating the feedback about the language design from feedback on the IDE.
 These observations, along with our own experiences, lead us to conclude that the Discount Usability Evaluation method is good when evaluating the full package of a language with its IDE and compiler, but is less suited for evaluations in the early phases of a language design.
 
 Therefore, we wanted to create a new evaluation method which will fill the gap between 
@@ -195,13 +195,13 @@ Following this categorisation you will have a prioritized list of things to impr
 Our method has two major differences from the Discount Usability Evaluation method using the IDA method for evaluation.
 The first big difference is the addition of a sample sheet step. The reason for this is that without an IDE or a compiler the language would be presented as blank paper, which does nothing to teach the user about how programs in the language are written. Providing the user with examples and explanations of how the language works is necessary to let them meaningfully program in the language. We also considered providing a formal syntax, and perhaps a (formal) semantics description. However, in the early phases of a programming language design these artifacts may not have been fully worked out yet. Furthermore, although such artifacts are paramount to correctly implementing a language, they are not always appreciated or even understood by programmers. 
 
-The other big difference is how the problems are prioritised. The IDA method uses time spent on overcoming a problem to categorise its severity. Our setup makes the user either work in a generic text editor or on a piece of paper neither of which give any feedback about the correctness of the code written. This means the participants would not necessarily discover any problems in their solutions and would therefore not spend time on solving those problems.
+The other big difference is how the problems are prioritised. The IDA method uses time spent on overcoming a problem to categorise its severity. Our setup makes the user either work in a generic text editor or on a piece of paper, neither of which give any feedback about the correctness of the code written. This means the participants would not necessarily discover any problems in their solutions and would therefore not spend time on solving those problems.
 This makes time a poor measure for problem severity, which caused us to instead estimate the severity based on how much code would need to be changed to fix the problems. This is a rather informal notion and could in the future be refined by more formal evaluation criteria based on e.g. the cognitive dimensions framework \cite{blackwell2001cognitive}.
 
 \section{Experiment setup}
 The new method was tested in an experiment setup by using it on an unfamiliar programming language to avoid bias from pre-existing knowledge about the language. 
 %Since we did not have a newly created language at our disposal, we decided to use an 
-We used the evidence-based programming language Quorum, which our participants were unlikely to be familiar with. Most of our participants were experienced programmers,  studying for a degree in Computer Science, and having knowledge about C and C\# and several programming languages (e.g. Java, Python, Pascal). We had a total of six participants taking part in the main experiment, with one person acting as as a pilot test participant.
+We used the evidence-based programming language Quorum, which our participants were unlikely to be familiar with. Most of our participants were experienced programmers,  studying for a degree in Computer Science, and having knowledge about C and C\# and several other programming languages (e.g. Java, Python, Pascal). We had a total of six participants taking part in the main experiment, with one person acting as as a pilot test participant.
 
 The experiment was conducted using a text-editor on a laptop.
 The main reason for this over pen and paper, was to make recording easier.
@@ -212,7 +212,7 @@ To record the screen Microsoft Game DVR was used.
 Due to the poor quality of the inbuilt laptop microphones, a smartphone was used to record the audio.
 
 \subsection{Task Sheet}
-For our task sheet, we devised several smaller tasks, each addressing different features and constructs of Quorum. We drew heavy inspiration for some of the tasks from Codekata \cite{Codekata} since some of the katas were simple to understand yet conveyed the essence of a particular feature, present in the tested language.
+For our task sheet, we devised several smaller tasks, each addressing different features and constructs of Quorum. We drew heavy inspiration for some of the tasks from Codekata \cite{Codekata} since some of the katas were simple to understand yet conveyed the essence of a particular feature present in the tested language.
 Although each task had an intended purpose with a clear goal, their design allows more than one possible solution which gave the participants the freedom to experiment with the language.
 \begin{itemize}
 \item The first task had the intended purpose of testing arithmetic expressions and the use of data types.
@@ -244,7 +244,7 @@ In this section, we describe and divide the identified problems, according to th
 
 \begin{enumerate}
 \item \textbf{Not using the \lstinline!end! keyword at all} - this would affect the overall validity of the program because the scoping rules in Quorum are defined in conjunction with the \lstinline!end! keyword. This shows a fundamental misunderstanding of how scoping works in the language
-\item \textbf{The lack of constructors with parameters in Quorum} - Quorum does not support constructors with parameters which might be problematic for the participants, having experience with other languages where this feature is common. It both causes the participants to invoke syntax in the class that is not supported, and to have difficulties instantiating classes. Since this is a significant difference in how the code should be structured, it is considered critical.
+\item \textbf{The lack of constructors with parameters in Quorum} - Quorum does not support constructors with parameters which might be problematic for the participants having experience with other languages, where this feature is common. It both causes the participants to invoke syntax in the class that is not supported, and to have difficulties instantiating classes. Since this is a significant difference in how the code should be structured, it is considered critical.
 \item \textbf{Misunderstanding the effect of \lstinline!Sort()! on arrays of objects} - The inbuilt sorting function for arrays does not have access to the properties of the objects and therefore does not sort them by any of those. This would have the consequence of code, written with the assumption that it works, being wrong, which means recovery would require a full rewrite of the code. This makes the problem critical. 
 %It is possible that with the use of a compiler the participant would discover and recover much easier.
 %, which could mean the problem would potentially be considered serious.
@@ -282,17 +282,17 @@ Additionally, we would relate two of the empirical studies from Stefik and Siebe
 
 \begin{itemize}
 \item %In the results for the concepts of AND, OR and XOR, 
-Stefik and Gellenbeck \cite{EmpStudiesonStimuli} found that for the AND concept, using \lstinline!&&! and \lstinline!and! performed quite well. Their results showed that these words are actually popular and thus intuitive to use. As for the logical OR concept, the \lstinline!or! keyword was placed first, being significantly better the second highest one - the \lstinline!||! operator, which is present in many popular programming languages. For the XOR logical operator, the \lstinline!or! was rated highest which can be attributed to the fact that the participants did not know how to call an operation which "took a behavior when one condition was true but not both".
+Stefik and Gellenbeck \cite{EmpStudiesonStimuli} found that for the AND concept, using \lstinline!&&! and \lstinline!and! performed quite well. Their results showed that these words are actually popular and thus intuitive to use. As for the logical OR concept, the \lstinline!or! keyword was placed first, being significantly better than the second highest one - the \lstinline!||! operator, which is present in many popular programming languages. For the XOR logical operator, the \lstinline!or! was rated highest which can be attributed to the fact that the participants did not know how to call an operation which "took a behavior when one condition was true but not both".
 
-\item Our findings are comparable to Stefik and Siebert \cite{Empiricalinvestigation} where both the wrong and the correct syntax were found intuitive by then experienced programmers group. This also applies to Dot (\lstinline!.!) versus colon (\lstinline!:!) and using an aggregate operator (\lstinline!x += 1!) versus an arithmetic operator (\lstinline!x = x + 1!). It is possible that a lot of these cases were the result of a participant just glancing over the sample sheet, instead of having a more thorough introduction to the syntax on the sample sheet. Since the constructs looked intuitive, participants did not notice or remember that it was different and thus just used the syntax they were used to from other programming languages. 
+\item Our findings are comparable to Stefik and Siebert \cite{Empiricalinvestigation} where both the wrong and the correct syntax were found intuitive by the experienced programmers group. This also applies to Dot (\lstinline!.!) versus colon (\lstinline!:!) and using an aggregate operator (\lstinline!x += 1!) versus an arithmetic operator (\lstinline!x = x + 1!). It is possible that a lot of these cases were the result of a participant just glancing over the sample sheet, instead of having a more thorough introduction to the syntax on the sample sheet. Since the constructs looked intuitive, participants did not notice or remember that it was different and thus just used the syntax they were used to from other programming languages. 
 
 \item Stefik and Gellenbeck \cite{EmpStudiesonStimuli} settled on using a single equals (\lstinline!=!) sign for assignment statements and for testing equality since that is what they thought would make most sense. Although this might be true for the novice group (single equals (\lstinline!=!) sign was ranked highest), the experienced programmers group did not even rate the single equals in the top 3, rating the double equals (\lstinline!==!) as highest instead. This was not verified until one of the later empirical studies by Stefik and Siebert \cite{Empiricalinvestigation}.
 
-\item Our findings matches the results from Stefik and Siebert \cite{Empiricalinvestigation} where the experienced programmers group found \lstinline!==! to be intuitive as the boolean equals operator.
+\item Our findings match the results from Stefik and Siebert \cite{Empiricalinvestigation} where the experienced programmers group found \lstinline!==! to be intuitive as the boolean equals operator.
 
 \item Stefik and Gellenbeck considered several word choices for the concept of "Taking a behaviour" such as \lstinline!function!, \lstinline!action! and \lstinline!method!. The novices ranked the \lstinline!action! word the highest, while the experienced programmers ranked - \lstinline!operation!, followed by \lstinline!action!, \lstinline!method! and \lstinline!function!. However, Stefik and Gellenbeck contemplate that this particular result should be further investigated, since the participants might have understood the description of the concept as something other than completely capturing the idea of a function.
 
-\item None of our participants commented on this point. However, a point that may relate to this point was that our experienced programmers had expectations about data types wording (\lstinline!float! versus \lstinline!number!, \lstinline!string! versus \lstinline!text! and \lstinline!bool! versus \lstinline!boolean!)
+\item None of our participants commented on this point. However, a point that may relate to this was that our experienced programmers had expectations about data types wording (\lstinline!float! versus \lstinline!number!, \lstinline!string! versus \lstinline!text! and \lstinline!bool! versus \lstinline!boolean!)
 
 \item Quorum makes use of the keyword \lstinline!repeat! over \lstinline!for!, \lstinline!while! or \lstinline!cycle! (see %Sanchez and Flores 
 \cite{SanchezData}) following a study which shows that \lstinline!repeat! represents the concept of iteration significantly better than the aforementioned words \cite{EmpStudiesonStimuli}.
@@ -322,7 +322,7 @@ This functionality, however, could make the construct less practical for novices
 More surprisingly we had a participant who never used the \lstinline!end! keyword.
 In the discussion he explained this was because he thought indentation was used to control scope.
 He felt that since indentation is a good practice that all programmers should use anyway, it would make sense to make the language use and enforce this.
-This would be especially true for a beginner language, as the beginners are those who need to learn to use indentation.
+This would be especially true for a beginners language, as the beginners are those who need to learn to use indentation.
 This again showed that experienced programmers were likely to draw from their previous experiences rather than thoroughly examine the sample sheet.
 
 \section{Discussion}
